@@ -21,7 +21,8 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          script_stop: true
+          # ssh-action v1 dropped `script_stop`; use `set -euo pipefail` in the
+          # script itself for fail-fast behaviour (already done below).
           script: |
             set -euo pipefail
 
