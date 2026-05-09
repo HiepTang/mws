@@ -34,6 +34,13 @@ yarn-error.log*
 .env*
 !.env.example
 
+# pnpm 11 auto-generates pnpm-workspace.yaml to track build-script approvals.
+# We don't have a workspace; the equivalent config lives in package.json
+# under `pnpm.onlyBuiltDependencies`. Ignore the auto-generated file so it
+# never reaches the Docker build (where pnpm 9 chokes on its non-standard
+# `allowBuilds` syntax).
+pnpm-workspace.yaml
+
 # vercel
 .vercel
 

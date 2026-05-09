@@ -7,6 +7,7 @@ npm-debug.log
 .env
 .env.local
 .env.*.local
+pnpm-workspace.yaml
 README.md
 Dockerfile
 .dockerignore
