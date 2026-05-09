@@ -214,7 +214,20 @@ docker run --rm --network "$KHOAI_NET" \
   psql -h postgres -U mws -d mws -c "\dt"
 ```
 
-Should list 7 tables: `__drizzle_migrations`, `account`, `contacts`, `reviews`, `session`, `user`, `verificationToken`.
+Should list **6 tables in the `public` schema**: `account`, `contacts`, `reviews`, `session`, `user`, `verificationToken`.
+
+Drizzle keeps its migration tracking table in a separate `drizzle` schema, so it doesn't clutter `public`. To confirm the tracking table exists and the migration was logged:
+
+```bash
+docker run --rm --network "$KHOAI_NET" \
+  -e PGPASSWORD='<MWS_PASSWORD>' \
+  postgres:15-alpine \
+  psql -h postgres -U mws -d mws \
+    -c "\dt drizzle.*" \
+    -c "SELECT id, hash, created_at FROM drizzle.__drizzle_migrations;"
+```
+
+Should show one row in `drizzle.__drizzle_migrations` corresponding to the initial migration.
 
 ---
 
@@ -239,7 +252,7 @@ If that whole loop works, Phase 2 is complete.
 - [ ] Resend API key `mws-vps` exists, scoped to `kho-ai.com`
 - [ ] `~/apps/mws/.env` has `AUTH_SECRET`, `AUTH_URL`, `AUTH_TRUST_HOST`, `ALLOWED_ADMIN_EMAILS`, `RESEND_API_KEY`, `EMAIL_FROM`
 - [ ] `docker logs mws-web` shows `[migrate] done` followed by `Ready in Nms`
-- [ ] `psql -U mws -d mws -c "\dt"` lists the expected 7 tables
+- [ ] `psql -U mws -d mws -c "\dt"` lists 6 public-schema tables; `\dt drizzle.*` lists `__drizzle_migrations`
 - [ ] `/signin` page loads
 - [ ] Magic-link email arrives from `no-reply@kho-ai.com` (check spam folder once)
 - [ ] Clicking the link signs you in to `/admin`

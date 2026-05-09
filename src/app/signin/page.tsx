@@ -1,4 +1,5 @@
-import { signIn } from "@/auth";
+import { redirect } from "next/navigation";
+import { auth, signIn } from "@/auth";
 
 type SearchParams = Promise<{
   "check-email"?: string;
@@ -10,6 +11,12 @@ export default async function SignInPage({
 }: {
   searchParams: SearchParams;
 }) {
+  // Already signed in? Skip the form.
+  const session = await auth();
+  if (session?.user) {
+    redirect("/admin");
+  }
+
   const params = await searchParams;
   const showCheckEmail = params["check-email"] === "1";
   const showError = params.error === "1";
@@ -66,6 +73,11 @@ export default async function SignInPage({
           await signIn("resend", formData);
         }}
       >
+        {/* Tells Auth.js where to land the user after a successful magic-link
+            click. Without this, the callbackUrl defaults to the current URL
+            (/signin) and users round-trip back to the form. */}
+        <input type="hidden" name="redirectTo" value="/admin" />
+
         <label
           htmlFor="email"
           style={{ display: "block", marginBottom: 6, fontWeight: 500 }}
