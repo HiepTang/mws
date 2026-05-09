@@ -10,6 +10,10 @@ WORKDIR /app
 RUN corepack enable
 
 # Copy only files needed for dependency resolution to maximise cache hits.
+# `packageManager: pnpm@9.x` in package.json pins corepack to pnpm 9 inside
+# this container, sidestepping pnpm 11's per-environment build-script approval
+# gate (ERR_PNPM_IGNORED_BUILDS). pnpm 9 honours `pnpm.onlyBuiltDependencies`
+# in package.json without the extra approval handshake.
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
