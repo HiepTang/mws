@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reviews — Mississauga Wedding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=Be+Vietnam+Pro:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400&family=Caveat:wght@500&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .rating-summary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--line); margin-bottom: 64px; }
+  .rating-cell { padding: 36px 32px; border-right: 1px solid var(--line); }
+  .rating-cell:last-child { border-right: none; }
+  .rating-cell .num { font-family: var(--serif); font-size: 64px; line-height: 1; color: var(--ink); }
+  .rating-cell .num .gold-star { color: var(--gold); font-size: 36px; vertical-align: super; margin-left: 4px; }
+  .rating-cell .lab { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-top: 8px; }
+  .rating-cell .stars { color: var(--gold); letter-spacing: 4px; margin-top: 12px; }
+
+  .reviews-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .review-card { background: var(--bg); border: 1px solid var(--line); padding: 32px 36px; border-radius: 4px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+  .review-card .quote-mark { position: absolute; top: 24px; right: 24px; font-family: var(--serif); font-style: italic; font-size: 64px; color: var(--gold-soft); line-height: 0.6; }
+  .review-card .stars { color: var(--gold); letter-spacing: 4px; font-size: 14px; }
+  .review-card .body { font-family: var(--serif); font-size: 19px; line-height: 1.45; color: var(--ink); flex-grow: 1; }
+  .review-card .who { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line-soft); }
+  .review-card .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--cream); display: grid; place-items: center; font-family: var(--serif); color: var(--red); font-size: 18px; }
+  .review-card .who-text .n { color: var(--ink); font-size: 14px; }
+  .review-card .who-text .d { color: var(--ink-muted); font-size: 12px; }
+  .review-card .tags { display: flex; gap: 6px; flex-wrap: wrap; padding-top: 4px; }
+  .review-card .tags span { font-size: 10px; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 999px; background: var(--bg-warm); color: var(--gold-deep); text-transform: uppercase; }
+
+  @media (max-width: 960px) {
+    .rating-summary { grid-template-columns: 1fr; }
+    .rating-cell { border-right: none; border-bottom: 1px solid var(--line); }
+    .reviews-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main data-screen-label="06 Reviews">
+
+<section class="page-hero">
+  <div class="shell">
+    <div class="crumbs"><a href="index.html"><span data-en="Home" data-vi="Trang chủ">Home</span></a> · <span data-en="Reviews" data-vi="Đánh giá">Reviews</span></div>
+    <h1 class="serif"><span data-en="What couples say" data-vi="Lời các cặp đôi">What couples say</span><br/><span class="accent" data-en="after the toast." data-vi="sau ly rượu cuối cùng.">after the toast.</span></h1>
+    <p class="subtitle" data-en="Real words from real Mississauga families. Vietnamese, Canadian-born, and the in-laws who came to it all with open hearts." data-vi="Lời thật từ những gia đình thật ở Mississauga. Người Việt, người sinh ở Canada, và họ hàng đã đến với cả trái tim mở rộng.">Real words from real Mississauga families. Vietnamese, Canadian-born, and the in-laws who came to it all with open hearts.</p>
+  </div>
+</section>
+
+<section style="padding-top: 56px;">
+  <div class="shell">
+    <div class="rating-summary">
+      <div class="rating-cell">
+        <div class="num">4.9<span class="gold-star">★</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="lab" data-en="Average across 87 reviews" data-vi="Trung bình từ 87 đánh giá">Average across 87 reviews</div>
+      </div>
+      <div class="rating-cell">
+        <div class="num">98<span style="font-size: 36px; color: var(--ink-muted);">%</span></div>
+        <div class="lab" data-en="Would book again" data-vi="Sẽ đặt lại">Would book again</div>
+      </div>
+      <div class="rating-cell">
+        <div class="num">120<span style="font-size: 36px; color: var(--ink-muted);">+</span></div>
+        <div class="lab" data-en="Weddings honored since 2018" data-vi="Đám cưới đã tổ chức từ 2018">Weddings honored since 2018</div>
+      </div>
+    </div>
+
+    <div class="reviews-list">
+      <article class="review-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="body" data-en="Juliane held our hands through every part of the ceremony. My fiancé isn't Vietnamese and she made him feel like family from day one. The trilingual MC moved my grandparents to tears — happy ones." data-vi="Cô Juliane dìu chúng tôi qua từng nghi lễ. Chồng tôi không phải người Việt nhưng cô làm anh ấy cảm thấy như người trong nhà ngay từ đầu. MC ba thứ tiếng làm ông bà tôi rơi nước mắt — vì hạnh phúc.">Juliane held our hands through every part of the ceremony. My fiancé isn't Vietnamese and she made him feel like family from day one. The trilingual MC moved my grandparents to tears — happy ones.</p>
+        <div class="tags"><span>Tea Ceremony</span><span>MC</span><span>Áo Dài</span></div>
+        <div class="who">
+          <div class="avatar"><em>L</em></div>
+          <div class="who-text"><div class="n">Linh &amp; Thomas Reilly</div><div class="d">Married Aug 2025 · Mississauga</div></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="body" data-en="The áo dài fit perfectly. Juliane personally adjusted the sleeves the morning of. The tea ceremony was the most meaningful 30 minutes of our entire wedding day. Worth every cent." data-vi="Áo dài vừa vặn tuyệt đối. Cô Juliane đích thân chỉnh tay áo sáng hôm cưới. Lễ trà là 30 phút ý nghĩa nhất của cả ngày cưới. Đáng từng đồng.">The áo dài fit perfectly. Juliane personally adjusted the sleeves the morning of. The tea ceremony was the most meaningful 30 minutes of our entire wedding day. Worth every cent.</p>
+        <div class="tags"><span>Áo Dài</span><span>Hair &amp; Makeup</span></div>
+        <div class="who">
+          <div class="avatar"><em>P</em></div>
+          <div class="who-text"><div class="n">Phương &amp; Daniel Park</div><div class="d">Married May 2025 · Toronto</div></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="body" data-en="The MC switched between Vietnamese, English, and Mandarin without missing a beat. My grandmother said it was the first wedding she'd attended in Canada where she felt like a real guest. That's the highest compliment." data-vi="MC chuyển giữa tiếng Việt, Anh và Quan Thoại mượt mà. Bà ngoại tôi nói đây là đám cưới đầu tiên ở Canada bà cảm thấy như khách thật sự. Đó là lời khen cao nhất.">The MC switched between Vietnamese, English, and Mandarin without missing a beat. My grandmother said it was the first wedding she'd attended in Canada where she felt like a real guest. That's the highest compliment.</p>
+        <div class="tags"><span>MC</span><span>Live Band</span></div>
+        <div class="who">
+          <div class="avatar"><em>K</em></div>
+          <div class="who-text"><div class="n">Kim &amp; Andrew Chen</div><div class="d">Married Oct 2024 · Brampton</div></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="body" data-en="We had two months and Juliane pulled it off. Full Heritage package, 220 guests, three families flying in from three time zones. The day-of coordination was a masterclass." data-vi="Chúng tôi chỉ có hai tháng và cô Juliane đã làm được. Gói Trọn vẹn, 220 khách, ba gia đình từ ba múi giờ. Điều phối ngày cưới là một bài học tuyệt vời.">We had two months and Juliane pulled it off. Full Heritage package, 220 guests, three families flying in from three time zones. The day-of coordination was a masterclass.</p>
+        <div class="tags"><span>Heritage</span><span>Coordinator</span><span>Hotel</span></div>
+        <div class="who">
+          <div class="avatar"><em>M</em></div>
+          <div class="who-text"><div class="n">Mai &amp; Hayden Cooper</div><div class="d">Married Mar 2025 · Oakville</div></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="body" data-en="My mom cried at the áo dài fitting. She hadn't seen one that fine since her own wedding in Saigon, 1976. That moment alone was worth booking." data-vi="Mẹ tôi đã khóc khi thử áo dài. Mẹ chưa thấy chiếc áo dài đẹp như vậy kể từ đám cưới của mẹ ở Sài Gòn năm 1976. Riêng khoảnh khắc đó đã đáng để đặt dịch vụ.">My mom cried at the áo dài fitting. She hadn't seen one that fine since her own wedding in Saigon, 1976. That moment alone was worth booking.</p>
+        <div class="tags"><span>Áo Dài</span><span>Family</span></div>
+        <div class="who">
+          <div class="avatar"><em>T</em></div>
+          <div class="who-text"><div class="n">Trang &amp; Marcus Bell</div><div class="d">Married Jul 2024 · Mississauga</div></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <span class="quote-mark">"</span>
+        <span class="stars">★★★★★</span>
+        <p class="body" data-en="The catering was the unexpected highlight. Vietnamese-Canadian fusion menu, halal options for my husband's side. Everyone went back for seconds. The cake was a work of art." data-vi="Tiệc cưới là điểm nhấn bất ngờ. Thực đơn Việt-Canada kết hợp, có món halal cho gia đình chồng. Mọi người đều ăn thêm. Bánh cưới như tác phẩm nghệ thuật.">The catering was the unexpected highlight. Vietnamese-Canadian fusion menu, halal options for my husband's side. Everyone went back for seconds. The cake was a work of art.</p>
+        <div class="tags"><span>Catering</span><span>Cake</span></div>
+        <div class="who">
+          <div class="avatar"><em>H</em></div>
+          <div class="who-text"><div class="n">Hằng &amp; Yusuf Demir</div><div class="d">Married Sep 2024 · Mississauga</div></div>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="#share-your-story" class="btn btn-ghost"><span data-en="Read all 87 reviews" data-vi="Đọc 87 đánh giá">Read all 87 reviews</span><span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHARE YOUR STORY — review submission form ===== -->
+<section id="share-your-story" style="background: var(--bg-warm); border-block: 1px solid var(--line);">
+  <div class="shell">
+    <div class="review-form-grid">
+      <aside class="rf-aside">
+        <span class="eyebrow eyebrow-gold"><span class="dash"></span><span data-en="Share your story" data-vi="Chia sẻ câu chuyện">Share your story</span></span>
+        <h2 class="serif" style="margin-top: 14px; font-size: clamp(36px, 4vw, 56px);"><span data-en="Tell us about" data-vi="Hãy kể về">Tell us about</span><br/><span class="italic" style="color: var(--red);" data-en="your day with us." data-vi="ngày của bạn cùng chúng tôi.">your day with us.</span></h2>
+        <p style="margin-top: 18px;" data-en="If we held a piece of your wedding — the áo dài, the trays, the MC's voice — we'd be honored to hear how it landed. Future couples read every word." data-vi="Nếu chúng tôi đã góp một phần vào ngày cưới của bạn — áo dài, mâm lễ, lời MC — chúng tôi sẽ rất vinh dự được nghe cảm nhận. Các cặp đôi tương lai sẽ đọc từng lời.">If we held a piece of your wedding — the áo dài, the trays, the MC's voice — we'd be honored to hear how it landed. Future couples read every word.</p>
+        <div class="rf-bullets">
+          <div class="rf-bullet">
+            <span class="rf-num">i</span>
+            <div>
+              <h4 data-en="It takes 2 minutes" data-vi="Chỉ mất 2 phút">It takes 2 minutes</h4>
+              <p data-en="Five fields, your rating, and the parts that mattered most." data-vi="Năm ô, đánh giá của bạn, và những phần quan trọng nhất.">Five fields, your rating, and the parts that mattered most.</p>
+            </div>
+          </div>
+          <div class="rf-bullet">
+            <span class="rf-num">ii</span>
+            <div>
+              <h4 data-en="Photos welcome" data-vi="Hoan nghênh ảnh">Photos welcome</h4>
+              <p data-en="Add a wedding photo and we'll feature it in the gallery (with credit)." data-vi="Thêm ảnh cưới và chúng tôi sẽ đăng trong thư viện (kèm tên).">Add a wedding photo and we'll feature it in the gallery (with credit).</p>
+            </div>
+          </div>
+          <div class="rf-bullet">
+            <span class="rf-num">iii</span>
+            <div>
+              <h4 data-en="Reviewed before publish" data-vi="Duyệt trước khi đăng">Reviewed before publish</h4>
+              <p data-en="Juliane reads each one personally before it goes live." data-vi="Juliane đọc từng đánh giá trước khi đăng.">Juliane reads each one personally before it goes live.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <form class="rf-card" id="reviewForm" novalidate>
+        <div class="rf-step">
+          <span class="rf-step-num">01</span>
+          <span class="rf-step-label" data-en="Your rating" data-vi="Đánh giá của bạn">Your rating</span>
+        </div>
+        <div class="rf-stars" role="radiogroup" aria-label="Star rating">
+          <button type="button" class="rf-star" data-value="1" aria-label="1 star">★</button>
+          <button type="button" class="rf-star" data-value="2" aria-label="2 stars">★</button>
+          <button type="button" class="rf-star" data-value="3" aria-label="3 stars">★</button>
+          <button type="button" class="rf-star" data-value="4" aria-label="4 stars">★</button>
+          <button type="button" class="rf-star" data-value="5" aria-label="5 stars">★</button>
+          <span class="rf-stars-label" id="ratingLabel" data-en="Tap to rate" data-vi="Chạm để đánh giá">Tap to rate</span>
+        </div>
+        <input type="hidden" id="ratingValue" name="rating" value=""/>
+
+        <div class="rf-step" style="margin-top: 32px;">
+          <span class="rf-step-num">02</span>
+          <span class="rf-step-label" data-en="Which services did we help with?" data-vi="Chúng tôi đã giúp với dịch vụ nào?">Which services did we help with?</span>
+        </div>
+        <div class="rf-tags">
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Tea Ceremony"/><span data-en="Tea Ceremony" data-vi="Lễ trà">Tea Ceremony</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Áo Dài"/><span>Áo Dài</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Hair & Makeup"/><span data-en="Hair &amp; Makeup" data-vi="Tóc &amp; trang điểm">Hair &amp; Makeup</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="MC"/><span data-en="Trilingual MC" data-vi="MC ba ngôn ngữ">Trilingual MC</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Catering"/><span data-en="Catering" data-vi="Tiệc">Catering</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Cake"/><span data-en="Cake" data-vi="Bánh">Cake</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Flowers"/><span data-en="Flowers" data-vi="Hoa">Flowers</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Live Band"/><span data-en="Live Band / DJ" data-vi="Ban nhạc / DJ">Live Band / DJ</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Limousine"/><span data-en="Limousine" data-vi="Limousine">Limousine</span></label>
+          <label class="rf-tag"><input type="checkbox" name="tags" value="Heritage"/><span data-en="Full Heritage Package" data-vi="Gói trọn vẹn">Full Heritage Package</span></label>
+        </div>
+
+        <div class="rf-step" style="margin-top: 32px;">
+          <span class="rf-step-num">03</span>
+          <span class="rf-step-label" data-en="Your review" data-vi="Đánh giá của bạn">Your review</span>
+        </div>
+        <div class="rf-field rf-field-textarea">
+          <textarea id="rfBody" name="body" rows="6" maxlength="800" required
+            placeholder="What stood out? A moment, a person, a detail. Couples find these honest specifics most helpful."></textarea>
+          <div class="rf-counter"><span id="rfCount">0</span> / 800</div>
+        </div>
+
+        <div class="rf-step" style="margin-top: 32px;">
+          <span class="rf-step-num">04</span>
+          <span class="rf-step-label" data-en="A bit about you" data-vi="Đôi chút về bạn">A bit about you</span>
+        </div>
+        <div class="rf-row">
+          <div class="rf-field">
+            <label data-en="Your name(s)" data-vi="Tên của bạn">Your name(s)</label>
+            <input type="text" name="names" placeholder="Linh & Thomas" required/>
+          </div>
+          <div class="rf-field">
+            <label data-en="Email (kept private)" data-vi="Email (giữ kín)">Email (kept private)</label>
+            <input type="email" name="email" placeholder="hello@example.com" required/>
+          </div>
+        </div>
+        <div class="rf-row">
+          <div class="rf-field">
+            <label data-en="Wedding date" data-vi="Ngày cưới">Wedding date</label>
+            <input type="text" name="date" placeholder="August 2025"/>
+          </div>
+          <div class="rf-field">
+            <label data-en="City" data-vi="Thành phố">City</label>
+            <input type="text" name="city" placeholder="Mississauga"/>
+          </div>
+        </div>
+
+        <div class="rf-step" style="margin-top: 32px;">
+          <span class="rf-step-num">05</span>
+          <span class="rf-step-label" data-en="Add a wedding photo (optional)" data-vi="Thêm ảnh cưới (tùy chọn)">Add a wedding photo (optional)</span>
+        </div>
+        <label class="rf-upload">
+          <input type="file" accept="image/*" id="rfPhoto"/>
+          <div class="rf-upload-inner">
+            <span class="rf-upload-icon">+</span>
+            <span class="rf-upload-text" id="rfUploadText" data-en="Drop a photo here, or click to browse" data-vi="Thả ảnh vào đây, hoặc bấm để chọn">Drop a photo here, or click to browse</span>
+            <span class="rf-upload-hint" data-en="JPG or PNG · up to 8MB" data-vi="JPG hoặc PNG · tối đa 8MB">JPG or PNG · up to 8MB</span>
+          </div>
+        </label>
+
+        <label class="rf-consent">
+          <input type="checkbox" required/>
+          <span data-en="I'm happy for Mississauga Wedding Solutions to share my review (and photo, if added) on this site and social media. My email stays private." data-vi="Tôi đồng ý cho Mississauga Wedding Solutions chia sẻ đánh giá (và ảnh nếu có) trên trang web và mạng xã hội. Email của tôi được giữ kín.">I'm happy for Mississauga Wedding Solutions to share my review (and photo, if added) on this site and social media. My email stays private.</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary rf-submit">
+          <span data-en="Send our story" data-vi="Gửi câu chuyện">Send our story</span>
+          <span class="arrow">→</span>
+        </button>
+
+        <div class="rf-success" id="rfSuccess" hidden>
+          <div class="rf-success-mark">✓</div>
+          <h3 class="serif" data-en="Thank you." data-vi="Cảm ơn bạn.">Thank you.</h3>
+          <p data-en="Juliane will read your words personally. You'll see your review go live within a couple of days." data-vi="Juliane sẽ đọc đánh giá của bạn. Bạn sẽ thấy nó được đăng trong vài ngày tới.">Juliane will read your words personally. You'll see your review go live within a couple of days.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .review-form-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .rf-aside { position: sticky; top: 100px; }
+  .rf-aside p { font-size: 16px; line-height: 1.65; }
+  .rf-bullets { display: flex; flex-direction: column; gap: 22px; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .rf-bullet { display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; }
+  .rf-bullet .rf-num { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--gold); line-height: 1; }
+  .rf-bullet h4 { font-family: var(--serif); font-size: 18px; color: var(--ink); font-weight: 500; }
+  .rf-bullet p { font-size: 14px; margin-top: 4px; }
+
+  .rf-card { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: clamp(28px, 4vw, 48px); position: relative; }
+  .rf-step { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .rf-step-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--gold-deep); }
+  .rf-step-label { font-family: var(--serif); font-size: 22px; color: var(--ink); }
+
+  .rf-stars { display: flex; align-items: center; gap: 6px; }
+  .rf-star { font-size: 36px; color: var(--line); line-height: 1; padding: 4px; transition: color .15s, transform .15s; }
+  .rf-star:hover, .rf-star.hover, .rf-star.on { color: var(--gold); }
+  .rf-star.on { transform: scale(1.05); }
+  .rf-stars-label { margin-left: 16px; font-size: 13px; color: var(--ink-muted); font-style: italic; font-family: var(--serif); }
+  .rf-stars.has-rating .rf-stars-label { color: var(--red); }
+
+  .rf-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .rf-tag { cursor: pointer; }
+  .rf-tag input { display: none; }
+  .rf-tag span { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink-soft); transition: all .2s; }
+  .rf-tag:hover span { border-color: var(--gold); color: var(--ink); }
+  .rf-tag input:checked + span { background: var(--red); border-color: var(--red); color: var(--bg); }
+
+  .rf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .rf-field { display: flex; flex-direction: column; gap: 6px; position: relative; }
+  .rf-field label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+  .rf-field input, .rf-field textarea { background: transparent; border: none; border-bottom: 1px solid var(--line); padding: 10px 0; font-size: 15px; color: var(--ink); font-family: var(--sans); transition: border-color .2s; width: 100%; }
+  .rf-field input:focus, .rf-field textarea:focus { outline: none; border-bottom-color: var(--red); }
+  .rf-field-textarea textarea { border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px; resize: vertical; min-height: 140px; font-family: var(--serif); font-size: 17px; line-height: 1.5; }
+  .rf-field-textarea textarea:focus { border-color: var(--red); }
+  .rf-counter { position: absolute; bottom: 10px; right: 14px; font-family: var(--mono); font-size: 11px; color: var(--ink-muted); pointer-events: none; }
+
+  .rf-upload { display: block; cursor: pointer; }
+  .rf-upload input { display: none; }
+  .rf-upload-inner {
+    border: 1.5px dashed var(--line); border-radius: 4px; padding: 28px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+    transition: all .2s;
+  }
+  .rf-upload:hover .rf-upload-inner { border-color: var(--gold); background: var(--cream); }
+  .rf-upload.has-file .rf-upload-inner { border-color: var(--red); border-style: solid; background: var(--cream); }
+  .rf-upload-icon { font-family: var(--serif); font-size: 36px; color: var(--gold-deep); line-height: 1; }
+  .rf-upload-text { font-size: 14px; color: var(--ink); }
+  .rf-upload-hint { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); letter-spacing: 0.06em; }
+
+  .rf-consent { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; margin-top: 28px; padding: 18px; background: var(--bg-warm); border-radius: 4px; cursor: pointer; }
+  .rf-consent input { margin-top: 3px; accent-color: var(--red); }
+  .rf-consent span { font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
+
+  .rf-submit { width: 100%; justify-content: center; margin-top: 24px; padding: 16px 24px; }
+
+  .rf-success { text-align: center; padding: 48px 24px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .rf-success-mark { width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-size: 32px; }
+  .rf-success h3 { font-size: 36px; color: var(--ink); }
+  .rf-success p { max-width: 32ch; }
+
+  @media (max-width: 960px) {
+    .review-form-grid { grid-template-columns: 1fr; }
+    .rf-aside { position: static; }
+    .rf-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section>
+  <div class="shell">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow" style="color: var(--gold-soft);"><span class="dash"></span><span data-en="Your day, next" data-vi="Ngày của bạn, kế tiếp">Your day, next</span></span>
+        <h2 class="serif" style="margin-top: 14px;"><span data-en="Be" data-vi="Hãy là">Be</span> <span class="gold" data-en="our 121st story." data-vi="câu chuyện thứ 121.">our 121st story.</span></h2>
+        <p data-en="Reach out and we'll send you our planning guide — the same one our happiest couples started from." data-vi="Liên hệ và chúng tôi sẽ gửi bạn cẩm nang lập kế hoạch — chính cuốn các cặp đôi hạnh phúc nhất đã bắt đầu từ đó.">Reach out and we'll send you our planning guide — the same one our happiest couples started from.</p>
+      </div>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-gold"><span data-en="Book a consultation" data-vi="Đặt buổi tư vấn">Book a consultation</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="shared.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+<script>
+MWS.init('reviews');
+
+// Review form: stars, counter, upload, submit
+(function () {
+  const stars = document.querySelectorAll('.rf-star');
+  const ratingValue = document.getElementById('ratingValue');
+  const ratingLabel = document.getElementById('ratingLabel');
+  const starsWrap = document.querySelector('.rf-stars');
+  const labels = ['', 'Not great', 'Okay', 'Good', 'Great', 'Loved it'];
+  const labelsVi = ['', 'Không tốt', 'Tạm', 'Tốt', 'Rất tốt', 'Tuyệt vời'];
+
+  function paint(n) {
+    stars.forEach((s, i) => s.classList.toggle('on', i < n));
+  }
+  stars.forEach((s, i) => {
+    s.addEventListener('mouseenter', () => stars.forEach((x, j) => x.classList.toggle('hover', j <= i)));
+    s.addEventListener('mouseleave', () => stars.forEach(x => x.classList.remove('hover')));
+    s.addEventListener('click', () => {
+      const v = i + 1;
+      ratingValue.value = v;
+      paint(v);
+      starsWrap.classList.add('has-rating');
+      const lang = document.documentElement.getAttribute('data-lang') || 'en';
+      ratingLabel.textContent = (lang === 'vi' ? labelsVi : labels)[v];
+    });
+  });
+
+  const ta = document.getElementById('rfBody');
+  const counter = document.getElementById('rfCount');
+  ta && ta.addEventListener('input', () => { counter.textContent = ta.value.length; });
+
+  const photo = document.getElementById('rfPhoto');
+  const uploadText = document.getElementById('rfUploadText');
+  const uploadWrap = document.querySelector('.rf-upload');
+  photo && photo.addEventListener('change', () => {
+    if (photo.files && photo.files[0]) {
+      uploadText.textContent = photo.files[0].name;
+      uploadWrap.classList.add('has-file');
+    }
+  });
+
+  const form = document.getElementById('reviewForm');
+  form && form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!ratingValue.value) {
+      ratingLabel.textContent = 'Please tap a star to rate';
+      ratingLabel.style.color = 'var(--red)';
+      return;
+    }
+    document.querySelector('.rf-submit').style.display = 'none';
+    document.getElementById('rfSuccess').hidden = false;
+    document.getElementById('rfSuccess').scrollIntoView({behavior:'auto', block:'nearest'});
+  });
+})();
+</script>
+</body>
+</html>

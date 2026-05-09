@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Products — Mississauga Wedding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=Be+Vietnam+Pro:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400&family=Caveat:wght@500&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .filters .chip { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft); transition: all .2s; }
+  .filters .chip:hover, .filters .chip.on { border-color: var(--red); color: var(--red); background: var(--cream); }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+  .product { display: flex; flex-direction: column; gap: 12px; cursor: pointer; }
+  .product .img { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; position: relative; transition: transform .3s; }
+  .product:hover .img { transform: translateY(-4px); }
+  .product .badge { position: absolute; top: 12px; left: 12px; background: var(--bg); color: var(--red); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+  .product .badge.gold { background: var(--gold); color: var(--ink); }
+  .product .head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 4px; }
+  .product .name { font-family: var(--serif); font-size: 22px; line-height: 1.1; color: var(--ink); }
+  .product .price { font-family: var(--serif); font-style: italic; color: var(--red); font-size: 17px; white-space: nowrap; }
+  .product .vi { font-family: var(--viet); font-style: italic; color: var(--ink-muted); font-size: 13px; }
+  .product .meta { font-family: var(--mono); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 4px; }
+  @media (max-width: 960px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main data-screen-label="03 Products">
+
+<section class="page-hero">
+  <div class="shell">
+    <div class="crumbs"><a href="index.html"><span data-en="Home" data-vi="Trang chủ">Home</span></a> · <span data-en="Products" data-vi="Sản phẩm">Products</span></div>
+    <h1 class="serif"><span data-en="The pieces that make" data-vi="Những vật phẩm">The pieces that make</span><br/><span class="accent" data-en="a wedding feel like home." data-vi="cho một đám cưới Việt.">a wedding feel like home.</span></h1>
+    <p class="subtitle" data-en="Áo dài, ceremonial trays, headpieces, altarware. Most rentals; some take-home keepsakes." data-vi="Áo dài, mâm lễ, mấn, đồ thờ. Đa số cho thuê; một số dành làm kỷ vật.">Áo dài, ceremonial trays, headpieces, altarware. Most rentals; some take-home keepsakes.</p>
+  </div>
+</section>
+
+<section style="padding-top: 56px;">
+  <div class="shell">
+    <div class="filters">
+      <button class="chip on" data-en="All" data-vi="Tất cả">All</button>
+      <button class="chip" data-en="Áo dài" data-vi="Áo dài">Áo dài</button>
+      <button class="chip" data-en="Trays" data-vi="Mâm lễ">Trays</button>
+      <button class="chip" data-en="Headpieces" data-vi="Mấn &amp; khăn đóng">Headpieces</button>
+      <button class="chip" data-en="Altar" data-vi="Bàn thờ gia tiên">Altar</button>
+      <button class="chip" data-en="Floral" data-vi="Hoa">Floral</button>
+      <button class="chip" data-en="Keepsakes" data-vi="Kỷ vật">Keepsakes</button>
+    </div>
+
+    <div class="product-grid">
+      <article class="product">
+        <div class="img ph warm">
+          <span class="badge gold" data-en="Most rented" data-vi="Thuê nhiều nhất">Most rented</span>
+          <span>Bride's red áo dài, lace overlay</span>
+        </div>
+        <div class="head"><span class="name serif" data-en="Bride Áo Dài — Crimson Lace" data-vi="Áo dài cô dâu — Đỏ thêu ren">Bride Áo Dài — Crimson Lace</span><span class="price">$240</span></div>
+        <span class="vi">Áo dài cô dâu</span>
+        <span class="meta" data-en="Rental · sizes XS–XL" data-vi="Cho thuê · size XS–XL">Rental · sizes XS–XL</span>
+      </article>
+      <article class="product">
+        <div class="img ph"><span class="badge" data-en="New" data-vi="Mới">New</span><span>Groom long dress &amp; hat</span></div>
+        <div class="head"><span class="name serif" data-en="Groom Áo Dài + Khăn Đóng" data-vi="Áo dài chú rể + khăn đóng">Groom Áo Dài + Khăn Đóng</span><span class="price">$220</span></div>
+        <span class="vi">Áo dài &amp; khăn đóng chú rể</span>
+        <span class="meta" data-en="Rental · sizes S–XXL" data-vi="Cho thuê · size S–XXL">Rental · sizes S–XXL</span>
+      </article>
+      <article class="product">
+        <div class="img ph"><span>11-tray ceremonial set</span></div>
+        <div class="head"><span class="name serif" data-en="Mâm Quả — 11 Tray Set" data-vi="Mâm quả — bộ 11">Mâm Quả — 11 Tray Set</span><span class="price">$320</span></div>
+        <span class="vi">Mâm lễ vật cao cấp</span>
+        <span class="meta" data-en="Rental · gold-leaf finish" data-vi="Cho thuê · phủ vàng">Rental · gold-leaf finish</span>
+      </article>
+      <article class="product">
+        <div class="img ph warm"><span>6-tray standard set</span></div>
+        <div class="head"><span class="name serif" data-en="Mâm Quả — 6 Tray Set" data-vi="Mâm quả — bộ 6">Mâm Quả — 6 Tray Set</span><span class="price">$180</span></div>
+        <span class="vi">Mâm lễ vật cơ bản</span>
+        <span class="meta" data-en="Rental · red lacquer" data-vi="Cho thuê · sơn mài đỏ">Rental · red lacquer</span>
+      </article>
+      <article class="product">
+        <div class="img ph"><span>Bride's mấn headpiece</span></div>
+        <div class="head"><span class="name serif" data-en="Bride's Mấn — Pearl &amp; Gold" data-vi="Mấn cô dâu — Ngọc trai &amp; vàng">Bride's Mấn — Pearl &amp; Gold</span><span class="price">$80</span></div>
+        <span class="vi">Mấn cô dâu</span>
+        <span class="meta" data-en="Rental · adjustable" data-vi="Cho thuê · điều chỉnh">Rental · adjustable</span>
+      </article>
+      <article class="product">
+        <div class="img ph"><span>Wine tray with two cups</span></div>
+        <div class="head"><span class="name serif" data-en="Mâm Rượu — Wine Tray" data-vi="Mâm rượu">Mâm Rượu — Wine Tray</span><span class="price">$60</span></div>
+        <span class="vi">Mâm rượu &amp; chén</span>
+        <span class="meta" data-en="Rental · brass" data-vi="Cho thuê · đồng">Rental · brass</span>
+      </article>
+      <article class="product">
+        <div class="img ph dark"><span>Altar table — full set</span></div>
+        <div class="head"><span class="name serif" data-en="Bàn Thờ — Ancestor Altar" data-vi="Bàn thờ gia tiên">Bàn Thờ — Ancestor Altar</span><span class="price">$420</span></div>
+        <span class="vi">Bàn thờ gia tiên đầy đủ</span>
+        <span class="meta" data-en="Rental · setup &amp; takedown" data-vi="Cho thuê · lắp dựng">Rental · setup &amp; takedown</span>
+      </article>
+      <article class="product">
+        <div class="img ph warm"><span>Bridal bouquet — peonies</span></div>
+        <div class="head"><span class="name serif" data-en="Bridal Bouquet — Peony" data-vi="Hoa cô dâu — Mẫu đơn">Bridal Bouquet — Peony</span><span class="price">$185</span></div>
+        <span class="vi">Hoa cầm tay cô dâu</span>
+        <span class="meta" data-en="Made-to-order · keepsake" data-vi="Đặt riêng · kỷ vật">Made-to-order · keepsake</span>
+      </article>
+      <article class="product">
+        <div class="img ph"><span>Family ribbon for parents</span></div>
+        <div class="head"><span class="name serif" data-en="Family Sash &amp; Boutonnière Set" data-vi="Băng &amp; hoa cài áo gia đình">Family Sash &amp; Boutonnière Set</span><span class="price">$95</span></div>
+        <span class="vi">Bộ băng &amp; hoa cài áo</span>
+        <span class="meta" data-en="Set of 6 · keepsake" data-vi="Bộ 6 · kỷ vật">Set of 6 · keepsake</span>
+      </article>
+    </div>
+
+    <p style="font-family: var(--mono); font-size: 11px; color: var(--ink-muted); margin-top: 40px; max-width: 70ch;">
+      <span data-en="* Rentals include cleaning &amp; minor alteration. Damage deposit applies. Custom sizes &amp; colours available with 8 weeks' notice." data-vi="* Cho thuê đã bao gồm giặt &amp; sửa nhỏ. Có đặt cọc. Size &amp; màu riêng cần đặt trước 8 tuần.">* Rentals include cleaning &amp; minor alteration. Damage deposit applies. Custom sizes &amp; colours available with 8 weeks' notice.</span>
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="shell">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow" style="color: var(--gold-soft);"><span class="dash"></span><span data-en="See it in person" data-vi="Xem tận nơi">See it in person</span></span>
+        <h2 class="serif" style="margin-top: 14px;"><span data-en="Visit the studio" data-vi="Đến studio">Visit the studio</span> <span class="gold" data-en="for a fitting." data-vi="để thử đồ.">for a fitting.</span></h2>
+        <p data-en="Photos can only show so much. Come try the áo dài, hold a tray, see the lacquer up close." data-vi="Ảnh chỉ kể được phần nào. Đến thử áo dài, cầm mâm, xem sơn mài tận tay.">Photos can only show so much. Come try the áo dài, hold a tray, see the lacquer up close.</p>
+      </div>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-gold"><span data-en="Book a fitting" data-vi="Đặt thử đồ">Book a fitting</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="shared.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+<script>
+  MWS.init('products');
+  // simple filter wiring
+  document.querySelectorAll('.filters .chip').forEach(ch => {
+    ch.addEventListener('click', () => {
+      document.querySelectorAll('.filters .chip').forEach(c => c.classList.remove('on'));
+      ch.classList.add('on');
+    });
+  });
+</script>
+</body>
+</html>

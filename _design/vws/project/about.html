@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About — Mississauga Wedding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=Be+Vietnam+Pro:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400&family=Caveat:wght@500&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .story { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(32px, 5vw, 96px); align-items: start; }
+  .story .portrait { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; position: sticky; top: 100px; }
+  .story-body p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 20px; max-width: 60ch; }
+  .story-body p.lead-p { font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.4; color: var(--ink); margin-bottom: 28px; max-width: 50ch; }
+  .story-body .vi-block { background: var(--bg-warm); border-left: 2px solid var(--gold); padding: 24px 28px; margin: 28px 0; font-family: var(--viet); font-style: italic; color: var(--ink-soft); font-size: 15px; line-height: 1.7; max-width: 60ch; }
+  .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); }
+  .value { padding: 40px; border-right: 1px solid var(--line); }
+  .value:last-child { border-right: none; }
+  .value .num { font-family: var(--serif); font-style: italic; font-size: 56px; color: var(--gold); line-height: 1; }
+  .value h3 { margin-top: 16px; font-size: 24px; }
+  .value .vi { font-family: var(--viet); font-style: italic; font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+  .value p { font-size: 14px; margin-top: 12px; }
+  @media (max-width: 960px) {
+    .story { grid-template-columns: 1fr; }
+    .story .portrait { position: static; max-height: 480px; }
+    .values { grid-template-columns: 1fr; }
+    .value { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<main data-screen-label="05 About">
+
+<section class="page-hero">
+  <div class="shell">
+    <div class="crumbs"><a href="index.html"><span data-en="Home" data-vi="Trang chủ">Home</span></a> · <span data-en="About" data-vi="Giới thiệu">About</span></div>
+    <h1 class="serif"><span data-en="A founder's story," data-vi="Câu chuyện người sáng lập,">A founder's story,</span><br/><span class="accent" data-en="and a love letter to tradition." data-vi="lá thư tình gửi truyền thống.">and a love letter to tradition.</span></h1>
+    <p class="subtitle" data-en="By Juliane Cao — makeup artist, IT veteran, and the woman who started Mississauga Wedding Solutions." data-vi="Bởi Juliane Cao — chuyên gia trang điểm, kỳ cựu trong ngành CNTT, và người sáng lập Mississauga Wedding Solutions.">By Juliane Cao — makeup artist, IT veteran, and the woman who started Mississauga Wedding Solutions.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="story">
+      <div class="portrait ph warm">
+        <span>Juliane Cao — studio portrait</span>
+      </div>
+      <div class="story-body">
+        <span class="eyebrow"><span class="dash"></span><span data-en="The why" data-vi="Vì sao">The why</span></span>
+        <h2 class="serif" style="margin: 14px 0 28px; font-size: clamp(32px, 4vw, 48px);"><span data-en="A wedding is the one day a family becomes" data-vi="Đám cưới là ngày một gia đình">A wedding is the one day a family becomes</span> <span class="italic" style="color: var(--red);" data-en="visible to itself." data-vi="nhìn thấy chính mình.">visible to itself.</span></h2>
+
+        <p class="lead-p" data-en="When I do makeup for Vietnamese brides, I rarely see a traditional Vietnamese wedding — especially when the groom isn't Vietnamese. Other cultures keep their traditions regardless of background. I wanted to know why we weren't keeping ours." data-vi="Khi Hảo trang điểm cho cô dâu Việt, ít khi thấy đám cưới Việt truyền thống — nhất là khi chú rể không phải người Việt. Các văn hóa khác giữ truyền thống bất kể nguồn gốc. Hảo muốn biết vì sao chúng ta lại không.">When I do makeup for Vietnamese brides, I rarely see a traditional Vietnamese wedding — especially when the groom isn't Vietnamese. Other cultures keep their traditions regardless of background. I wanted to know why we weren't keeping ours.</p>
+
+        <p data-en="The feedback from young Vietnamese-Canadians was honest: they didn't understand the meaning. The rituals felt like a checklist their parents handed them, with no one to explain why. So I started helping. One bride at a time." data-vi="Câu trả lời từ thế hệ trẻ Việt-Canada rất thật: các em không hiểu ý nghĩa. Nghi lễ giống danh sách cha mẹ trao cho, không ai giải thích vì sao. Nên Hảo bắt đầu giúp. Từng cô dâu một.">The feedback from young Vietnamese-Canadians was honest: they didn't understand the meaning. The rituals felt like a checklist their parents handed them, with no one to explain why. So I started helping. One bride at a time.</p>
+
+        <p data-en="Today, Mississauga Wedding Solutions is a one-stop home for traditional Vietnamese weddings: hair, makeup, food, cake, flowers, áo dài rentals, the wine tray, the limousine, the trilingual MC, the photographer, the hotel block. Everything you need, in one phone call." data-vi="Hôm nay, Mississauga Wedding Solutions là nơi trọn gói cho đám cưới Việt cổ truyền: tóc, trang điểm, thức ăn, bánh, hoa, cho thuê áo dài, mâm rượu, limousine, MC ba thứ tiếng, nhiếp ảnh, đặt khách sạn. Tất cả, trong một cuộc gọi.">Today, Mississauga Wedding Solutions is a one-stop home for traditional Vietnamese weddings: hair, makeup, food, cake, flowers, áo dài rentals, the wine tray, the limousine, the trilingual MC, the photographer, the hotel block. Everything you need, in one phone call.</p>
+
+        <div class="vi-block">
+          Mỗi khi Hảo làm trang điểm cho cô dâu Việt, Hảo nhận thức rất ít có những đám cưới Việt theo phong tục cổ truyền thuần túy, nhất là nếu chú rể không phải là người Việt. Thế hệ trẻ chưa hiểu rõ những truyền thống đó vì các em sinh ra và lớn lên ở đây. Vì thế Hảo mở dịch vụ này — để giúp các em thấy được vẻ đẹp và ý nghĩa của đám cưới Việt.
+        </div>
+
+        <p data-en="I've been an IT professional for over thirty years, managing contracts with software, hardware, and staffing vendors. Alongside that, I love wearing makeup myself, so I went and earned my certification as a Professional Makeup Artist. I'm also the Unfranchise Owner of an online retailer at thecaowebstore.com — entrepreneurship runs in my blood." data-vi="Hảo làm CNTT trên 30 năm, quản lý hợp đồng với nhà cung cấp phần mềm, phần cứng, nhân lực. Song song, Hảo thích trang điểm và đã đi học lấy bằng chuyên nghiệp. Hảo còn làm đại lý cho shop.com với trang mạng thecaowebstore.com — máu kinh doanh có sẵn trong người.">I've been an IT professional for over thirty years, managing contracts with software, hardware, and staffing vendors. Alongside that, I love wearing makeup myself, so I went and earned my certification as a Professional Makeup Artist. I'm also the Unfranchise Owner of an online retailer at thecaowebstore.com — entrepreneurship runs in my blood.</p>
+
+        <p data-en="I want to be the company where East meets West — where a young Vietnamese-Canadian bride and her non-Vietnamese groom can have a wedding that feels true to both of them, with someone who knows the rituals well enough to translate the meaning, not just the words." data-vi="Hảo muốn là công ty nơi Á Đông gặp phương Tây — nơi cô dâu Việt-Canada và chú rể nước ngoài có một đám cưới đúng với cả hai, với người hiểu nghi lễ đủ sâu để dịch ý nghĩa, không chỉ dịch lời.">I want to be the company where East meets West — where a young Vietnamese-Canadian bride and her non-Vietnamese groom can have a wedding that feels true to both of them, with someone who knows the rituals well enough to translate the meaning, not just the words.</p>
+
+        <p style="font-family: 'Caveat', cursive; font-size: 36px; color: var(--red); margin-top: 32px; max-width: none;">~ Juliane</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="background: var(--bg-warm);">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow eyebrow-gold"><span class="dash"></span><span data-en="What we believe" data-vi="Niềm tin của chúng tôi">What we believe</span></span>
+      <h2 class="serif"><span data-en="Three things we" data-vi="Ba điều chúng tôi">Three things we</span> <span class="italic" style="color: var(--red);" data-en="never compromise on." data-vi="không bao giờ thỏa hiệp.">never compromise on.</span></h2>
+    </div>
+    <div class="values">
+      <div class="value">
+        <span class="num">i</span>
+        <h3 class="serif" data-en="Meaning before spectacle" data-vi="Ý nghĩa trước hình thức">Meaning before spectacle</h3>
+        <span class="vi">Ý nghĩa trên hết</span>
+        <p data-en="Every ritual gets explained — to the bride, to the groom, to the in-laws who flew in last night. Spectacle is easy. Meaning is harder, and worth it." data-vi="Mỗi nghi lễ đều được giải thích — cho cô dâu, chú rể, và họ hàng xa. Hình thức dễ. Ý nghĩa khó hơn, và xứng đáng.">Every ritual gets explained — to the bride, to the groom, to the in-laws who flew in last night. Spectacle is easy. Meaning is harder, and worth it.</p>
+      </div>
+      <div class="value">
+        <span class="num">ii</span>
+        <h3 class="serif" data-en="Both sides, equally" data-vi="Cả hai bên, ngang nhau">Both sides, equally</h3>
+        <span class="vi">Cả hai bên đều quan trọng</span>
+        <p data-en="A bilingual wedding is not a Vietnamese wedding with English subtitles. We design every cue so both families feel like the day was made for them." data-vi="Đám cưới song ngữ không phải đám cưới Việt có phụ đề Anh. Chúng tôi thiết kế từng điểm để cả hai gia đình cảm thấy ngày đó dành cho mình.">A bilingual wedding is not a Vietnamese wedding with English subtitles. We design every cue so both families feel like the day was made for them.</p>
+      </div>
+      <div class="value">
+        <span class="num">iii</span>
+        <h3 class="serif" data-en="One phone call" data-vi="Một cuộc gọi">One phone call</h3>
+        <span class="vi">Một cuộc gọi cho mọi việc</span>
+        <p data-en="Planning a wedding shouldn't be a second job. We're the single number you call — for the áo dài, the cake, the limo, and the family who can't find the venue." data-vi="Lo đám cưới không nên là công việc thứ hai. Chúng tôi là số duy nhất bạn cần gọi — cho áo dài, bánh, limousine, và cả họ hàng không tìm được nhà hàng.">Planning a wedding shouldn't be a second job. We're the single number you call — for the áo dài, the cake, the limo, and the family who can't find the venue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="shell">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow" style="color: var(--gold-soft);"><span class="dash"></span><span data-en="Tea & talk" data-vi="Trò chuyện">Tea &amp; talk</span></span>
+        <h2 class="serif" style="margin-top: 14px;"><span data-en="Come meet us." data-vi="Hãy đến gặp chúng tôi.">Come meet us.</span></h2>
+        <p data-en="Sixty minutes, in our studio. We'll pour tea. You'll tell us what you're imagining. We'll tell you what's possible." data-vi="Sáu mươi phút, tại studio. Chúng tôi sẽ pha trà. Bạn kể giấc mơ. Chúng tôi sẽ nói khả năng thực hiện.">Sixty minutes, in our studio. We'll pour tea. You'll tell us what you're imagining. We'll tell you what's possible.</p>
+      </div>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-gold"><span data-en="Book a consultation" data-vi="Đặt buổi tư vấn">Book a consultation</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="shared.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+<script>MWS.init('about');</script>
+</body>
+</html>

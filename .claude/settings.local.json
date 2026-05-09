@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p /c/Users/tpthi/mws/_design)",
+      "Bash(cp /c/Users/tpthi/.claude/projects/C--Users-tpthi-mws/038d9535-708c-4d49-a1bc-649eda71dd71/tool-results/webfetch-1778166732950-3krs8b.bin design.gz)",
+      "Bash(gunzip -k -f design.gz)",
+      "Bash(tar -xf design)",
+      "Bash(rm design *)",
+      "WebFetch(domain:www.mississaugaweddsols.com)",
+      "Bash(pnpm --version)",
+      "PowerShell(pnpm *)",
+      "Bash(corepack --version)",
+      "Bash(corepack enable *)",
+      "PowerShell(npm config *)",
+      "Bash(npm config *)",
+      "Bash(npm install *)",
+      "Bash(pnpm create *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm build *)",
+      "Bash(pnpm rebuild *)",
+      "Bash(pnpm approve-builds *)"
+    ]
+  }
+}

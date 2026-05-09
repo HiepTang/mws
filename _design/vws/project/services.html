@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Services — Mississauga Wedding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=Be+Vietnam+Pro:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400&family=Caveat:wght@500&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .svc-row { display: grid; grid-template-columns: 0.5fr 0.9fr 1.4fr 0.5fr; gap: 32px; padding: 48px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .svc-row:last-child { border-bottom: none; }
+  .svc-row .num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: var(--gold-deep); padding-top: 12px; }
+  .svc-row .img-wrap { aspect-ratio: 5/4; border-radius: 4px; overflow: hidden; }
+  .svc-row .title-block h3 { font-size: 32px; line-height: 1.05; }
+  .svc-row .title-block .vi { font-family: var(--viet); font-style: italic; color: var(--ink-muted); font-size: 14px; margin-top: 6px; }
+  .svc-row .body p { font-size: 15px; }
+  .svc-row .body ul { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .svc-row .body ul li { font-size: 14px; padding-left: 20px; position: relative; color: var(--ink-soft); }
+  .svc-row .body ul li::before { content: "·"; position: absolute; left: 0; top: -3px; color: var(--gold); font-size: 24px; }
+  .svc-row .price { font-family: var(--serif); font-style: italic; color: var(--red); font-size: 18px; padding-top: 12px; text-align: right; }
+  .svc-row .price .lab { display: block; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px; }
+
+  .package-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); }
+  .pkg { padding: 36px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 16px; transition: background .2s; }
+  .pkg:last-child { border-right: none; }
+  .pkg.featured { background: var(--ink); color: var(--bg); }
+  .pkg.featured h3, .pkg.featured .pkg-price { color: var(--bg); }
+  .pkg.featured ul li { color: rgba(245, 235, 217, 0.75); }
+  .pkg.featured .pkg-tag { background: var(--gold); color: var(--ink); }
+  .pkg-tag { display: inline-block; align-self: flex-start; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--cream); color: var(--red); }
+  .pkg h3 { font-size: 28px; }
+  .pkg-price { font-family: var(--serif); font-size: 40px; color: var(--ink); }
+  .pkg-price .from { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); display: block; font-family: var(--sans); margin-bottom: 4px; }
+  .pkg ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; flex-grow: 1; }
+  .pkg ul li { font-size: 14px; padding-left: 20px; position: relative; }
+  .pkg ul li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); }
+  .pkg .btn { margin-top: 24px; }
+
+  @media (max-width: 960px) {
+    .svc-row { grid-template-columns: 1fr; gap: 16px; }
+    .svc-row .price { text-align: left; }
+    .package-grid { grid-template-columns: 1fr; }
+    .pkg { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<main data-screen-label="02 Services">
+
+<section class="page-hero">
+  <div class="shell">
+    <div class="crumbs"><a href="index.html"><span data-en="Home" data-vi="Trang chủ">Home</span></a> · <span data-en="Services" data-vi="Dịch vụ">Services</span></div>
+    <h1 class="serif"><span data-en="Every part of the day," data-vi="Trọn vẹn ngày cưới,">Every part of the day,</span><br/><span class="accent" data-en="taken care of." data-vi="từng chi tiết một.">taken care of.</span></h1>
+    <p class="subtitle" data-en="A traditional Vietnamese wedding has many moving parts. Pick à la carte, or let us handle the whole day end-to-end." data-vi="Đám cưới Việt cổ truyền có nhiều phần. Chọn từng dịch vụ, hoặc để chúng tôi lo trọn gói.">A traditional Vietnamese wedding has many moving parts. Pick à la carte, or let us handle the whole day end-to-end.</p>
+  </div>
+</section>
+
+<!-- Service detail rows -->
+<section style="padding-top: 40px;">
+  <div class="shell">
+    <div class="svc-row">
+      <span class="num">/ 01</span>
+      <div class="img-wrap ph warm"><span>Bridal makeup studio</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Hair &amp; Makeup" data-vi="Tóc &amp; trang điểm">Hair &amp; Makeup</h3>
+          <div class="vi">Tóc &amp; trang điểm</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="Founder Juliane is a certified Professional Makeup Artist with thirty years of attention-to-detail. We do trials in our studio, so you'll know exactly how you'll look — and feel." data-vi="Người sáng lập Juliane là chuyên gia trang điểm chuyên nghiệp với 30 năm chú trọng đến từng chi tiết. Chúng tôi thử trang điểm tại studio để bạn biết chính xác mình sẽ trông như thế nào.">Founder Juliane is a certified Professional Makeup Artist with thirty years of attention-to-detail. We do trials in our studio, so you'll know exactly how you'll look — and feel.</p>
+          <ul>
+            <li data-en="Bridal trial &amp; consultation" data-vi="Thử trang điểm &amp; tư vấn">Bridal trial &amp; consultation</li>
+            <li data-en="Day-of full hair &amp; makeup" data-vi="Tóc &amp; trang điểm trọn ngày">Day-of full hair &amp; makeup</li>
+            <li data-en="Touch-ups for ceremony &amp; reception" data-vi="Dặm phấn cho lễ và tiệc">Touch-ups for ceremony &amp; reception</li>
+            <li data-en="Mother-of, bridesmaid add-ons" data-vi="Trang điểm cho mẹ và phù dâu">Mother-of, bridesmaid add-ons</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="From" data-vi="Từ">From</span>$650</div>
+    </div>
+
+    <div class="svc-row">
+      <span class="num">/ 02</span>
+      <div class="img-wrap ph"><span>Áo dài hangs in studio</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Áo dài &amp; Tea Ceremony" data-vi="Áo dài &amp; lễ trà">Áo dài &amp; Tea Ceremony</h3>
+          <div class="vi">Áo dài &amp; lễ vấn danh</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="The cornerstone of a Vietnamese wedding. Long dress and hat for the groom, lace áo dài and headpiece for the bride, full tray rentals, and the ceremonial wine tray." data-vi="Trái tim của đám cưới Việt. Áo dài & khăn đóng cho chú rể, áo dài ren & mấn cho cô dâu, mâm trà & mâm rượu trọn bộ.">The cornerstone of a Vietnamese wedding. Long dress and hat for the groom, lace áo dài and headpiece for the bride, full tray rentals, and the ceremonial wine tray.</p>
+          <ul>
+            <li data-en="Áo dài rental (bride &amp; groom)" data-vi="Cho thuê áo dài (cô dâu &amp; chú rể)">Áo dài rental (bride &amp; groom)</li>
+            <li data-en="6, 9, or 11-tray procession" data-vi="Mâm 6, 9, hoặc 11">6, 9, or 11-tray procession</li>
+            <li data-en="Wine tray &amp; ceremonial dishes" data-vi="Mâm rượu &amp; lễ vật">Wine tray &amp; ceremonial dishes</li>
+            <li data-en="Ritual guidance from start to finish" data-vi="Hướng dẫn nghi lễ từ đầu đến cuối">Ritual guidance from start to finish</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="From" data-vi="Từ">From</span>$1,200</div>
+    </div>
+
+    <div class="svc-row">
+      <span class="num">/ 03</span>
+      <div class="img-wrap ph dark"><span>MC at the mic</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Trilingual MC" data-vi="MC ba ngôn ngữ">Trilingual MC</h3>
+          <div class="vi">MC tiếng Việt, Anh, Hoa</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="A host who knows when to slow down for an elder's toast, when to translate a joke, and when to step out of the way. Vietnamese, English, and Mandarin Chinese." data-vi="MC biết khi nào chậm lại cho lời chúc của người lớn, khi nào dịch câu đùa, khi nào lùi lại. Tiếng Việt, Anh, và Quan Thoại.">A host who knows when to slow down for an elder's toast, when to translate a joke, and when to step out of the way. Vietnamese, English, and Mandarin Chinese.</p>
+          <ul>
+            <li data-en="Pre-event script &amp; run-of-show" data-vi="Kịch bản trước sự kiện">Pre-event script &amp; run-of-show</li>
+            <li data-en="Family name pronunciation rehearsal" data-vi="Diễn tập phát âm tên gia đình">Family name pronunciation rehearsal</li>
+            <li data-en="Live translation between toasts" data-vi="Phiên dịch trực tiếp giữa các lời chúc">Live translation between toasts</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="From" data-vi="Từ">From</span>$800</div>
+    </div>
+
+    <div class="svc-row">
+      <span class="num">/ 04</span>
+      <div class="img-wrap ph"><span>Catering plates close-up</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Catering &amp; Cake" data-vi="Tiệc &amp; bánh cưới">Catering &amp; Cake</h3>
+          <div class="vi">Tiệc cưới &amp; bánh kem</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="Vietnamese-Canadian menus that work for every guest at the table. Bún chả to braised short rib. Custom multi-tier cake with a fresh-flower topper." data-vi="Thực đơn Việt-Canada phù hợp cho mọi khách. Từ bún chả đến bò sốt vang. Bánh kem nhiều tầng trang trí hoa tươi.">Vietnamese-Canadian menus that work for every guest at the table. Bún chả to braised short rib. Custom multi-tier cake with a fresh-flower topper.</p>
+          <ul>
+            <li data-en="6-, 8-, or 10-course banquet menus" data-vi="Thực đơn 6, 8, hoặc 10 món">6-, 8-, or 10-course banquet menus</li>
+            <li data-en="Vegetarian &amp; halal options" data-vi="Tùy chọn chay &amp; halal">Vegetarian &amp; halal options</li>
+            <li data-en="Custom 3-tier wedding cake" data-vi="Bánh cưới 3 tầng theo yêu cầu">Custom 3-tier wedding cake</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="Per head" data-vi="Mỗi khách">Per head</span>$95+</div>
+    </div>
+
+    <div class="svc-row">
+      <span class="num">/ 05</span>
+      <div class="img-wrap ph warm"><span>Wedding flowers</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Flowers &amp; Decoration" data-vi="Hoa &amp; trang trí">Flowers &amp; Decoration</h3>
+          <div class="vi">Hoa &amp; trang trí</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="Centerpieces, ceremony arch, the small altar table, twinkling lights, the bridal bouquet — and the boutonnière for grandpa." data-vi="Hoa bàn, cổng cưới, bàn thờ gia tiên, đèn lung linh, hoa cô dâu — và hoa cài áo cho ông.">Centerpieces, ceremony arch, the small altar table, twinkling lights, the bridal bouquet — and the boutonnière for grandpa.</p>
+          <ul>
+            <li data-en="Ceremony arch &amp; aisle" data-vi="Cổng cưới &amp; lối đi">Ceremony arch &amp; aisle</li>
+            <li data-en="Altar table for ancestor offering" data-vi="Bàn thờ gia tiên">Altar table for ancestor offering</li>
+            <li data-en="Bouquets, boutonnières, corsages" data-vi="Hoa cô dâu, hoa cài áo">Bouquets, boutonnières, corsages</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="From" data-vi="Từ">From</span>$1,800</div>
+    </div>
+
+    <div class="svc-row">
+      <span class="num">/ 06</span>
+      <div class="img-wrap ph dark"><span>Live band setup</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Live Band, DJ, Lights &amp; Sound" data-vi="Ban nhạc, DJ, ánh sáng &amp; âm thanh">Live Band, DJ, Lights &amp; Sound</h3>
+          <div class="vi">Ban nhạc, DJ, ánh sáng</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="A four-piece Vietnamese wedding band, an open-format DJ, or both. Plus the rig: line array, monitors, wireless mics, twinkly café lights." data-vi="Ban nhạc cưới Việt 4 thành viên, DJ open-format, hoặc cả hai. Kèm thiết bị: loa, mic không dây, đèn lung linh.">A four-piece Vietnamese wedding band, an open-format DJ, or both. Plus the rig: line array, monitors, wireless mics, twinkly café lights.</p>
+          <ul>
+            <li data-en="Vietnamese ballad set or modern bilingual mix" data-vi="Nhạc Việt trữ tình hoặc nhạc song ngữ hiện đại">Vietnamese ballad set or modern bilingual mix</li>
+            <li data-en="Full PA, monitors, wireless mics" data-vi="Loa đài, mic không dây đầy đủ">Full PA, monitors, wireless mics</li>
+            <li data-en="Café-light installation" data-vi="Lắp đặt đèn cà phê">Café-light installation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="From" data-vi="Từ">From</span>$2,400</div>
+    </div>
+
+    <div class="svc-row">
+      <span class="num">/ 07</span>
+      <div class="img-wrap ph"><span>Limousine arrival</span></div>
+      <div>
+        <div class="title-block">
+          <h3 class="serif" data-en="Limousine, Photo, Hotel" data-vi="Limousine, ảnh cưới, khách sạn">Limousine, Photo, Hotel</h3>
+          <div class="vi">Xe, chụp ảnh, khách sạn</div>
+        </div>
+        <div class="body">
+          <p style="margin-top: 16px;" data-en="The supporting cast: a chauffeured limo for the wedding party, photo &amp; video coverage, and hotel-block bookings for out-of-town guests." data-vi="Những dịch vụ hỗ trợ: limousine có tài xế, chụp ảnh & quay video, đặt khách sạn cho khách phương xa.">The supporting cast: a chauffeured limo for the wedding party, photo &amp; video coverage, and hotel-block bookings for out-of-town guests.</p>
+          <ul>
+            <li data-en="6 or 10-passenger stretch limousine" data-vi="Limousine 6 hoặc 10 chỗ">6 or 10-passenger stretch limousine</li>
+            <li data-en="Photographer + videographer team" data-vi="Đội ngũ chụp ảnh &amp; quay phim">Photographer + videographer team</li>
+            <li data-en="Hotel room blocks for the families" data-vi="Đặt phòng khách sạn cho gia đình">Hotel room blocks for the families</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><span class="lab" data-en="From" data-vi="Từ">From</span>$1,500</div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section style="background: var(--bg-warm);">
+  <div class="shell">
+    <div class="section-head center">
+      <span class="eyebrow eyebrow-gold"><span class="dash"></span><span data-en="Or take it all in one" data-vi="Hoặc trọn gói">Or take it all in one</span></span>
+      <h2 class="serif"><span data-en="Three packages." data-vi="Ba gói.">Three packages.</span> <span class="italic" style="color: var(--red);" data-en="One simple price." data-vi="Một giá đơn giản.">One simple price.</span></h2>
+      <p style="text-align: center; margin-top: 12px;" data-en="A 20% service fee is included. Six-month early-bird discount available." data-vi="Đã bao gồm phí dịch vụ 20%. Giảm giá khi đặt trước 6 tháng.">A 20% service fee is included. Six-month early-bird discount available.</p>
+    </div>
+
+    <div class="package-grid">
+      <div class="pkg">
+        <span class="pkg-tag" data-en="Intimate" data-vi="Ấm cúng">Intimate</span>
+        <h3 class="serif" data-en="The Tea Ceremony" data-vi="Lễ trà">The Tea Ceremony</h3>
+        <span class="pkg-price"><span class="from" data-en="Starting" data-vi="Từ">Starting</span>$3,400</span>
+        <ul>
+          <li data-en="Bride hair &amp; makeup (with trial)" data-vi="Tóc &amp; trang điểm cô dâu">Bride hair &amp; makeup (with trial)</li>
+          <li data-en="Áo dài rental, both" data-vi="Cho thuê áo dài (2 bộ)">Áo dài rental, both</li>
+          <li data-en="6-tray procession + wine tray" data-vi="Mâm 6 + mâm rượu">6-tray procession + wine tray</li>
+          <li data-en="Bilingual MC, 3 hours" data-vi="MC song ngữ, 3 tiếng">Bilingual MC, 3 hours</li>
+          <li data-en="Altar floral arrangement" data-vi="Hoa bàn thờ gia tiên">Altar floral arrangement</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost"><span data-en="Inquire" data-vi="Liên hệ">Inquire</span><span class="arrow">→</span></a>
+      </div>
+      <div class="pkg featured">
+        <span class="pkg-tag" data-en="Most chosen" data-vi="Phổ biến nhất">Most chosen</span>
+        <h3 class="serif" data-en="The Full Day" data-vi="Trọn ngày">The Full Day</h3>
+        <span class="pkg-price"><span class="from" data-en="Starting" data-vi="Từ">Starting</span>$8,900</span>
+        <ul>
+          <li data-en="Everything in The Tea Ceremony" data-vi="Bao gồm toàn bộ Lễ Trà">Everything in The Tea Ceremony</li>
+          <li data-en="Reception flowers &amp; centerpieces" data-vi="Hoa tiệc &amp; trang trí bàn">Reception flowers &amp; centerpieces</li>
+          <li data-en="Live band, 3 hours" data-vi="Ban nhạc 3 tiếng">Live band, 3 hours</li>
+          <li data-en="6-passenger limousine" data-vi="Limousine 6 chỗ">6-passenger limousine</li>
+          <li data-en="Photo + video team" data-vi="Đội chụp ảnh &amp; quay phim">Photo + video team</li>
+          <li data-en="Trilingual MC, full event" data-vi="MC ba ngôn ngữ, trọn sự kiện">Trilingual MC, full event</li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold"><span data-en="Inquire" data-vi="Liên hệ">Inquire</span><span class="arrow">→</span></a>
+      </div>
+      <div class="pkg">
+        <span class="pkg-tag" data-en="Concierge" data-vi="Trọn gói">Concierge</span>
+        <h3 class="serif" data-en="The Heritage" data-vi="Trọn vẹn truyền thống">The Heritage</h3>
+        <span class="pkg-price"><span class="from" data-en="Starting" data-vi="Từ">Starting</span>$14,500</span>
+        <ul>
+          <li data-en="Everything in The Full Day" data-vi="Bao gồm gói Trọn ngày">Everything in The Full Day</li>
+          <li data-en="11-tray procession + extras" data-vi="Mâm 11 + đầy đủ lễ vật">11-tray procession + extras</li>
+          <li data-en="Bridal party hair &amp; makeup (6)" data-vi="Tóc &amp; trang điểm cho 6 phù dâu">Bridal party hair &amp; makeup (6)</li>
+          <li data-en="10-passenger limousine" data-vi="Limousine 10 chỗ">10-passenger limousine</li>
+          <li data-en="Hotel-block management" data-vi="Đặt khối phòng khách sạn">Hotel-block management</li>
+          <li data-en="Day-of coordinator (10hrs)" data-vi="Điều phối ngày cưới (10 tiếng)">Day-of coordinator (10hrs)</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost"><span data-en="Inquire" data-vi="Liên hệ">Inquire</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="shell">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow" style="color: var(--gold-soft);"><span class="dash"></span><span data-en="Not sure what fits?" data-vi="Chưa biết chọn gì?">Not sure what fits?</span></span>
+        <h2 class="serif" style="margin-top: 14px;"><span data-en="Tell us about your day." data-vi="Hãy kể chúng tôi về ngày của bạn.">Tell us about your day.</span></h2>
+        <p data-en="A 30-minute call. No pressure. We'll give you an honest sense of cost, dates, and what's possible." data-vi="Một cuộc gọi 30 phút. Không áp lực. Chúng tôi sẽ tư vấn thật lòng về chi phí, ngày và khả năng.">A 30-minute call. No pressure. We'll give you an honest sense of cost, dates, and what's possible.</p>
+      </div>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-gold"><span data-en="Get a quote" data-vi="Nhận báo giá">Get a quote</span><span class="arrow">→</span></a>
+        <a href="tel:9050000000" class="btn btn-outline"><span data-en="Call (905) 000-0000" data-vi="Gọi (905) 000-0000">Call (905) 000-0000</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="shared.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+<script>MWS.init('services');</script>
+</body>
+</html>

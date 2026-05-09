@@ -1,0 +1,57 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-mws
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Trigger remote build & restart
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script_stop: true
+          script: |
+            set -euo pipefail
+
+            cd ~/apps/mws
+
+            echo "→ Fetching latest commit"
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "→ Building image"
+            docker compose -f docker-compose.prod.yml build \
+              --build-arg GIT_COMMIT="$(git rev-parse --short HEAD)" \
+              mws-web
+
+            echo "→ Recreating container"
+            docker compose -f docker-compose.prod.yml up -d mws-web
+
+            echo "→ Waiting for healthcheck"
+            for i in $(seq 1 30); do
+              if docker inspect --format '{{.State.Health.Status}}' mws-web 2>/dev/null | grep -q healthy; then
+                echo "✓ mws-web is healthy"
+                break
+              fi
+              if [ "$i" = "30" ]; then
+                echo "✗ mws-web did not become healthy in 90s — recent logs:"
+                docker logs --tail 100 mws-web
+                exit 1
+              fi
+              sleep 3
+            done
+
+            echo "→ Pruning dangling images"
+            docker image prune -f --filter "label=org.opencontainers.image.source=mws-web" || true

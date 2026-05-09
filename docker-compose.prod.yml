@@ -1,0 +1,56 @@
+# Production compose for the MWS Next.js app.
+# Lives on the kho-ai umbrella VPS at ~/apps/mws/docker-compose.prod.yml.
+#
+# Joins the existing kho-ai Docker network (created by the kho-ai compose
+# project) as `external`, so this app can reach `postgres:5432` and
+# `minio:9000` inside the same private network. The kho-ai Caddy reverse
+# proxies `mws.kho-ai.com` → `mws-web:3000`.
+#
+# The actual Docker network name is project-prefixed; on this VPS it is
+# `infrastructure_khoai-network`. If kho-ai is ever re-created under a
+# different project name, update KHOAI_NETWORK_NAME in the .env on the VPS.
+
+services:
+  mws-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # GIT_COMMIT is set by the GitHub Actions deploy workflow before build.
+        # Surfaces in /api/health so we can confirm which commit is live.
+        NODE_VERSION: 22-alpine
+    image: mws-web:latest
+    container_name: mws-web
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    networks:
+      - khoai
+    # No host port mapping — Caddy reaches mws-web via the Docker network.
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "--tries=1", "http://127.0.0.1:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  khoai:
+    external: true
+    # Name resolved at deploy time. The kho-ai compose project on this VPS
+    # creates the network as `<project>_khoai-network`. Override here to
+    # match whatever `docker network ls | grep khoai-network` reports.
+    name: ${KHOAI_NETWORK_NAME:-infrastructure_khoai-network}

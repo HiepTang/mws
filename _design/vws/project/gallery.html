@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gallery — Mississauga Wedding Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&family=Be+Vietnam+Pro:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400&family=Caveat:wght@500&family=Fraunces:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  .gallery-mosaic { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; grid-auto-flow: dense; }
+  .tile { position: relative; overflow: hidden; border-radius: 2px; cursor: pointer; transition: transform .3s; }
+  .tile:hover { transform: scale(1.005); }
+  .tile .ph { width: 100%; height: 100%; }
+  .tile .caption { position: absolute; left: 16px; bottom: 16px; right: 16px; color: #fff; font-family: var(--serif); font-style: italic; font-size: 14px; opacity: 0; transition: opacity .2s; text-shadow: 0 2px 8px rgba(0,0,0,0.4); pointer-events: none; }
+  .tile:hover .caption { opacity: 1; }
+  .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35) 100%); opacity: 0; transition: opacity .2s; }
+  .tile:hover::after { opacity: 1; }
+  .t-2x2 { grid-column: span 6; aspect-ratio: 1; }
+  .t-2x1 { grid-column: span 6; aspect-ratio: 2/1; }
+  .t-1x1 { grid-column: span 3; aspect-ratio: 1; }
+  .t-1x2 { grid-column: span 3; aspect-ratio: 1/2; }
+  .t-3x2 { grid-column: span 8; aspect-ratio: 4/3; }
+  .t-1x1s { grid-column: span 4; aspect-ratio: 4/5; }
+  @media (max-width: 960px) { .t-2x2, .t-2x1, .t-1x1, .t-1x2, .t-3x2, .t-1x1s { grid-column: span 6; aspect-ratio: 1; } }
+  @media (max-width: 600px) { .gallery-mosaic > * { grid-column: span 12 !important; aspect-ratio: 4/3 !important; } }
+
+  .gal-tabs { display: flex; gap: 4px; margin-bottom: 32px; border-bottom: 1px solid var(--line); padding-bottom: 0; }
+  .gal-tab { padding: 12px 20px; font-size: 13px; letter-spacing: 0.06em; color: var(--ink-muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .2s; }
+  .gal-tab.on { color: var(--red); border-bottom-color: var(--red); }
+  .gal-tab:hover { color: var(--ink); }
+  .gal-tab .vi { font-family: var(--viet); font-style: italic; font-size: 11px; color: var(--ink-muted); display: block; margin-top: 2px; }
+</style>
+</head>
+<body>
+<main data-screen-label="04 Gallery">
+
+<section class="page-hero">
+  <div class="shell">
+    <div class="crumbs"><a href="index.html"><span data-en="Home" data-vi="Trang chủ">Home</span></a> · <span data-en="Gallery" data-vi="Thư viện ảnh">Gallery</span></div>
+    <h1 class="serif"><span data-en="A hundred & twenty days," data-vi="Một trăm hai mươi ngày,">A hundred &amp; twenty days,</span><br/><span class="accent" data-en="held in pictures." data-vi="lưu trong ảnh.">held in pictures.</span></h1>
+    <p class="subtitle" data-en="Browse moments from real Mississauga weddings — tea ceremonies, áo dài fittings, the quiet glance before the procession." data-vi="Khoảnh khắc thật từ các đám cưới ở Mississauga — lễ trà, thử áo dài, ánh mắt yên lặng trước lễ rước dâu.">Browse moments from real Mississauga weddings — tea ceremonies, áo dài fittings, the quiet glance before the procession.</p>
+  </div>
+</section>
+
+<section style="padding-top: 56px;">
+  <div class="shell">
+    <div class="gal-tabs">
+      <button class="gal-tab on"><span data-en="All Moments" data-vi="Tất cả">All Moments</span><span class="vi">Tất cả</span></button>
+      <button class="gal-tab"><span data-en="Tea Ceremony" data-vi="Lễ trà">Tea Ceremony</span><span class="vi">Lễ trà</span></button>
+      <button class="gal-tab"><span data-en="Áo Dài" data-vi="Áo dài">Áo Dài</span><span class="vi">Áo dài</span></button>
+      <button class="gal-tab"><span data-en="Reception" data-vi="Tiệc cưới">Reception</span><span class="vi">Tiệc cưới</span></button>
+      <button class="gal-tab"><span data-en="Family" data-vi="Gia đình">Family</span><span class="vi">Gia đình</span></button>
+      <button class="gal-tab"><span data-en="Details" data-vi="Chi tiết">Details</span><span class="vi">Chi tiết</span></button>
+    </div>
+
+    <div class="gallery-mosaic">
+      <div class="tile t-2x2"><div class="ph warm"><span>Bride &amp; groom — tea ceremony portrait</span></div><span class="caption">Linh &amp; Thomas, August 2025</span></div>
+      <div class="tile t-1x1s"><div class="ph"><span>Áo dài close-up</span></div><span class="caption">Crimson lace, hand-stitched</span></div>
+      <div class="tile t-1x1"><div class="ph dark"><span>Hands offering tea</span></div><span class="caption">First cup, to the elders</span></div>
+      <div class="tile t-1x1"><div class="ph"><span>Mâm quả, 11 trays</span></div><span class="caption">The procession arrives</span></div>
+      <div class="tile t-3x2"><div class="ph warm"><span>Reception hall, golden hour</span></div><span class="caption">Phương &amp; Daniel, May 2025</span></div>
+      <div class="tile t-1x1s"><div class="ph"><span>Bride hair detail</span></div><span class="caption">Pearl &amp; gold mấn</span></div>
+      <div class="tile t-1x1"><div class="ph dark"><span>Father walks bride</span></div><span class="caption">Down the aisle</span></div>
+      <div class="tile t-1x1"><div class="ph warm"><span>Wine cups, raised</span></div><span class="caption">A toast to ancestors</span></div>
+      <div class="tile t-2x1"><div class="ph"><span>Family group portrait</span></div><span class="caption">Three generations, both sides</span></div>
+      <div class="tile t-1x1"><div class="ph"><span>Bouquet on chair</span></div><span class="caption">Peonies, just before the walk</span></div>
+      <div class="tile t-1x1"><div class="ph dark"><span>Live band setup</span></div><span class="caption">Vietnamese ballad set</span></div>
+      <div class="tile t-2x2"><div class="ph warm"><span>Couple — first dance</span></div><span class="caption">Kim &amp; Andrew, October 2024</span></div>
+      <div class="tile t-1x1"><div class="ph"><span>Cake — three tiers</span></div><span class="caption">Fresh-flower topper</span></div>
+      <div class="tile t-1x1"><div class="ph"><span>Limousine arrival</span></div><span class="caption">Stretch, 10-passenger</span></div>
+      <div class="tile t-2x1"><div class="ph dark"><span>MC at reception</span></div><span class="caption">Trilingual, mid-toast</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="shell">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow" style="color: var(--gold-soft);"><span class="dash"></span><span data-en="More on Instagram" data-vi="Theo dõi Instagram">More on Instagram</span></span>
+        <h2 class="serif" style="margin-top: 14px;"><span data-en="Follow us" data-vi="Theo dõi chúng tôi">Follow us</span> <span class="gold">@mwsweddings</span></h2>
+        <p data-en="New stories every week. Behind-the-scenes from our studio, real ceremonies, founder notes." data-vi="Câu chuyện mới mỗi tuần. Hậu trường studio, lễ cưới thực tế, ghi chép từ người sáng lập.">New stories every week. Behind-the-scenes from our studio, real ceremonies, founder notes.</p>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-gold"><span data-en="Open Instagram" data-vi="Mở Instagram">Open Instagram</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="shared.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+<script>
+  MWS.init('gallery');
+  document.querySelectorAll('.gal-tab').forEach(t => t.addEventListener('click', () => {
+    document.querySelectorAll('.gal-tab').forEach(x => x.classList.remove('on'));
+    t.classList.add('on');
+  }));
+</script>
+</body>
+</html>
