@@ -59,23 +59,128 @@ Then on GitHub: `mws` repo → **Settings → Deploy keys → Add deploy key**. 
 
 ### 3b. Use a fresh deploy key just for mws
 
+**When you need this option:** GitHub deploy keys are unique per repo across all of GitHub — the same public key can only be associated with **one repository**. If the kho-ai VPS already uses `~/.ssh/id_ed25519` as a deploy key on the kho-ai repo (per kho-ai's deployment guide §6.1), GitHub will reject adding it to the `mws` repo with `Key is already in use`. In that case, generate a separate key here.
+
+(If 3a worked for you, skip this section.)
+
+#### 3b.1 Generate a dedicated keypair on the VPS
+
 ```bash
 ssh deploy@178.156.252.76
-ssh-keygen -t ed25519 -C "mws-deploy" -f ~/.ssh/mws_deploy -N ""
+
+# Create a new ed25519 keypair just for the mws deploy key.
+#   -C  human-readable comment, shown by `ssh-add -l` and visible to GitHub
+#   -f  path for the keypair (creates mws_deploy and mws_deploy.pub)
+#   -N ""  no passphrase — required so non-interactive git pulls during
+#          deploys don't prompt
+ssh-keygen -t ed25519 -C "mws-deploy@kho-ai-vps" -f ~/.ssh/mws_deploy -N ""
+
+# Verify both files were written with correct permissions
+ls -la ~/.ssh/mws_deploy*
+# Expected:
+#   -rw-------  1 deploy deploy  ~400  ...  mws_deploy       (private — keep secret)
+#   -rw-r--r--  1 deploy deploy  ~100  ...  mws_deploy.pub   (public — pastes into GitHub)
+```
+
+#### 3b.2 Copy the public key
+
+```bash
 cat ~/.ssh/mws_deploy.pub
 ```
 
-Add to `mws` repo deploy keys, then add a `~/.ssh/config` block on the VPS:
+Output is a single line that looks like:
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB...AB mws-deploy@kho-ai-vps
+```
+
+Select and copy the **entire line**, including the leading `ssh-ed25519` and the trailing comment.
+
+#### 3b.3 Add the public key to GitHub as a deploy key
+
+1. Open https://github.com/HiepTang/mws (the new private repo) in a browser.
+2. Click **Settings** (top tab — requires admin access on the repo).
+3. Left sidebar → **Deploy keys**.
+4. Click **Add deploy key** (top right).
+5. Fill in:
+   - **Title**: `mws-vps-deploy` (or anything human-readable; this is just for your reference in the GitHub UI).
+   - **Key**: paste the line you copied in Step 3b.2.
+   - **Allow write access**: leave **unchecked**. The workflow only needs to `git pull`; commits flow the other way (developer → GitHub, not VPS → GitHub).
+6. Click **Add key**.
+
+GitHub may prompt for your password / 2FA to confirm the addition. After saving, the new key appears in the list with a fingerprint and "Last used: never" — that's normal until Step 3b.5.
+
+> **If GitHub responds `Key is already in use`:** that exact public key is associated with another repo somewhere on GitHub. Either remove it from that other repo first, or generate a fresh key with a different filename (`ssh-keygen ... -f ~/.ssh/mws_deploy2`) and try again.
+
+#### 3b.4 Configure SSH on the VPS to use the new key for this repo
+
+The VPS already has a default identity (`~/.ssh/id_ed25519`) that SSH offers to GitHub for any `git@github.com:...` URL. We need to tell SSH: *for the mws repo, use `mws_deploy` instead.* The standard pattern is a `Host` alias in SSH config.
+
+```bash
+# Edit (or create) the user-scoped SSH config
+nano ~/.ssh/config
+```
+
+Append this block at the bottom of the file:
 
 ```sshconfig
 Host github.com-mws
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/mws_deploy
-  IdentitiesOnly yes
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/mws_deploy
+    IdentitiesOnly yes
 ```
 
-Use `git@github.com-mws:HiepTang/mws.git` as the clone URL in Step 4.
+What each line does:
+
+| Line | Purpose |
+|---|---|
+| `Host github.com-mws` | The **alias** you'll use in the clone URL. Must be unique among `Host` blocks. The `-mws` suffix is just a convention. |
+| `HostName github.com` | The actual server SSH connects to. The alias is purely client-side; the network destination is still real GitHub. |
+| `User git` | GitHub's SSH endpoint always authenticates as the literal username `git`, regardless of your own GitHub account name. |
+| `IdentityFile ~/.ssh/mws_deploy` | The private key to offer for this connection. |
+| `IdentitiesOnly yes` | Ignore any other keys SSH might find (`ssh-agent`, the default `id_ed25519`). Without this, SSH may offer the wrong key first, GitHub will reject it, and the connection fails or falls back unpredictably. |
+
+Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
+
+Lock down permissions if `~/.ssh/config` is a freshly created file (existing files probably already have correct perms):
+
+```bash
+chmod 600 ~/.ssh/config
+```
+
+#### 3b.5 Test the connection before cloning
+
+This catches misconfiguration cheaply, before you mix it with `git clone` failures:
+
+```bash
+ssh -T git@github.com-mws
+```
+
+Expected output:
+```
+Hi HiepTang/mws! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+The "does not provide shell access" line is **success** — GitHub deploy keys are scoped to git operations only, never grant a shell. The key part is `Hi HiepTang/mws!` proving GitHub recognised the key as belonging to this specific repo.
+
+If you see `Permission denied (publickey)`, the key didn't reach GitHub or GitHub doesn't recognise it. Debug with:
+```bash
+ssh -T -v git@github.com-mws 2>&1 | grep -E 'identity|Offering|Authenticated'
+```
+Look for a line like `Offering public key: /home/deploy/.ssh/mws_deploy ED25519` followed by `Authenticated to github.com` — if you see the offer but no auth, the public key in GitHub doesn't match the private key on the VPS (typo on paste, or wrong key copied). If `mws_deploy` isn't being offered at all, your `~/.ssh/config` block didn't apply — re-check the alias name, indentation (4-space indent or tab is fine; mixed is not), and that `IdentitiesOnly yes` is present.
+
+If you see `Host key verification failed`, GitHub's host key isn't in `~/.ssh/known_hosts` yet:
+```bash
+ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
+ssh -T git@github.com-mws
+```
+
+After the test passes, **use the alias hostname in the clone URL** in Step 4:
+```
+git@github.com-mws:HiepTang/mws.git
+```
+
+Notice the colon comes after `github.com-mws`, not `github.com`. SSH resolves the alias to real github.com via your `~/.ssh/config`. The `git pull` calls inside the GitHub Actions deploy workflow will keep working because the original clone records this remote URL.
 
 ---
 

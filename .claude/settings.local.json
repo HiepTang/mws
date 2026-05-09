@@ -19,7 +19,11 @@
       "Bash(pnpm install *)",
       "Bash(pnpm build *)",
       "Bash(pnpm rebuild *)",
-      "Bash(pnpm approve-builds *)"
+      "Bash(pnpm approve-builds *)",
+      "Bash(pnpm add *)",
+      "Bash(DATABASE_URL=\"postgres://placeholder@localhost:5432/placeholder\" pnpm db:generate)",
+      "Bash(pnpm exec *)",
+      "Bash(docker compose *)"
     ]
   }
 }

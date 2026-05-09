@@ -29,6 +29,19 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm build
 
+# Bundle the migration runner into a single file with all deps inlined.
+# Turbopack inlines drizzle-orm + postgres into the Next.js chunks (great for
+# the running app, but the standalone bundle's node_modules only ships next/
+# react/react-dom). esbuild produces one self-contained file the runner stage
+# can execute without a separate prod-install.
+RUN pnpm exec esbuild scripts/migrate.mjs \
+      --bundle \
+      --platform=node \
+      --target=node22 \
+      --format=esm \
+      --packages=bundle \
+      --outfile=/app/dist/migrate.mjs
+
 # ─── runner ────────────────────────────────────────────────────────────
 FROM node:${NODE_VERSION} AS runner
 WORKDIR /app
@@ -43,17 +56,29 @@ RUN addgroup --system --gid 1001 nodejs \
  && adduser --system --uid 1001 nextjs
 
 # Standalone output bundles only what the server needs, plus the public/
-# and static directories which Next looks for at runtime.
+# and static directories which Next looks for at runtime. Because the app
+# imports `drizzle-orm` and `postgres` (via src/db), Next traces those into
+# the standalone node_modules, so the migration runner below can resolve them
+# from the same location without a separate prod-install step.
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+# Bundled migration runner (self-contained — drizzle-orm + postgres inlined)
+# plus the generated SQL migrations the runner reads.
+COPY --from=builder --chown=nextjs:nodejs /app/dist/migrate.mjs ./migrate.mjs
+COPY --from=builder --chown=nextjs:nodejs /app/drizzle ./drizzle
 
 USER nextjs
 
 EXPOSE 3000
 
 # Healthcheck hits the API route added in src/app/api/health/route.ts.
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+# 60s start period covers migrations + Next.js boot.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
   CMD wget --quiet --spider --tries=1 http://127.0.0.1:3000/api/health || exit 1
 
-CMD ["node", "server.js"]
+# Apply pending migrations, then start the Next.js server. Migration failure
+# exits non-zero and prevents the server from starting, so the container goes
+# unhealthy and the deploy workflow fails fast instead of serving stale code.
+CMD ["sh", "-c", "node migrate.mjs && exec node server.js"]
