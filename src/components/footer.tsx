@@ -1,0 +1,125 @@
+import Link from "next/link";
+import { T } from "./lang";
+
+export function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="shell">
+        <div>
+          <div className="brand" style={{ marginBottom: 24 }}>
+            <span className="brand-mark" aria-hidden="true">
+              <em>M</em>
+            </span>
+            <span className="brand-text">
+              <span className="b1">Mississauga</span>
+              <span className="b2">Wedding Solutions</span>
+            </span>
+          </div>
+          <p className="f-tag">
+            <T
+              en="Honoring the rituals of a traditional Vietnamese wedding — where East gracefully meets West."
+              vi="Tổ chức đám cưới cổ truyền Việt Nam — nơi văn hóa Á Đông gặp gỡ phương Tây."
+            />
+          </p>
+          <div className="socials">
+            <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              IG
+            </a>
+            <a
+              href="https://www.facebook.com/mississaugaweddsols"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              FB
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>
+            <T en="Explore" vi="Khám phá" />
+          </h4>
+          <ul>
+            <li>
+              <Link href="/services">
+                <T en="Services" vi="Dịch vụ" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/products">
+                <T en="Products" vi="Sản phẩm" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/gallery">
+                <T en="Gallery" vi="Thư viện ảnh" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <T en="About" vi="Giới thiệu" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/reviews">
+                <T en="Reviews" vi="Đánh giá" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>
+            <T en="Contact" vi="Liên hệ" />
+          </h4>
+          <ul>
+            <li>Mississauga, ON</li>
+            <li>(905) 000-0000</li>
+            <li>hello@mississaugaweddsols.com</li>
+            <li style={{ marginTop: 8 }}>
+              <Link href="/contact" style={{ color: "var(--gold-soft)" }}>
+                <T en="Book a consultation →" vi="Đặt buổi tư vấn →" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>
+            <T en="Hours" vi="Giờ làm việc" />
+          </h4>
+          <ul>
+            <li>
+              <T en="Mon – Fri" vi="Thứ 2 – Thứ 6" />
+              <br />
+              <span style={{ color: "var(--cream)" }}>10am – 7pm</span>
+            </li>
+            <li>
+              <T en="Sat – Sun" vi="Thứ 7 – Chủ nhật" />
+              <br />
+              <span style={{ color: "var(--cream)" }}>
+                <T en="By appointment" vi="Theo lịch hẹn" />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="shell">
+        <div className="footer-bottom">
+          <span>
+            © 2026 Mississauga Wedding Solutions.{" "}
+            <T en="All rights reserved." vi="Bảo lưu mọi quyền." />
+          </span>
+          <span>
+            <T
+              en="Serving the Vietnamese community across the GTA."
+              vi="Phục vụ cộng đồng Việt tại Greater Toronto Area."
+            />
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}
