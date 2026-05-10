@@ -1,6 +1,5 @@
 import {
   boolean,
-  date,
   integer,
   pgTable,
   primaryKey,
@@ -19,7 +18,10 @@ export const reviews = pgTable("reviews", {
 
   coupleNames: text("couple_names").notNull(),
   emailPrivate: text("email_private").notNull(),
-  weddingDate: date("wedding_date"),
+  // Free-text on the form ("August 2025", "sometime last fall"), so we keep
+  // this as `text`. We never query/sort by date — moderation queue is by
+  // `created_at` instead.
+  weddingDate: text("wedding_date"),
   city: text("city"),
   rating: smallint("rating").notNull(),
   body: text("body").notNull(),

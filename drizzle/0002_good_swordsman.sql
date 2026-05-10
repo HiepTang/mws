@@ -1,0 +1,1 @@
+ALTER TABLE "reviews" ALTER COLUMN "wedding_date" SET DATA TYPE text;
