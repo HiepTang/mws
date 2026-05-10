@@ -1,37 +1,62 @@
+import { and, asc, desc, eq, isNotNull } from "drizzle-orm";
+import Image from "next/image";
 import Link from "next/link";
-import { GalleryTabs } from "@/components/gallery-tabs";
+import { db, schema } from "@/db";
 import { T } from "@/components/lang";
-
-type Tile = {
-  size: string;
-  imgClass: string;
-  imgLabel: string;
-  caption: string;
-};
-
-const TILES: Tile[] = [
-  { size: "t-2x2", imgClass: "ph warm", imgLabel: "Bride & groom — tea ceremony portrait", caption: "Linh & Thomas, August 2025" },
-  { size: "t-1x1s", imgClass: "ph", imgLabel: "Áo dài close-up", caption: "Crimson lace, hand-stitched" },
-  { size: "t-1x1", imgClass: "ph dark", imgLabel: "Hands offering tea", caption: "First cup, to the elders" },
-  { size: "t-1x1", imgClass: "ph", imgLabel: "Mâm quả, 11 trays", caption: "The procession arrives" },
-  { size: "t-3x2", imgClass: "ph warm", imgLabel: "Reception hall, golden hour", caption: "Phương & Daniel, May 2025" },
-  { size: "t-1x1s", imgClass: "ph", imgLabel: "Bride hair detail", caption: "Pearl & gold mấn" },
-  { size: "t-1x1", imgClass: "ph dark", imgLabel: "Father walks bride", caption: "Down the aisle" },
-  { size: "t-1x1", imgClass: "ph warm", imgLabel: "Wine cups, raised", caption: "A toast to ancestors" },
-  { size: "t-2x1", imgClass: "ph", imgLabel: "Family group portrait", caption: "Three generations, both sides" },
-  { size: "t-1x1", imgClass: "ph", imgLabel: "Bouquet on chair", caption: "Peonies, just before the walk" },
-  { size: "t-1x1", imgClass: "ph dark", imgLabel: "Live band setup", caption: "Vietnamese ballad set" },
-  { size: "t-2x2", imgClass: "ph warm", imgLabel: "Couple — first dance", caption: "Kim & Andrew, October 2024" },
-  { size: "t-1x1", imgClass: "ph", imgLabel: "Cake — three tiers", caption: "Fresh-flower topper" },
-  { size: "t-1x1", imgClass: "ph", imgLabel: "Limousine arrival", caption: "Stretch, 10-passenger" },
-  { size: "t-2x1", imgClass: "ph dark", imgLabel: "MC at reception", caption: "Trilingual, mid-toast" },
-];
+import {
+  GALLERY_CATEGORIES,
+  isGalleryCategory,
+  type GalleryCategory,
+} from "@/lib/gallery-categories";
 
 export const metadata = {
   title: "Gallery",
 };
 
-export default function GalleryPage() {
+export const dynamic = "force-dynamic";
+
+type TileSource = "curated" | "review";
+type Tile = {
+  id: string;
+  source: TileSource;
+  caption: string;
+  width: number;
+  height: number;
+};
+
+// Repeating mosaic pattern designed for the 12-column .gallery-mosaic.
+const TILE_SIZES = [
+  "t-2x2",
+  "t-1x1s",
+  "t-1x1",
+  "t-1x1",
+  "t-3x2",
+  "t-1x1s",
+  "t-1x1",
+  "t-1x1",
+  "t-2x1",
+  "t-1x1",
+];
+
+function captionFromReview(coupleNames: string, weddingDate: string | null): string {
+  return weddingDate ? `${coupleNames}, ${weddingDate}` : coupleNames;
+}
+
+export default async function GalleryPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const params = await searchParams;
+  const tag = isGalleryCategory(params.tag) ? params.tag : null;
+
+  let tiles: Tile[] = [];
+  try {
+    tiles = await fetchTiles(tag);
+  } catch (err) {
+    console.error("[gallery] DB read failed:", err);
+  }
+
   return (
     <>
       <section className="page-hero">
@@ -63,27 +88,66 @@ export default function GalleryPage() {
 
       <section style={{ paddingTop: 56 }}>
         <div className="shell">
-          <GalleryTabs
-            tabs={[
-              { en: "All Moments", vi: "Tất cả" },
-              { en: "Tea Ceremony", vi: "Lễ trà" },
-              { en: "Áo Dài", vi: "Áo dài" },
-              { en: "Reception", vi: "Tiệc cưới" },
-              { en: "Family", vi: "Gia đình" },
-              { en: "Details", vi: "Chi tiết" },
-            ]}
-          />
-
-          <div className="gallery-mosaic">
-            {TILES.map((t, i) => (
-              <div key={i} className={`tile ${t.size}`}>
-                <div className={t.imgClass}>
-                  <span>{t.imgLabel}</span>
-                </div>
-                <span className="caption">{t.caption}</span>
-              </div>
+          <div className="gal-tabs">
+            <Link
+              href={{ pathname: "/gallery" }}
+              className={`gal-tab ${tag === null ? "on" : ""}`}
+            >
+              <T en="All Moments" vi="Tất cả" />
+              <span className="vi">Tất cả</span>
+            </Link>
+            {GALLERY_CATEGORIES.map((c) => (
+              <Link
+                key={c.value}
+                href={{ pathname: "/gallery", query: { tag: c.value } }}
+                className={`gal-tab ${tag === c.value ? "on" : ""}`}
+              >
+                <T en={c.en} vi={c.vi} />
+                <span className="vi">{c.vi}</span>
+              </Link>
             ))}
           </div>
+
+          {tiles.length === 0 ? (
+            <p
+              style={{
+                fontFamily: "var(--serif)",
+                fontStyle: "italic",
+                fontSize: 22,
+                color: "var(--ink-muted)",
+                textAlign: "center",
+                maxWidth: "44ch",
+                margin: "0 auto",
+                padding: "48px 0",
+              }}
+            >
+              <T
+                en="No photos here yet. Check back soon — the first ones land as couples share their wedding pictures with us."
+                vi="Chưa có ảnh ở đây. Xin quay lại sau — những ảnh đầu tiên sẽ đến khi các cặp đôi chia sẻ ảnh cưới với chúng tôi."
+              />
+            </p>
+          ) : (
+            <div className="gallery-mosaic">
+              {tiles.map((t, i) => (
+                <div key={`${t.source}-${t.id}`} className={`tile ${TILE_SIZES[i % TILE_SIZES.length]}`}>
+                  <Image
+                    src={
+                      t.source === "curated"
+                        ? `/api/gallery-image/${t.id}`
+                        : `/api/review-image/${t.id}`
+                    }
+                    alt={t.caption}
+                    width={t.width}
+                    height={t.height}
+                    sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 33vw"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    unoptimized
+                  />
+                  <span className="caption">{t.caption}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -121,4 +185,63 @@ export default function GalleryPage() {
       </section>
     </>
   );
+}
+
+async function fetchTiles(tag: GalleryCategory | null): Promise<Tile[]> {
+  // Curated photos for the requested tag (or all if tag is null), ordered by
+  // admin's chosen sort_order ascending (lowest first), then newest first.
+  const curatedConditions = [eq(schema.galleryImages.hidden, false)];
+  if (tag !== null) curatedConditions.push(eq(schema.galleryImages.category, tag));
+
+  const curated = await db
+    .select({
+      id: schema.galleryImages.id,
+      caption: schema.galleryImages.caption,
+      imageWidth: schema.galleryImages.imageWidth,
+      imageHeight: schema.galleryImages.imageHeight,
+      category: schema.galleryImages.category,
+    })
+    .from(schema.galleryImages)
+    .where(and(...curatedConditions))
+    .orderBy(asc(schema.galleryImages.sortOrder), desc(schema.galleryImages.createdAt))
+    .limit(60);
+
+  // Approved review photos that customers consented to share in the gallery.
+  const reviewConditions = [
+    eq(schema.reviews.status, "approved"),
+    eq(schema.reviews.consentGallery, true),
+    isNotNull(schema.reviews.imageKey),
+  ];
+  if (tag !== null) reviewConditions.push(eq(schema.reviews.galleryCategory, tag));
+
+  const reviews = await db
+    .select({
+      id: schema.reviews.id,
+      coupleNames: schema.reviews.coupleNames,
+      weddingDate: schema.reviews.weddingDate,
+      imageWidth: schema.reviews.imageWidth,
+      imageHeight: schema.reviews.imageHeight,
+    })
+    .from(schema.reviews)
+    .where(and(...reviewConditions))
+    .orderBy(desc(schema.reviews.createdAt))
+    .limit(60);
+
+  const curatedTiles: Tile[] = curated.map((c) => ({
+    id: c.id,
+    source: "curated",
+    caption: c.caption ?? "",
+    width: c.imageWidth ?? 1200,
+    height: c.imageHeight ?? 1500,
+  }));
+
+  const reviewTiles: Tile[] = reviews.map((r) => ({
+    id: r.id,
+    source: "review",
+    caption: captionFromReview(r.coupleNames, r.weddingDate),
+    width: r.imageWidth ?? 1200,
+    height: r.imageHeight ?? 1500,
+  }));
+
+  return [...curatedTiles, ...reviewTiles];
 }
