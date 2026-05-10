@@ -342,5 +342,3 @@ export async function submitReview(_prev: ReviewState, formData: FormData): Prom
     message: imageError, // Use this slot to surface non-fatal image issues on success screen.
   };
 }
-
-export const REVIEW_SERVICE_TAGS = SERVICE_TAGS;
