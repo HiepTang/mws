@@ -15,16 +15,29 @@ const ContactSchema = z.object({
   eventDate: z.string().trim().max(120).optional().or(z.literal("")),
   guests: z.string().trim().max(40).optional().or(z.literal("")),
   services: z.array(z.string()).max(20).optional().default([]),
-  message: z.string().trim().min(1, "Please tell us something about your day").max(5000),
+  message: z.string().trim().max(5000).optional().or(z.literal("")),
   language: z.enum(["en", "vi"]).default("en"),
   // Cloudflare Turnstile token. Empty in dev when TURNSTILE_SECRET_KEY isn't set.
   turnstileToken: z.string().optional().default(""),
 });
 
+export type ContactValues = {
+  name: string;
+  partner: string;
+  email: string;
+  phone: string;
+  eventDate: string;
+  guests: string;
+  services: string[];
+  message: string;
+};
+
 export type ContactState = {
   status: "idle" | "success" | "error";
   message?: string;
   errors?: Partial<Record<keyof z.infer<typeof ContactSchema>, string>>;
+  values?: ContactValues;
+  attempt?: number;
 };
 
 // ─── Turnstile verification ───────────────────────────────────────────
@@ -144,6 +157,21 @@ export async function submitContact(
     turnstileToken: String(formData.get("cf-turnstile-response") ?? ""),
   };
 
+  // Captured so we can re-populate the form if validation or downstream
+  // submission fails — React 19 auto-resets the form after a server action,
+  // so we feed these back as defaultValue + a bumped `attempt` key.
+  const submittedValues: ContactValues = {
+    name: raw.name,
+    partner: raw.partner,
+    email: raw.email,
+    phone: raw.phone,
+    eventDate: raw.eventDate,
+    guests: raw.guests,
+    services: raw.services,
+    message: raw.message,
+  };
+  const nextAttempt = (_prev.attempt ?? 0) + 1;
+
   const parsed = ContactSchema.safeParse(raw);
   if (!parsed.success) {
     const errors: ContactState["errors"] = {};
@@ -155,6 +183,8 @@ export async function submitContact(
       status: "error",
       message: "Please fix the highlighted fields.",
       errors,
+      values: submittedValues,
+      attempt: nextAttempt,
     };
   }
 
@@ -170,6 +200,8 @@ export async function submitContact(
     return {
       status: "error",
       message: "Spam check failed. Please refresh and try again.",
+      values: submittedValues,
+      attempt: nextAttempt,
     };
   }
 
@@ -202,6 +234,8 @@ export async function submitContact(
     return {
       status: "error",
       message: "Something went wrong saving your message. Please try again, or email hello@mississaugaweddsols.com directly.",
+      values: submittedValues,
+      attempt: nextAttempt,
     };
   }
 

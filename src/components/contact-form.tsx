@@ -37,6 +37,12 @@ export function ContactForm() {
   }
 
   const fieldError = (key: string) => state.errors?.[key as keyof typeof state.errors];
+  const v = state.values;
+  // Bumped on every server-action reply. Used as a remount key on each input
+  // so React picks up the new defaultValue after React 19's automatic form
+  // reset — without this, validation failures wipe everything the user typed.
+  const k = state.attempt ?? 0;
+  const services = v?.services ?? [];
 
   return (
     <form className="form-card" action={formAction} noValidate>
@@ -75,14 +81,29 @@ export function ContactForm() {
           <label htmlFor="name">
             <T en="Your name" vi="Họ tên" />
           </label>
-          <input id="name" name="name" type="text" placeholder="Linh Nguyen" required />
+          <input
+            key={`name-${k}`}
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Linh Nguyen"
+            defaultValue={v?.name ?? ""}
+            required
+          />
           {fieldError("name") && <FieldError text={fieldError("name")!} />}
         </div>
         <div className="field">
           <label htmlFor="partner">
             <T en="Partner's name" vi="Tên người yêu" />
           </label>
-          <input id="partner" name="partner" type="text" placeholder="Thomas Reilly" />
+          <input
+            key={`partner-${k}`}
+            id="partner"
+            name="partner"
+            type="text"
+            placeholder="Thomas Reilly"
+            defaultValue={v?.partner ?? ""}
+          />
         </div>
       </div>
 
@@ -91,14 +112,29 @@ export function ContactForm() {
           <label htmlFor="email">
             <T en="Email" vi="Email" />
           </label>
-          <input id="email" name="email" type="email" placeholder="hello@example.com" required />
+          <input
+            key={`email-${k}`}
+            id="email"
+            name="email"
+            type="email"
+            placeholder="hello@example.com"
+            defaultValue={v?.email ?? ""}
+            required
+          />
           {fieldError("email") && <FieldError text={fieldError("email")!} />}
         </div>
         <div className="field">
           <label htmlFor="phone">
             <T en="Phone" vi="Điện thoại" />
           </label>
-          <input id="phone" name="phone" type="tel" placeholder="(905) 555-0123" />
+          <input
+            key={`phone-${k}`}
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="(905) 555-0123"
+            defaultValue={v?.phone ?? ""}
+          />
         </div>
       </div>
 
@@ -107,13 +143,20 @@ export function ContactForm() {
           <label htmlFor="event-date">
             <T en="Wedding date (or season)" vi="Ngày cưới (hoặc mùa)" />
           </label>
-          <input id="event-date" name="event-date" type="text" placeholder="June 2026, or 'sometime next fall'" />
+          <input
+            key={`event-date-${k}`}
+            id="event-date"
+            name="event-date"
+            type="text"
+            placeholder="June 2026, or 'sometime next fall'"
+            defaultValue={v?.eventDate ?? ""}
+          />
         </div>
         <div className="field">
           <label htmlFor="guests">
             <T en="Estimated guests" vi="Số khách dự kiến" />
           </label>
-          <select id="guests" name="guests" defaultValue="">
+          <select key={`guests-${k}`} id="guests" name="guests" defaultValue={v?.guests ?? ""}>
             <option value="">—</option>
             <option>Under 50</option>
             <option>50 – 120</option>
@@ -132,7 +175,13 @@ export function ContactForm() {
           <div className="check-row">
             {SERVICE_OPTIONS.map((s, i) => (
               <label key={i}>
-                <input type="checkbox" name="services" value={s.en} />
+                <input
+                  key={`svc-${i}-${k}`}
+                  type="checkbox"
+                  name="services"
+                  value={s.en}
+                  defaultChecked={services.includes(s.en)}
+                />
                 <span className="swatch" aria-hidden="true" />
                 <span className="lab">
                   <T en={s.en} vi={s.vi} />
@@ -146,15 +195,15 @@ export function ContactForm() {
       <div className="form-row single">
         <div className="field">
           <label htmlFor="message">
-            <T en="Tell us about your day" vi="Kể về ngày của bạn" />
+            <T en="Tell us about your day (optional)" vi="Kể về ngày của bạn (không bắt buộc)" />
           </label>
           <textarea
+            key={`message-${k}`}
             id="message"
             name="message"
             placeholder="What rituals matter most to you? Anything you're nervous about? We read every note."
-            required
+            defaultValue={v?.message ?? ""}
           />
-          {fieldError("message") && <FieldError text={fieldError("message")!} />}
         </div>
       </div>
 
