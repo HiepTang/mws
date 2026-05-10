@@ -49,9 +49,13 @@ export const contacts = pgTable("contacts", {
   name: text("name").notNull(),
   email: text("email").notNull(),
   phone: text("phone"),
-  eventDate: date("event_date"),
+  // Free-text on the form ("June 2026", "sometime next fall"), so this is
+  // text — not a strict date — to accept whatever the couple types.
+  eventDate: text("event_date"),
   eventType: text("event_type"),
-  message: text("message").notNull(),
+  // Optional in the form; partner/services info is also stitched in here,
+  // so the column can end up empty if the couple skips everything.
+  message: text("message"),
   language: text("language").notNull(),
 
   status: text("status").notNull().default("new"),

@@ -76,7 +76,7 @@ export function Footer() {
           <ul>
             <li>Mississauga, ON</li>
             <li>(905) 000-0000</li>
-            <li>hello@mississaugaweddsols.com</li>
+            <li>juliane.cao@rogers.com</li>
             <li style={{ marginTop: 8 }}>
               <Link href="/contact" style={{ color: "var(--gold-soft)" }}>
                 <T en="Book a consultation →" vi="Đặt buổi tư vấn →" />

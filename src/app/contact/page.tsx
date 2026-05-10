@@ -91,8 +91,8 @@ export default function ContactPage() {
                   <T en="By email" vi="Qua email" />
                 </h3>
                 <div className="lines">
-                  <a href="mailto:hello@mississaugaweddsols.com">
-                    hello@mississaugaweddsols.com
+                  <a href="mailto:juliane.cao@rogers.com">
+                    juliane.cao@rogers.com
                   </a>
                 </div>
               </div>

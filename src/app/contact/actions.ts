@@ -205,6 +205,14 @@ export async function submitContact(
     };
   }
 
+  const stitchedMessage = [
+    data.partner ? `Partner: ${data.partner}` : null,
+    data.services.length ? `Interested in: ${data.services.join(", ")}` : null,
+    data.message ? data.message : null,
+  ]
+    .filter((v) => v !== null)
+    .join("\n\n");
+
   let contactId: string;
   try {
     const [row] = await db
@@ -215,14 +223,7 @@ export async function submitContact(
         phone: data.phone || null,
         eventDate: data.eventDate || null,
         eventType: data.guests || null,
-        message: [
-          data.partner ? `Partner: ${data.partner}` : null,
-          data.services.length ? `Interested in: ${data.services.join(", ")}` : null,
-          "",
-          data.message,
-        ]
-          .filter((v) => v !== null)
-          .join("\n"),
+        message: stitchedMessage || null,
         language: data.language,
         ipAddress: ip,
         userAgent,
@@ -233,7 +234,7 @@ export async function submitContact(
     console.error("[contact] DB insert failed:", err);
     return {
       status: "error",
-      message: "Something went wrong saving your message. Please try again, or email hello@mississaugaweddsols.com directly.",
+      message: "Something went wrong saving your message. Please try again, or email juliane.cao@rogers.com directly.",
       values: submittedValues,
       attempt: nextAttempt,
     };
