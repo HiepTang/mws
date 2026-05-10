@@ -207,7 +207,9 @@ export function ContactForm() {
         </div>
       </div>
 
-      <Turnstile />
+      {/* Remount on every action reply so Cloudflare issues a fresh,
+          unconsumed token — Turnstile tokens are single-use. */}
+      <Turnstile key={`turnstile-${k}`} />
 
       <button
         type="submit"
