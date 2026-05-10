@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { T } from "./lang";
+import { useActionState } from "react";
+import { submitContact, type ContactState } from "@/app/contact/actions";
+import { useLang, T } from "./lang";
+import { Turnstile } from "./turnstile";
 
 const SERVICE_OPTIONS = [
   { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
@@ -12,12 +14,13 @@ const SERVICE_OPTIONS = [
   { en: "Full package", vi: "Trọn gói" },
 ];
 
-export function ContactForm() {
-  // Phase 4: form is wired to a stub handler. Phase 5 replaces this with a
-  // real server action that POSTs to the contacts table + emails Juliane.
-  const [submitted, setSubmitted] = useState(false);
+const initialState: ContactState = { status: "idle" };
 
-  if (submitted) {
+export function ContactForm() {
+  const { lang } = useLang();
+  const [state, formAction, pending] = useActionState(submitContact, initialState);
+
+  if (state.status === "success") {
     return (
       <div className="form-card" role="status" aria-live="polite">
         <h3 className="serif" style={{ fontSize: 28, marginBottom: 12 }}>
@@ -33,20 +36,47 @@ export function ContactForm() {
     );
   }
 
+  const fieldError = (key: string) => state.errors?.[key as keyof typeof state.errors];
+
   return (
-    <form
-      className="form-card"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
-    >
+    <form className="form-card" action={formAction} noValidate>
+      {/* Honeypot — hidden from real users, visible only to dumb bots. */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
+      {/* Carries the active language into the server action. */}
+      <input type="hidden" name="language" value={lang} />
+
+      {state.status === "error" && state.message && (
+        <div
+          role="alert"
+          style={{
+            background: "#fbecec",
+            border: "1px solid #e0b4b4",
+            color: "#7a2828",
+            padding: "12px 16px",
+            borderRadius: 6,
+            marginBottom: 16,
+            lineHeight: 1.5,
+            fontSize: 14,
+          }}
+        >
+          {state.message}
+        </div>
+      )}
+
       <div className="form-row">
         <div className="field">
           <label htmlFor="name">
             <T en="Your name" vi="Họ tên" />
           </label>
           <input id="name" name="name" type="text" placeholder="Linh Nguyen" required />
+          {fieldError("name") && <FieldError text={fieldError("name")!} />}
         </div>
         <div className="field">
           <label htmlFor="partner">
@@ -62,6 +92,7 @@ export function ContactForm() {
             <T en="Email" vi="Email" />
           </label>
           <input id="email" name="email" type="email" placeholder="hello@example.com" required />
+          {fieldError("email") && <FieldError text={fieldError("email")!} />}
         </div>
         <div className="field">
           <label htmlFor="phone">
@@ -121,17 +152,28 @@ export function ContactForm() {
             id="message"
             name="message"
             placeholder="What rituals matter most to you? Anything you're nervous about? We read every note."
+            required
           />
+          {fieldError("message") && <FieldError text={fieldError("message")!} />}
         </div>
       </div>
+
+      <Turnstile />
 
       <button
         type="submit"
         className="btn btn-primary"
         style={{ width: "100%", justifyContent: "center", marginTop: 12 }}
+        disabled={pending}
       >
-        <T en="Send to Juliane" vi="Gửi đến Juliane" />
-        <span className="arrow">→</span>
+        {pending ? (
+          <T en="Sending…" vi="Đang gửi…" />
+        ) : (
+          <>
+            <T en="Send to Juliane" vi="Gửi đến Juliane" />
+            <span className="arrow">→</span>
+          </>
+        )}
       </button>
 
       <p
@@ -149,5 +191,21 @@ export function ContactForm() {
         />
       </p>
     </form>
+  );
+}
+
+function FieldError({ text }: { text: string }) {
+  return (
+    <span
+      role="alert"
+      style={{
+        color: "var(--red)",
+        fontSize: 12,
+        marginTop: 4,
+        fontFamily: "var(--sans)",
+      }}
+    >
+      {text}
+    </span>
   );
 }
