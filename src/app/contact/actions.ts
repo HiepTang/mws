@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { Resend } from "resend";
 import { z } from "zod";
 import { db, schema } from "@/db";
+import { parseOwnerRecipients } from "@/lib/email";
 
 // ─── Validation ───────────────────────────────────────────────────────
 
@@ -84,7 +85,7 @@ async function sendOwnerNotification(
 ): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM;
-  const to = process.env.EMAIL_TO_OWNER;
+  const to = parseOwnerRecipients(process.env.EMAIL_TO_OWNER);
 
   if (!apiKey || !from || !to) {
     console.warn(

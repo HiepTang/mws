@@ -7,6 +7,7 @@ import { Resend } from "resend";
 import sharp from "sharp";
 import { z } from "zod";
 import { db, schema } from "@/db";
+import { parseOwnerRecipients } from "@/lib/email";
 import { getS3Client, S3_BUCKET } from "@/lib/s3";
 
 // ─── Validation ───────────────────────────────────────────────────────
@@ -148,7 +149,7 @@ class ImageError extends Error {}
 async function sendOwnerNotification(input: ReviewInput, reviewId: string, hasImage: boolean) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM;
-  const to = process.env.EMAIL_TO_OWNER;
+  const to = parseOwnerRecipients(process.env.EMAIL_TO_OWNER);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mws.kho-ai.com";
 
   if (!apiKey || !from || !to) {
