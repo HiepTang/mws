@@ -89,16 +89,21 @@ export default async function AdminPage({
             )}
           </p>
         </div>
-        <form
-          action={async () => {
-            "use server";
-            await signOut({ redirectTo: "/" });
-          }}
-        >
-          <button type="submit" className="btn btn-ghost ac-btn-sm">
-            Sign out
-          </button>
-        </form>
+        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+          <Link href="/admin/gallery" className="btn btn-ghost ac-btn-sm">
+            Manage gallery →
+          </Link>
+          <form
+            action={async () => {
+              "use server";
+              await signOut({ redirectTo: "/" });
+            }}
+          >
+            <button type="submit" className="btn btn-ghost ac-btn-sm">
+              Sign out
+            </button>
+          </form>
+        </div>
       </header>
 
       <div className="admin-grid">
@@ -187,6 +192,7 @@ export default async function AdminPage({
                     id={r.id}
                     status={r.status}
                     consentGallery={r.consentGallery}
+                    galleryCategory={r.galleryCategory}
                     hasImage={!!r.imageKey}
                     consentShare={r.consentShare}
                   />

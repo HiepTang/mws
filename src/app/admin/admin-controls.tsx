@@ -8,7 +8,9 @@ import {
   rejectReview,
   reopenContact,
   setGalleryFlag,
+  setReviewGalleryCategory,
 } from "./actions";
+import { GALLERY_CATEGORIES } from "@/lib/gallery-categories";
 
 // ─── Reviews ──────────────────────────────────────────────────────────
 
@@ -16,16 +18,19 @@ export function ReviewControls({
   id,
   status,
   consentGallery,
+  galleryCategory,
   hasImage,
   consentShare,
 }: {
   id: string;
   status: string;
   consentGallery: boolean;
+  galleryCategory: string;
   hasImage: boolean;
   consentShare: boolean;
 }) {
   const [pending, startTransition] = useTransition();
+  const showGalleryControls = hasImage && status === "approved" && consentShare;
 
   return (
     <div className="ac-row">
@@ -52,18 +57,37 @@ export function ReviewControls({
           Reject
         </button>
       )}
-      {hasImage && status === "approved" && consentShare && (
-        <label className="ac-toggle">
-          <input
-            type="checkbox"
-            checked={consentGallery}
-            disabled={pending}
+      {showGalleryControls && (
+        <>
+          <label className="ac-toggle">
+            <input
+              type="checkbox"
+              checked={consentGallery}
+              disabled={pending}
+              onChange={(e) =>
+                startTransition(() => setGalleryFlag(id, e.target.checked))
+              }
+            />
+            <span>Show in gallery</span>
+          </label>
+          <select
+            value={galleryCategory}
+            disabled={pending || !consentGallery}
             onChange={(e) =>
-              startTransition(() => setGalleryFlag(id, e.target.checked))
+              startTransition(() => setReviewGalleryCategory(id, e.target.value))
             }
-          />
-          <span>Show in gallery</span>
-        </label>
+            className="ag-category-select"
+            style={{ width: "auto", minWidth: 140 }}
+            aria-label="Gallery category"
+            title={consentGallery ? "Gallery category" : "Toggle 'Show in gallery' first"}
+          >
+            {GALLERY_CATEGORIES.map((c) => (
+              <option key={c.value} value={c.value}>
+                {c.en}
+              </option>
+            ))}
+          </select>
+        </>
       )}
     </div>
   );

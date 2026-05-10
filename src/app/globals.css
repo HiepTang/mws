@@ -439,6 +439,30 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
 }
 .ac-toggle input { accent-color: var(--red); }
 
+/* === /admin/gallery === */
+.ag-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.ag-card { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.ag-card.ag-hidden { opacity: 0.55; }
+.ag-thumb { position: relative; aspect-ratio: 4/5; border-radius: 2px; overflow: hidden; background: var(--cream); }
+.ag-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ag-hidden-badge { position: absolute; top: 8px; left: 8px; background: var(--ink); color: var(--bg); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+.ag-controls { display: flex; flex-direction: column; gap: 8px; }
+.ag-caption-input, .ag-category-select {
+  width: 100%; padding: 6px 8px; font-size: 13px; border: 1px solid var(--line);
+  border-radius: 3px; background: var(--bg); color: var(--ink); font-family: var(--sans);
+}
+.ag-caption-input:focus, .ag-category-select:focus { outline: none; border-color: var(--red); }
+.ag-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.ag-icon-btn {
+  padding: 5px 10px; font-size: 11px; letter-spacing: 0.04em;
+  border: 1px solid var(--line); border-radius: 3px; background: var(--bg);
+  color: var(--ink-soft); transition: all .15s;
+}
+.ag-icon-btn:hover:not(:disabled) { border-color: var(--gold); color: var(--ink); }
+.ag-icon-btn.ag-danger:hover:not(:disabled) { border-color: var(--red); color: var(--red); }
+.ag-icon-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.ag-meta { font-size: 11px; color: var(--ink-muted); font-family: var(--mono); letter-spacing: 0.04em; }
+
 /* === /reviews submission form === */
 .review-form-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
 .rf-aside { position: sticky; top: 100px; }

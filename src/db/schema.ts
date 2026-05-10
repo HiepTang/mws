@@ -36,6 +36,11 @@ export const reviews = pgTable("reviews", {
   imageHeight: integer("image_height"),
   imageSize: integer("image_size"),
 
+  // Admin-set bucket the photo lands in on the public /gallery. Defaults to
+  // "family" if admin doesn't pick one. Only matters when consent_gallery is
+  // true and status='approved'.
+  galleryCategory: text("gallery_category").notNull().default("family"),
+
   status: text("status").notNull().default("pending"),
   approvedAt: timestamp("approved_at", { withTimezone: true }),
   approvedBy: text("approved_by"),
@@ -64,6 +69,32 @@ export const contacts = pgTable("contacts", {
 
   ipAddress: text("ip_address"),
   userAgent: text("user_agent"),
+});
+
+// Owner-curated gallery photos. Sits alongside review-submitted photos —
+// the public /gallery merges both sources, filtered by category tab.
+export const galleryImages = pgTable("gallery_images", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+
+  // MinIO object key, e.g. "gallery/{id}/original.webp".
+  imageKey: text("image_key").notNull(),
+  imageWidth: integer("image_width"),
+  imageHeight: integer("image_height"),
+  imageSize: integer("image_size"),
+
+  category: text("category").notNull(),  // tea_ceremony | ao_dai | reception | family | details
+  caption: text("caption"),
+
+  // Smaller numbers render first within a category. Admin re-orders via
+  // up/down arrows in /admin/gallery.
+  sortOrder: integer("sort_order").notNull().default(0),
+
+  // Soft-delete: hidden images stay in S3 but stop rendering publicly. Admin
+  // can unhide later. `deleteGalleryImage` does the hard delete + S3 cleanup.
+  hidden: boolean("hidden").notNull().default(false),
+
+  uploadedBy: text("uploaded_by"),  // admin email
 });
 
 // ─── Auth.js v5 tables ────────────────────────────────────────────────
