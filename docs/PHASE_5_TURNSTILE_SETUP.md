@@ -84,7 +84,7 @@ git push origin main
 
 The GitHub Actions workflow will SSH in, rebuild the image with the new env vars baked into `next build` (the `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is a build-time constant — it gets inlined into the client bundle), and restart the container.
 
-> **One subtle thing:** `NEXT_PUBLIC_*` env vars are read at *build time* by Next.js, not at runtime. The deploy workflow (`docker compose up -d --build mws-web`) passes env from `.env` automatically because of the `env_file: - .env` in `docker-compose.prod.yml`, but the build context inside the container reads them via the standard `process.env` lookup during `pnpm build`. As long as the `.env` is in place on the VPS before the workflow runs, the site key gets baked into the bundle correctly.
+> **One subtle thing:** `NEXT_PUBLIC_*` env vars are inlined into the client bundle by `next build`, not read at runtime. They have to be in the **build environment**, which is separate from the runtime `env_file`. The Dockerfile declares each one as an `ARG`, the compose file passes them via `build.args` with `${VAR}` substitution, and Compose substitutes from `~/apps/mws/.env` automatically. As long as `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is in `.env` *before* `docker compose build` runs, it gets baked into the bundle. To add another `NEXT_PUBLIC_*` later, you'll edit three places: `.env`, `Dockerfile` builder stage `ARG`/`ENV`, and `docker-compose.prod.yml` `build.args`.
 
 Watch the workflow:
 ```bash

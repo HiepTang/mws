@@ -26,6 +26,18 @@ RUN corepack enable
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Build-time public env. `NEXT_PUBLIC_*` values are inlined into the client
+# bundle by `next build`, so they must be present in the build environment —
+# not just at runtime. Compose passes them via build.args (see
+# docker-compose.prod.yml). Defaults to empty so the build still succeeds when
+# the var is absent (e.g. local dev), and the Turnstile component renders its
+# "spam check disabled" placeholder instead.
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY=""
+ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=$NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+ARG NEXT_PUBLIC_SITE_URL="https://mws.kho-ai.com"
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm build
 

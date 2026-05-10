@@ -16,9 +16,13 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # GIT_COMMIT is set by the GitHub Actions deploy workflow before build.
-        # Surfaces in /api/health so we can confirm which commit is live.
         NODE_VERSION: 22-alpine
+        # NEXT_PUBLIC_* values are inlined into the client bundle at build
+        # time, so we pass them explicitly. Compose substitutes from this
+        # project's .env file (and the shell environment, for things like
+        # GIT_COMMIT that the deploy workflow exports).
+        NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY:-}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mws.kho-ai.com}
     image: mws-web:latest
     container_name: mws-web
     restart: unless-stopped
