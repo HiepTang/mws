@@ -1,41 +1,41 @@
+import { and, desc, eq } from "drizzle-orm";
 import Link from "next/link";
+import { db, schema } from "@/db";
 import { T } from "@/components/lang";
-
-const REVIEWS_PLACEHOLDER = [
-  {
-    avatar: "L",
-    quote: {
-      en: "“Juliane held our hands through every part of the ceremony. My fiancé isn't Vietnamese and she made him feel like family from day one.”",
-      vi: "“Cô Juliane dìu dắt chúng tôi qua từng nghi lễ. Chồng mình không phải người Việt nhưng cô làm anh ấy cảm thấy như người trong nhà.”",
-    },
-    name: "Linh & Thomas",
-    detail: "Married Aug 2025 · Mississauga",
-  },
-  {
-    avatar: "P",
-    quote: {
-      en: "“The áo dài fit perfectly and the tea ceremony was the most meaningful 30 minutes of our lives. Worth every cent.”",
-      vi: "“Áo dài vừa vặn và lễ trà là 30 phút ý nghĩa nhất đời chúng tôi. Đáng từng đồng.”",
-    },
-    name: "Phương & Daniel",
-    detail: "Married May 2025 · Toronto",
-  },
-  {
-    avatar: "K",
-    quote: {
-      en: "“The MC switched between Vietnamese, English, and Mandarin without missing a beat. My grandparents cried — happy tears.”",
-      vi: "“MC chuyển ngôn ngữ rất khéo. Ông bà mình đã khóc — vì hạnh phúc.”",
-    },
-    name: "Kim & Andrew",
-    detail: "Married Oct 2024 · Brampton",
-  },
-];
+import { ReviewForm } from "@/components/review-form";
 
 export const metadata = {
   title: "Reviews",
 };
 
-export default function ReviewsPage() {
+// Re-fetch on each request — approved reviews flip "live" the moment Juliane
+// approves them in /admin. This page is small and the query cheap.
+export const dynamic = "force-dynamic";
+
+function initial(name: string): string {
+  const first = name.trim().charAt(0).toUpperCase();
+  return first || "★";
+}
+
+function relativeWedding(weddingDate: string | null, city: string | null): string {
+  const parts: string[] = [];
+  if (weddingDate) parts.push(`Married ${weddingDate}`);
+  if (city) parts.push(city);
+  return parts.join(" · ");
+}
+
+export default async function ReviewsPage() {
+  // Pull published reviews. Anything pending or rejected is hidden from
+  // public view by definition.
+  let approved: Awaited<ReturnType<typeof fetchApproved>> = [];
+  try {
+    approved = await fetchApproved();
+  } catch (err) {
+    console.error("[reviews page] DB read failed:", err);
+    // Render the page anyway with an empty list — better than 500 if the
+    // DB is briefly unreachable.
+  }
+
   return (
     <>
       <section className="page-hero">
@@ -66,40 +66,125 @@ export default function ReviewsPage() {
 
       <section style={{ paddingTop: 56 }}>
         <div className="shell">
-          <div className="reviews-grid">
-            {REVIEWS_PLACEHOLDER.map((r, i) => (
-              <article key={i} className="review">
-                <span className="stars">★★★★★</span>
-                <p className="body">
-                  <T en={r.quote.en} vi={r.quote.vi} />
-                </p>
-                <div className="who">
-                  <div className="avatar">
-                    <em>{r.avatar}</em>
+          {approved.length === 0 ? (
+            <p
+              style={{
+                fontFamily: "var(--serif)",
+                fontStyle: "italic",
+                fontSize: 22,
+                color: "var(--ink-muted)",
+                textAlign: "center",
+                maxWidth: "40ch",
+                margin: "0 auto",
+              }}
+            >
+              <T
+                en="The first published reviews will appear here once couples share — and Juliane reads — their stories. Yours could be the first."
+                vi="Những đánh giá đầu tiên sẽ xuất hiện ở đây khi các cặp đôi gửi lời và được Juliane duyệt. Câu chuyện của bạn có thể là người đầu tiên."
+              />
+            </p>
+          ) : (
+            <div className="reviews-grid">
+              {approved.map((r) => (
+                <article key={r.id} className="review">
+                  <span className="stars" aria-label={`${r.rating} out of 5 stars`}>
+                    {"★".repeat(r.rating)}
+                    <span style={{ color: "var(--line)" }}>
+                      {"★".repeat(5 - r.rating)}
+                    </span>
+                  </span>
+                  <p className="body">{r.body}</p>
+                  <div className="who">
+                    <div className="avatar">
+                      <em>{initial(r.coupleNames)}</em>
+                    </div>
+                    <div className="who-text">
+                      <div className="n">{r.coupleNames}</div>
+                      <div className="d">{relativeWedding(r.weddingDate, r.city) || " "}</div>
+                    </div>
                   </div>
-                  <div className="who-text">
-                    <div className="n">{r.name}</div>
-                    <div className="d">{r.detail}</div>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section
+        id="share-your-story"
+        style={{ background: "var(--bg-warm)", borderBlock: "1px solid var(--line)" }}
+      >
+        <div className="shell">
+          <div className="review-form-grid">
+            <aside className="rf-aside">
+              <span className="eyebrow eyebrow-gold">
+                <span className="dash" />
+                <T en="Share your story" vi="Chia sẻ câu chuyện" />
+              </span>
+              <h2
+                className="serif"
+                style={{ marginTop: 14, fontSize: "clamp(36px, 4vw, 56px)" }}
+              >
+                <T en="Tell us about" vi="Hãy kể về" />
+                <br />
+                <span className="italic" style={{ color: "var(--red)" }}>
+                  <T en="your day with us." vi="ngày của bạn cùng chúng tôi." />
+                </span>
+              </h2>
+              <p style={{ marginTop: 18 }}>
+                <T
+                  en="If we held a piece of your wedding — the áo dài, the trays, the MC's voice — we'd be honored to hear how it landed. Future couples read every word."
+                  vi="Nếu chúng tôi đã góp một phần vào ngày cưới của bạn — áo dài, mâm lễ, lời MC — chúng tôi sẽ rất vinh dự được nghe cảm nhận. Các cặp đôi tương lai sẽ đọc từng lời."
+                />
+              </p>
+              <div className="rf-bullets">
+                <div className="rf-bullet">
+                  <span className="rf-num">i</span>
+                  <div>
+                    <h4>
+                      <T en="It takes 2 minutes" vi="Chỉ mất 2 phút" />
+                    </h4>
+                    <p>
+                      <T
+                        en="A few fields, your rating, and the parts that mattered most."
+                        vi="Vài ô, đánh giá của bạn, và những phần quan trọng nhất."
+                      />
+                    </p>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
+                <div className="rf-bullet">
+                  <span className="rf-num">ii</span>
+                  <div>
+                    <h4>
+                      <T en="Photos welcome" vi="Hoan nghênh ảnh" />
+                    </h4>
+                    <p>
+                      <T
+                        en="Add a wedding photo and we'll feature it in the gallery (with credit)."
+                        vi="Thêm ảnh cưới và chúng tôi sẽ đăng trong thư viện (kèm tên)."
+                      />
+                    </p>
+                  </div>
+                </div>
+                <div className="rf-bullet">
+                  <span className="rf-num">iii</span>
+                  <div>
+                    <h4>
+                      <T en="Reviewed before publish" vi="Duyệt trước khi đăng" />
+                    </h4>
+                    <p>
+                      <T
+                        en="Juliane reads each one personally before it goes live."
+                        vi="Juliane đọc từng đánh giá trước khi đăng."
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </aside>
 
-          <p
-            style={{
-              fontFamily: "var(--mono)",
-              fontSize: 11,
-              color: "var(--ink-muted)",
-              marginTop: 40,
-              maxWidth: "70ch",
-            }}
-          >
-            <T
-              en="* The submission form for new reviews lands in Phase 6. For now, please share your story with us by email or phone — we'll add it once the form is live."
-              vi="* Mẫu gửi đánh giá mới sẽ có trong Phase 6. Tạm thời, hãy chia sẻ câu chuyện qua email hoặc điện thoại — chúng tôi sẽ đăng khi mẫu hoàn tất."
-            />
-          </p>
+            <ReviewForm />
+          </div>
         </div>
       </section>
 
@@ -109,21 +194,24 @@ export default function ReviewsPage() {
             <div>
               <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>
                 <span className="dash" />
-                <T en="Tell your story" vi="Kể câu chuyện của bạn" />
+                <T en="Your day, next" vi="Ngày của bạn, kế tiếp" />
               </span>
               <h2 className="serif" style={{ marginTop: 14 }}>
-                <T en="We'd love to hear from you." vi="Chúng tôi muốn lắng nghe bạn." />
+                <T en="Be" vi="Hãy là" />{" "}
+                <span className="gold">
+                  <T en="our next story." vi="câu chuyện kế tiếp." />
+                </span>
               </h2>
               <p>
                 <T
-                  en="If we helped with your wedding, drop us a line. Two minutes of your time helps the next family find us."
-                  vi="Nếu chúng tôi đã giúp ngày cưới của bạn, hãy gửi vài dòng. Hai phút của bạn giúp gia đình tiếp theo tìm thấy chúng tôi."
+                  en="If we haven't met yet, we'd love to. Reach out for a 30-minute consultation — no pressure, just a conversation about your day."
+                  vi="Nếu chúng ta chưa gặp, chúng tôi rất mong được gặp. Đặt buổi tư vấn 30 phút — không áp lực, chỉ trò chuyện về ngày của bạn."
                 />
               </p>
             </div>
             <div className="actions">
               <Link href="/contact" className="btn btn-gold">
-                <T en="Send a note" vi="Gửi lời nhắn" />
+                <T en="Book a consultation" vi="Đặt buổi tư vấn" />
                 <span className="arrow">→</span>
               </Link>
             </div>
@@ -132,4 +220,27 @@ export default function ReviewsPage() {
       </section>
     </>
   );
+}
+
+async function fetchApproved() {
+  return db
+    .select({
+      id: schema.reviews.id,
+      coupleNames: schema.reviews.coupleNames,
+      weddingDate: schema.reviews.weddingDate,
+      city: schema.reviews.city,
+      rating: schema.reviews.rating,
+      body: schema.reviews.body,
+      imageKey: schema.reviews.imageKey,
+      consentGallery: schema.reviews.consentGallery,
+    })
+    .from(schema.reviews)
+    .where(
+      and(
+        eq(schema.reviews.status, "approved"),
+        eq(schema.reviews.consentShare, true),
+      ),
+    )
+    .orderBy(desc(schema.reviews.createdAt))
+    .limit(48);
 }
