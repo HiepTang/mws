@@ -295,9 +295,11 @@ mws.kho-ai.com {
     }
     header -Server
 
-    # Allow review-image uploads up to 10 MB
+    # Allow review-image uploads up to 12 MB. Must match (or exceed) Next.js's
+    # `experimental.serverActions.bodySizeLimit` in next.config.ts; otherwise
+    # Caddy rejects with 413 before the request reaches the app.
     request_body {
-        max_size 10MB
+        max_size 12MB
     }
 }
 ```

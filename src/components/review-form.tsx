@@ -29,6 +29,7 @@ const RATING_LABELS: Record<number, { en: string; vi: string }> = {
 const initialState: ReviewState = { status: "idle" };
 
 const MAX_BODY_CHARS = 5000;
+const MAX_IMAGE_BYTES = 10 * 1024 * 1024; // keep in sync with server action
 
 export function ReviewForm() {
   const { lang } = useLang();
@@ -41,7 +42,30 @@ export function ReviewForm() {
   const [tags, setTags] = useState<Set<string>>(new Set(v?.serviceTags ?? []));
   const [bodyLen, setBodyLen] = useState<number>((v?.body ?? "").length);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
+
+  function handleFileChange(file: File | null) {
+    if (!file) {
+      setFileName(null);
+      setFileError(null);
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      const mb = (file.size / 1024 / 1024).toFixed(1);
+      setFileName(file.name);
+      setFileError(
+        lang === "vi"
+          ? `Ảnh quá lớn (${mb} MB). Tối đa 10 MB. Vui lòng nén hoặc đổi ảnh khác.`
+          : `That photo is too large (${mb} MB). The limit is 10 MB — please compress or pick another.`,
+      );
+      // Clear the file from the input so it doesn't get sent on submit.
+      if (fileRef.current) fileRef.current.value = "";
+      return;
+    }
+    setFileName(file.name);
+    setFileError(null);
+  }
 
   // Resync from server-action reply (validation failure preserves values).
   useEffect(() => {
@@ -277,13 +301,13 @@ export function ReviewForm() {
           <T en="Add a wedding photo (optional)" vi="Thêm ảnh cưới (tùy chọn)" />
         </span>
       </div>
-      <label className={`rf-upload ${fileName ? "has-file" : ""}`}>
+      <label className={`rf-upload ${fileName && !fileError ? "has-file" : ""}`}>
         <input
           ref={fileRef}
           type="file"
           name="image"
           accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
-          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+          onChange={(e) => handleFileChange(e.target.files?.[0] ?? null)}
         />
         <div className="rf-upload-inner">
           <span className="rf-upload-icon" aria-hidden="true">
@@ -295,10 +319,11 @@ export function ReviewForm() {
             )}
           </span>
           <span className="rf-upload-hint">
-            <T en="JPG / PNG / WebP / HEIC · up to 10MB" vi="JPG / PNG / WebP / HEIC · tối đa 10MB" />
+            <T en="JPG / PNG / WebP / HEIC · up to 10 MB" vi="JPG / PNG / WebP / HEIC · tối đa 10 MB" />
           </span>
         </div>
       </label>
+      {fileError && <FieldError text={fileError} />}
       {fieldError("image") && <FieldError text={fieldError("image")!} />}
 
       {/* Consent */}
@@ -323,7 +348,11 @@ export function ReviewForm() {
 
       <Turnstile key={`turnstile-${k}`} />
 
-      <button type="submit" className="btn btn-primary rf-submit" disabled={pending}>
+      <button
+        type="submit"
+        className="btn btn-primary rf-submit"
+        disabled={pending || !!fileError}
+      >
         {pending ? (
           <T en="Sending…" vi="Đang gửi…" />
         ) : (
