@@ -8,8 +8,7 @@ import { Turnstile } from "./turnstile";
 const SERVICE_OPTIONS = [
   { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
   { en: "Áo dài & Tea", vi: "Áo dài & lễ trà" },
-  { en: "Trilingual MC", vi: "MC ba ngôn ngữ" },
-  { en: "Catering & Cake", vi: "Tiệc & bánh" },
+  { en: "Bilingual MC", vi: "MC song ngữ" },
   { en: "Flowers & Decor", vi: "Hoa & trang trí" },
   { en: "Full package", vi: "Trọn gói" },
 ];

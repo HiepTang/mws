@@ -14,22 +14,16 @@ type Product = {
 
 const PRODUCTS: Product[] = [
   {
-    imgClass: "ph warm",
-    badge: { en: "Most rented", vi: "Thuê nhiều nhất", gold: true },
-    imgLabel: "Bride's red áo dài, lace overlay",
-    name: { en: "Bride Áo Dài — Crimson Lace", vi: "Áo dài cô dâu — Đỏ thêu ren" },
-    price: "$240",
-    viLabel: "Áo dài cô dâu",
-    meta: { en: "Rental · sizes XS–XL", vi: "Cho thuê · size XS–XL" },
-  },
-  {
     imgClass: "ph",
-    badge: { en: "New", vi: "Mới" },
+    badge: { en: "Most rented", vi: "Thuê nhiều nhất", gold: true },
     imgLabel: "Groom long dress & hat",
     name: { en: "Groom Áo Dài + Khăn Đóng", vi: "Áo dài chú rể + khăn đóng" },
     price: "$220",
     viLabel: "Áo dài & khăn đóng chú rể",
-    meta: { en: "Rental · sizes S–XXL", vi: "Cho thuê · size S–XXL" },
+    meta: {
+      en: "Rental · blue, gold, or red · sizes S–XXL",
+      vi: "Cho thuê · xanh, vàng, hoặc đỏ · size S–XXL",
+    },
   },
   {
     imgClass: "ph",

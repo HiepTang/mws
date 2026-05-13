@@ -75,8 +75,8 @@ export default function AboutPage() {
 
               <p>
                 <T
-                  en="Today, Mississauga Wedding Solutions is a one-stop home for traditional Vietnamese weddings: hair, makeup, food, cake, flowers, áo dài rentals, the wine tray, the limousine, the trilingual MC, the photographer, the hotel block. Everything you need, in one phone call."
-                  vi="Hôm nay, Mississauga Wedding Solutions là nơi trọn gói cho đám cưới Việt cổ truyền: tóc, trang điểm, thức ăn, bánh, hoa, cho thuê áo dài, mâm rượu, limousine, MC ba thứ tiếng, nhiếp ảnh, đặt khách sạn. Tất cả, trong một cuộc gọi."
+                  en="Today, Mississauga Wedding Solutions is a one-stop home for traditional Vietnamese weddings: hair, makeup, flowers, áo dài rentals, the wine tray, the limousine, the bilingual MC, the photographer, the hotel block. Everything you need, in one phone call."
+                  vi="Hôm nay, Mississauga Wedding Solutions là nơi trọn gói cho đám cưới Việt cổ truyền: tóc, trang điểm, hoa, cho thuê áo dài, mâm rượu, limousine, MC song ngữ, nhiếp ảnh, đặt khách sạn. Tất cả, trong một cuộc gọi."
                 />
               </p>
 
@@ -157,8 +157,8 @@ export default function AboutPage() {
               <span className="vi">Một cuộc gọi cho mọi việc</span>
               <p>
                 <T
-                  en="Planning a wedding shouldn't be a second job. We're the single number you call — for the áo dài, the cake, the limo, and the family who can't find the venue."
-                  vi="Lo đám cưới không nên là công việc thứ hai. Chúng tôi là số duy nhất bạn cần gọi — cho áo dài, bánh, limousine, và cả họ hàng không tìm được nhà hàng."
+                  en="Planning a wedding shouldn't be a second job. We're the single number you call — for the áo dài, the flowers, the limo, and the family who can't find the venue."
+                  vi="Lo đám cưới không nên là công việc thứ hai. Chúng tôi là số duy nhất bạn cần gọi — cho áo dài, hoa, limousine, và cả họ hàng không tìm được nhà hàng."
                 />
               </p>
             </div>

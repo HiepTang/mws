@@ -79,8 +79,8 @@ export default function ContactPage() {
                   </a>
                   <span style={{ fontSize: 13, color: "var(--ink-muted)" }}>
                     <T
-                      en="Vietnamese / English / Mandarin spoken."
-                      vi="Nói tiếng Việt / Anh / Quan Thoại."
+                      en="Vietnamese & English spoken."
+                      vi="Nói tiếng Việt & Anh."
                     />
                   </span>
                 </div>

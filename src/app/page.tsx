@@ -20,19 +20,19 @@ const SERVICE_CARDS = [
     title: { en: "Tea Ceremony Setup", vi: "Lễ trà" },
     vi: "Mâm trà & lễ vật",
     body: {
-      en: "Tray rentals, áo dài long-dress and hat for groom, lace dress and hat for bride, the wine tray.",
-      vi: "Cho thuê mâm trà, áo dài & khăn đóng cho chú rể, áo dài ren & mấn cho cô dâu, mâm rượu.",
+      en: "Tray rentals, the groom's áo dài and khăn đóng (blue, gold, or red), the wine tray — and styling support so the bride's own áo dài and groom's look come together on the day.",
+      vi: "Cho thuê mâm trà, áo dài & khăn đóng cho chú rể (xanh, vàng, đỏ), mâm rượu — và tư vấn phối đồ để áo dài cô dâu và áo dài chú rể hài hòa trong ngày cưới.",
     },
   },
   {
     img: "ph dark",
     imgLabel: "MC at reception",
     num: "03 / Voice",
-    title: { en: "Trilingual MC", vi: "MC ba ngôn ngữ" },
-    vi: "MC tiếng Việt, Anh, Hoa",
+    title: { en: "Bilingual MC", vi: "MC song ngữ" },
+    vi: "MC tiếng Việt & Anh",
     body: {
-      en: "A host who speaks to every guest in their language — Vietnamese, English, or Chinese — without losing the room.",
-      vi: "MC nói chuyện với từng khách bằng ngôn ngữ của họ — tiếng Việt, Anh, hoặc Hoa.",
+      en: "A host who knows when to slow down for an elder's toast, when to translate a joke, and when to step out of the way. Vietnamese and English, all night long.",
+      vi: "MC biết khi nào chậm lại cho lời chúc của người lớn, khi nào dịch câu đùa, khi nào lùi lại. Tiếng Việt và tiếng Anh trọn buổi tiệc.",
     },
   },
   {
@@ -92,8 +92,8 @@ const REVIEWS_PREVIEW = [
   {
     avatar: "K",
     quote: {
-      en: "“The MC switched between Vietnamese, English, and Mandarin without missing a beat. My grandparents cried — happy tears.”",
-      vi: "“MC chuyển ngôn ngữ rất khéo. Ông bà mình đã khóc — vì hạnh phúc.”",
+      en: "“The MC moved between Vietnamese and English without missing a beat — grandma understood every toast, grandpa told a joke that landed in both languages. Tears all around, the good kind.”",
+      vi: "“MC chuyển giữa tiếng Việt và tiếng Anh rất khéo — bà ngoại hiểu từng lời chúc, ông kể câu đùa hai bên đều cười. Nhiều nước mắt, nước mắt vui.”",
     },
     name: "Kim & Andrew",
     detail: "Married Oct 2024 · Brampton",
@@ -210,8 +210,8 @@ export default function HomePage() {
           </div>
           <div className="cell">
             <span className="num">IV.</span>
-            <span className="name serif">Catering & Cake</span>
-            <span className="vi">Tiệc & bánh cưới</span>
+            <span className="name serif">Flowers & Decor</span>
+            <span className="vi">Hoa & trang trí</span>
           </div>
         </div>
       </section>
@@ -227,10 +227,10 @@ export default function HomePage() {
           </div>
           <p className="pull-quote">
             <T
-              en="A Vietnamese wedding is a story told in three acts —"
-              vi="Đám cưới Việt là câu chuyện kể qua ba chương —"
+              en="A Vietnamese wedding is a story told in chapters —"
+              vi="Đám cưới Việt là câu chuyện kể qua nhiều chương —"
             />
-            <span className="red"> lễ vấn danh, lễ ăn hỏi, lễ cưới.</span>
+            <span className="red"> lễ ăn hỏi, lễ cưới.</span>
             <br />
             <T
               en="We help you tell every word of it."

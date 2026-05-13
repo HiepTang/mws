@@ -47,3 +47,4 @@ pnpm-workspace.yaml
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+docs/images/from_owner
