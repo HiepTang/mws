@@ -103,17 +103,13 @@ export default function ContactPage() {
                 </h3>
                 <div className="lines" style={{ fontSize: 14 }}>
                   <span>
-                    <strong style={{ color: "var(--ink)" }}>
-                      <T en="Mon – Fri" vi="Thứ 2 – Thứ 6" />
-                    </strong>{" "}
-                    · 10am – 7pm
-                  </span>
-                  <span>
-                    <strong style={{ color: "var(--ink)" }}>
-                      <T en="Sat – Sun" vi="Thứ 7 – Chủ nhật" />
-                    </strong>{" "}
-                    ·{" "}
                     <T en="By appointment" vi="Theo lịch hẹn" />
+                  </span>
+                  <span style={{ fontSize: 13, color: "var(--ink-muted)" }}>
+                    <T
+                      en="Call or email to schedule a fitting or consultation."
+                      vi="Gọi hoặc email để đặt lịch thử đồ hoặc tư vấn."
+                    />
                   </span>
                 </div>
               </div>

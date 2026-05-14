@@ -92,16 +92,14 @@ export function Footer() {
           </h4>
           <ul>
             <li>
-              <T en="Mon – Fri" vi="Thứ 2 – Thứ 6" />
-              <br />
-              <span style={{ color: "var(--cream)" }}>10am – 7pm</span>
-            </li>
-            <li>
-              <T en="Sat – Sun" vi="Thứ 7 – Chủ nhật" />
-              <br />
               <span style={{ color: "var(--cream)" }}>
                 <T en="By appointment" vi="Theo lịch hẹn" />
               </span>
+              <br />
+              <T
+                en="Call or email to schedule."
+                vi="Gọi hoặc email để đặt lịch."
+              />
             </li>
           </ul>
         </div>
