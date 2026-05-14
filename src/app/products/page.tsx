@@ -1,9 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import { T } from "@/components/lang";
 
 type Item = {
   imgClass: string;
   imgLabel: string;
+  // When set, the hatched .ph placeholder is replaced by a real <Image>.
+  imageSrc?: string;
+  imageAlt?: { en: string; vi: string };
   name: { en: string; vi: string };
   price: string;
   viLabel: string;
@@ -18,6 +22,11 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph warm",
     imgLabel: "Wedding trays — set of 6",
+    imageSrc: "/images/products/wedding-trays.jpg",
+    imageAlt: {
+      en: "Gold silk-covered wedding trays with embroidered double-happiness symbols",
+      vi: "Mâm quả phủ lụa vàng thêu chữ Song Hỷ",
+    },
     name: { en: "Wedding Trays — Set of 6", vi: "Mâm quả — bộ 6" },
     price: "$100",
     viLabel: "Mâm lễ vật",
@@ -194,13 +203,23 @@ function ItemGrid({ items }: { items: Item[] }) {
     <div className="product-grid">
       {items.map((p, i) => (
         <article key={i} className="product">
-          <div className={`img ${p.imgClass}`}>
+          <div className={`img ${p.imageSrc ? "" : p.imgClass}`}>
             {p.badge && (
               <span className={`badge ${p.badge.gold ? "gold" : ""}`}>
                 <T en={p.badge.en} vi={p.badge.vi} />
               </span>
             )}
-            <span>{p.imgLabel}</span>
+            {p.imageSrc ? (
+              <Image
+                src={p.imageSrc}
+                alt={p.imageAlt?.en ?? p.imgLabel}
+                fill
+                sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 360px"
+                style={{ objectFit: "cover" }}
+              />
+            ) : (
+              <span>{p.imgLabel}</span>
+            )}
           </div>
           <div className="head">
             <span className="name serif">
