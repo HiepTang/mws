@@ -40,12 +40,11 @@ const SERVICES: Service[] = [
     title: { en: "Áo dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
     vi: "Áo dài chú rể & lễ trà",
     body: {
-      en: "The cornerstone of a Vietnamese wedding. The groom's áo dài and khăn đóng in your choice of colour (blue, gold, or red), full tray rentals, and the ceremonial wine tray. Brides typically bring their own áo dài — we'll advise on sourcing and on styling so both looks come together beautifully on the day.",
-      vi: "Trái tim của đám cưới Việt. Áo dài & khăn đóng cho chú rể (xanh, vàng, hoặc đỏ), mâm lễ và mâm rượu trọn bộ. Cô dâu thường mặc áo dài riêng — chúng tôi tư vấn cách chọn và phối để hai bộ trang phục hài hòa.",
+      en: "The cornerstone of a Vietnamese wedding. Áo dài rentals for both bride (gold, or white & red) and groom (blue, gold, or red) with khăn đóng, full tray rentals, and the ceremonial wine tray.",
+      vi: "Trái tim của đám cưới Việt. Cho thuê áo dài cho cô dâu (vàng, hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm lễ và mâm rượu trọn bộ.",
     },
     bullets: [
-      { en: "Groom áo dài & khăn đóng rental", vi: "Cho thuê áo dài & khăn đóng chú rể" },
-      { en: "Bride áo dài styling & sourcing advice", vi: "Tư vấn áo dài cô dâu & hỗ trợ tìm chỗ may/mua" },
+      { en: "Áo dài rental — bride & groom", vi: "Cho thuê áo dài — cô dâu & chú rể" },
       { en: "6, 9, or 11-tray procession", vi: "Mâm 6, 9, hoặc 11" },
       { en: "Wine tray & ceremonial dishes", vi: "Mâm rượu & lễ vật" },
       { en: "Ritual guidance from start to finish", vi: "Hướng dẫn nghi lễ từ đầu đến cuối" },
@@ -125,7 +124,7 @@ const PACKAGES: Package[] = [
     price: "$3,400",
     bullets: [
       { en: "Bride hair & makeup (with trial)", vi: "Tóc & trang điểm cô dâu" },
-      { en: "Groom áo dài & khăn đóng rental", vi: "Cho thuê áo dài & khăn đóng chú rể" },
+      { en: "Áo dài rental — bride & groom", vi: "Cho thuê áo dài — cô dâu & chú rể" },
       { en: "6-tray procession + wine tray", vi: "Mâm 6 + mâm rượu" },
       { en: "Bilingual MC, 3 hours", vi: "MC song ngữ, 3 tiếng" },
     ],

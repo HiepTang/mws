@@ -1,75 +1,222 @@
 import Link from "next/link";
-import { ProductFilters } from "@/components/product-filters";
 import { T } from "@/components/lang";
 
-type Product = {
+type Item = {
   imgClass: string;
-  badge?: { en: string; vi: string; gold?: boolean };
   imgLabel: string;
   name: { en: string; vi: string };
   price: string;
   viLabel: string;
   meta: { en: string; vi: string };
+  badge?: { en: string; vi: string; gold?: boolean };
 };
 
-const PRODUCTS: Product[] = [
+// Items in Package 1 (ceremonial pieces). Same items also rent individually
+// at the prices below. Bundle total individually = $290; Package 1 = $220
+// (the bundle saves $70).
+const PACKAGE_1_ITEMS: Item[] = [
   {
-    imgClass: "ph",
-    badge: { en: "Most rented", vi: "Thuê nhiều nhất", gold: true },
-    imgLabel: "Groom long dress & hat",
-    name: { en: "Groom Áo Dài + Khăn Đóng", vi: "Áo dài chú rể + khăn đóng" },
-    price: "$220",
-    viLabel: "Áo dài & khăn đóng chú rể",
+    imgClass: "ph warm",
+    imgLabel: "Wedding trays — set of 6",
+    name: { en: "Wedding Trays — Set of 6", vi: "Mâm quả — bộ 6" },
+    price: "$100",
+    viLabel: "Mâm lễ vật",
     meta: {
-      en: "Rental · blue, gold, or red · sizes S–XXL",
-      vi: "Cho thuê · xanh, vàng, hoặc đỏ · size S–XXL",
+      en: "Rental · gold (16″) or red (14″)",
+      vi: "Cho thuê · vàng (16″) hoặc đỏ (14″)",
     },
   },
   {
     imgClass: "ph",
-    imgLabel: "11-tray ceremonial set",
-    name: { en: "Mâm Quả — 11 Tray Set", vi: "Mâm quả — bộ 11" },
-    price: "$320",
-    viLabel: "Mâm lễ vật cao cấp",
-    meta: { en: "Rental · gold-leaf finish", vi: "Cho thuê · phủ vàng" },
+    imgLabel: "Wedding sign — Tân Hôn / Vu Quy",
+    name: { en: "Wedding Sign", vi: "Bảng chữ" },
+    price: "$10",
+    viLabel: "Tân Hôn / Vu Quy",
+    meta: {
+      en: "Rental · Tân Hôn or Vu Quy",
+      vi: "Cho thuê · Tân Hôn hoặc Vu Quy",
+    },
+  },
+  {
+    imgClass: "ph",
+    imgLabel: "Candle stands",
+    name: { en: "Candle Stands", vi: "Chân nến" },
+    price: "$20",
+    viLabel: "Chân nến lễ",
+    meta: { en: "Rental", vi: "Cho thuê" },
+  },
+  {
+    imgClass: "ph",
+    imgLabel: "Incense burner",
+    name: { en: "Incense Burner", vi: "Lư hương" },
+    price: "$20",
+    viLabel: "Lư hương",
+    meta: { en: "Rental · 3½″ × 3¾″", vi: "Cho thuê · 3½″ × 3¾″" },
   },
   {
     imgClass: "ph warm",
-    imgLabel: "6-tray standard set",
-    name: { en: "Mâm Quả — 6 Tray Set", vi: "Mâm quả — bộ 6" },
-    price: "$180",
-    viLabel: "Mâm lễ vật cơ bản",
-    meta: { en: "Rental · red lacquer", vi: "Cho thuê · sơn mài đỏ" },
+    imgLabel: "Plastic areca",
+    name: { en: "Plastic Areca", vi: "Cau giả" },
+    price: "$30",
+    viLabel: "Cau lễ bằng nhựa",
+    meta: { en: "Rental", vi: "Cho thuê" },
   },
   {
     imgClass: "ph",
-    imgLabel: "Bride's mấn headpiece",
-    name: { en: "Bride's Mấn — Pearl & Gold", vi: "Mấn cô dâu — Ngọc trai & vàng" },
-    price: "$80",
-    viLabel: "Mấn cô dâu",
-    meta: { en: "Rental · adjustable", vi: "Cho thuê · điều chỉnh" },
+    imgLabel: "Tea set",
+    name: { en: "Tea Set", vi: "Bộ trà" },
+    price: "$30",
+    viLabel: "Bộ trà cưới",
+    meta: { en: "Rental · 2 styles", vi: "Cho thuê · 2 kiểu" },
   },
   {
-    imgClass: "ph",
-    imgLabel: "Wine tray with two cups",
-    name: { en: "Mâm Rượu — Wine Tray", vi: "Mâm rượu" },
-    price: "$60",
-    viLabel: "Mâm rượu & chén",
-    meta: { en: "Rental · brass", vi: "Cho thuê · đồng" },
+    imgClass: "ph warm",
+    imgLabel: "Altar tablecloth",
+    name: { en: "Altar Tablecloth", vi: "Khăn trải bàn thờ" },
+    price: "$30",
+    viLabel: "Khăn trải bàn thờ gia tiên",
+    meta: { en: "Rental · 7′ × 6.5′", vi: "Cho thuê · 7′ × 6.5′" },
   },
   {
     imgClass: "ph dark",
-    imgLabel: "Altar table — full set",
-    name: { en: "Bàn Thờ — Ancestor Altar", vi: "Bàn thờ gia tiên" },
+    imgLabel: "Censer",
+    name: { en: "Censer", vi: "Lư trầm" },
+    price: "$50",
+    viLabel: "Lư trầm hương",
+    meta: { en: "Rental", vi: "Cho thuê" },
+  },
+];
+
+// Áo dài rentals (Package 2 add-ons; also rentable individually).
+const AODAI_ITEMS: Item[] = [
+  {
+    imgClass: "ph",
+    badge: { en: "Most rented", vi: "Thuê nhiều nhất", gold: true },
+    imgLabel: "Groom áo dài & khăn đóng",
+    name: { en: "Groom Áo Dài + Khăn Đóng", vi: "Áo dài chú rể + khăn đóng" },
+    price: "$100",
+    viLabel: "Áo dài & khăn đóng chú rể",
+    meta: {
+      en: "Rental · blue, gold, or red",
+      vi: "Cho thuê · xanh, vàng, hoặc đỏ",
+    },
+  },
+  {
+    imgClass: "ph warm",
+    imgLabel: "Bride áo dài & hair piece",
+    name: { en: "Bride Áo Dài + Hair Piece", vi: "Áo dài cô dâu + mấn" },
+    price: "$100",
+    viLabel: "Áo dài & mấn cô dâu",
+    meta: {
+      en: "Rental · gold, or white & red",
+      vi: "Cho thuê · vàng, hoặc trắng & đỏ",
+    },
+  },
+];
+
+// Standalone purchases (not rentals — keepsakes).
+const PURCHASE_ITEMS: Item[] = [
+  {
+    imgClass: "ph",
+    imgLabel: "Wedding candles — 5 sizes",
+    name: { en: "Wedding Candles", vi: "Nến cưới" },
+    price: "$15–$23",
+    viLabel: "Nến cưới · 5 cỡ",
+    meta: {
+      en: "Purchase · gold or multi-coloured · 29–42.5 cm tall",
+      vi: "Mua · vàng hoặc nhiều màu · cao 29–42.5 cm",
+    },
+  },
+  {
+    imgClass: "ph warm",
+    imgLabel: "Decorative pieces — many designs",
+    name: { en: "Decorative Pieces", vi: "Đồ trang trí" },
+    price: "$10",
+    viLabel: "Đồ trang trí lễ",
+    meta: {
+      en: "Purchase · many designs (see gallery)",
+      vi: "Mua · nhiều mẫu (xem thư viện)",
+    },
+  },
+];
+
+type PackageCard = {
+  tag: { en: string; vi: string };
+  title: { en: string; vi: string };
+  price: string;
+  bullets: { en: string; vi: string }[];
+  note: { en: string; vi: string };
+  featured?: boolean;
+};
+
+const PACKAGES: PackageCard[] = [
+  {
+    tag: { en: "Bundle", vi: "Gói cơ bản" },
+    title: { en: "Package 1 — Ceremony", vi: "Gói 1 — Lễ gia tiên" },
+    price: "$220",
+    bullets: [
+      { en: "Wedding trays (set of 6)", vi: "Mâm quả (bộ 6)" },
+      { en: "Wedding sign — Tân Hôn / Vu Quy", vi: "Bảng chữ Tân Hôn / Vu Quy" },
+      { en: "Candle stands & censer", vi: "Chân nến & lư trầm" },
+      { en: "Incense burner", vi: "Lư hương" },
+      { en: "Plastic areca", vi: "Cau giả" },
+      { en: "Tea set (2 styles)", vi: "Bộ trà (2 kiểu)" },
+      { en: "Altar tablecloth (7′ × 6.5′)", vi: "Khăn trải bàn thờ (7′ × 6.5′)" },
+    ],
+    note: {
+      en: "All 8 ceremonial pieces. Individually they'd be $290 — bundle saves $70.",
+      vi: "Trọn 8 món lễ gia tiên. Thuê riêng tổng $290 — gói tiết kiệm $70.",
+    },
+  },
+  {
+    tag: { en: "Most chosen", vi: "Phổ biến nhất" },
+    title: { en: "Package 2 — Ceremony + Áo Dài", vi: "Gói 2 — Lễ gia tiên + Áo dài" },
     price: "$420",
-    viLabel: "Bàn thờ gia tiên đầy đủ",
-    meta: { en: "Rental · setup & takedown", vi: "Cho thuê · lắp dựng" },
+    bullets: [
+      { en: "Everything in Package 1", vi: "Toàn bộ Gói 1" },
+      { en: "Groom áo dài + khăn đóng (blue, gold, or red)", vi: "Áo dài & khăn đóng chú rể (xanh, vàng, đỏ)" },
+      { en: "Bride áo dài + hair piece (gold, or white & red)", vi: "Áo dài & mấn cô dâu (vàng, hoặc trắng & đỏ)" },
+    ],
+    note: {
+      en: "Package 1 plus both áo dài rentals. Saves $70 vs. renting individually.",
+      vi: "Gói 1 cộng cả hai bộ áo dài. Tiết kiệm $70 so với thuê riêng.",
+    },
+    featured: true,
   },
 ];
 
 export const metadata = {
   title: "Products",
 };
+
+function ItemGrid({ items }: { items: Item[] }) {
+  return (
+    <div className="product-grid">
+      {items.map((p, i) => (
+        <article key={i} className="product">
+          <div className={`img ${p.imgClass}`}>
+            {p.badge && (
+              <span className={`badge ${p.badge.gold ? "gold" : ""}`}>
+                <T en={p.badge.en} vi={p.badge.vi} />
+              </span>
+            )}
+            <span>{p.imgLabel}</span>
+          </div>
+          <div className="head">
+            <span className="name serif">
+              <T en={p.name.en} vi={p.name.vi} />
+            </span>
+            <span className="price">{p.price}</span>
+          </div>
+          <span className="vi">{p.viLabel}</span>
+          <span className="meta">
+            <T en={p.meta.en} vi={p.meta.vi} />
+          </span>
+        </article>
+      ))}
+    </div>
+  );
+}
 
 export default function ProductsPage() {
   return (
@@ -94,70 +241,165 @@ export default function ProductsPage() {
           </h1>
           <p className="subtitle">
             <T
-              en="Áo dài, ceremonial trays, headpieces, altarware. Most rentals; some take-home keepsakes."
-              vi="Áo dài, mâm lễ, mấn, đồ thờ. Đa số cho thuê; một số dành làm kỷ vật."
+              en="Ceremonial trays, áo dài, altarware. Most items rent together as a package or à la carte; candles and decorations are take-home keepsakes."
+              vi="Mâm lễ, áo dài, đồ thờ. Hầu hết thuê theo gói hoặc thuê riêng; nến và đồ trang trí là kỷ vật mang về."
             />
           </p>
         </div>
       </section>
 
-      <section style={{ paddingTop: 56 }}>
+      {/* === Packages === */}
+      <section style={{ background: "var(--bg-warm)" }}>
         <div className="shell">
-          <ProductFilters
-            filters={[
-              { en: "All", vi: "Tất cả" },
-              { en: "Áo dài", vi: "Áo dài" },
-              { en: "Trays", vi: "Mâm lễ" },
-              { en: "Headpieces", vi: "Mấn & khăn đóng" },
-              { en: "Altar", vi: "Bàn thờ gia tiên" },
-              { en: "Keepsakes", vi: "Kỷ vật" },
-            ]}
-          />
-
-          <div className="product-grid">
-            {PRODUCTS.map((p, i) => (
-              <article key={i} className="product">
-                <div className={`img ${p.imgClass}`}>
-                  {p.badge && (
-                    <span className={`badge ${p.badge.gold ? "gold" : ""}`}>
-                      <T en={p.badge.en} vi={p.badge.vi} />
-                    </span>
-                  )}
-                  <span>{p.imgLabel}</span>
-                </div>
-                <div className="head">
-                  <span className="name serif">
-                    <T en={p.name.en} vi={p.name.vi} />
-                  </span>
-                  <span className="price">{p.price}</span>
-                </div>
-                <span className="vi">{p.viLabel}</span>
-                <span className="meta">
-                  <T en={p.meta.en} vi={p.meta.vi} />
-                </span>
-              </article>
-            ))}
+          <div className="section-head center">
+            <span className="eyebrow eyebrow-gold">
+              <span className="dash" />
+              <T en="Bundle & save" vi="Gói tiết kiệm" />
+            </span>
+            <h2 className="serif">
+              <T en="Two packages," vi="Hai gói," />{" "}
+              <span className="italic" style={{ color: "var(--red)" }}>
+                <T en="your choice." vi="bạn chọn." />
+              </span>
+            </h2>
+            <p style={{ textAlign: "center", marginTop: 12 }}>
+              <T
+                en="A $100 refundable deposit holds your package — returned in full after items come back in good condition."
+                vi="Đặt cọc $100 hoàn lại — sẽ trả lại đầy đủ sau khi kiểm tra đồ trở về nguyên trạng."
+              />
+            </p>
           </div>
 
+          <div className="package-grid">
+            {PACKAGES.map((p, i) => (
+              <div key={i} className={`pkg ${p.featured ? "featured" : ""}`}>
+                <span className="pkg-tag">
+                  <T en={p.tag.en} vi={p.tag.vi} />
+                </span>
+                <h3 className="serif">
+                  <T en={p.title.en} vi={p.title.vi} />
+                </h3>
+                <span className="pkg-price">
+                  <span className="from">
+                    <T en="Package" vi="Gói" />
+                  </span>
+                  {p.price}
+                </span>
+                <ul>
+                  {p.bullets.map((b, j) => (
+                    <li key={j}>
+                      <T en={b.en} vi={b.vi} />
+                    </li>
+                  ))}
+                </ul>
+                <p
+                  style={{
+                    fontSize: 12,
+                    fontFamily: "var(--mono)",
+                    letterSpacing: "0.02em",
+                    color: p.featured ? "rgba(245,235,217,0.55)" : "var(--ink-muted)",
+                    marginTop: 4,
+                  }}
+                >
+                  <T en={p.note.en} vi={p.note.vi} />
+                </p>
+                <Link
+                  href="/contact"
+                  className={`btn ${p.featured ? "btn-gold" : "btn-ghost"}`}
+                >
+                  <T en="Reserve" vi="Đặt giữ" />
+                  <span className="arrow">→</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* === Individual rentals === */}
+      <section>
+        <div className="shell">
+          <div className="section-head">
+            <span className="eyebrow">
+              <span className="dash" />
+              <T en="Individual rentals" vi="Thuê riêng" />
+            </span>
+            <h2 className="serif">
+              <T en="Pieces," vi="Từng món," />{" "}
+              <span className="italic" style={{ color: "var(--red)" }}>
+                <T en="à la carte." vi="thuê riêng." />
+              </span>
+            </h2>
+            <p style={{ marginTop: 12 }}>
+              <T
+                en="Rent any item below on its own — or bundle them as Package 1 or Package 2 above and save."
+                vi="Thuê từng món dưới đây — hoặc gộp thành Gói 1 / Gói 2 ở trên để tiết kiệm."
+              />
+            </p>
+          </div>
+
+          <h3
+            className="serif"
+            style={{ fontSize: 24, marginBottom: 16, marginTop: 24, color: "var(--ink)" }}
+          >
+            <T en="Áo dài & attire" vi="Áo dài & lễ phục" />
+          </h3>
+          <ItemGrid items={AODAI_ITEMS} />
+
+          <h3
+            className="serif"
+            style={{ fontSize: 24, marginBottom: 16, marginTop: 48, color: "var(--ink)" }}
+          >
+            <T en="Ceremonial pieces" vi="Đồ lễ gia tiên" />
+          </h3>
+          <ItemGrid items={PACKAGE_1_ITEMS} />
+        </div>
+      </section>
+
+      {/* === For purchase === */}
+      <section style={{ background: "var(--bg-warm)" }}>
+        <div className="shell">
+          <div className="section-head">
+            <span className="eyebrow eyebrow-gold">
+              <span className="dash" />
+              <T en="For purchase" vi="Mua" />
+            </span>
+            <h2 className="serif">
+              <T en="Candles &" vi="Nến &" />{" "}
+              <span className="italic" style={{ color: "var(--red)" }}>
+                <T en="decorations." vi="đồ trang trí." />
+              </span>
+            </h2>
+            <p style={{ marginTop: 12 }}>
+              <T
+                en="Take-home keepsakes — not rentals. Yours to keep after the day."
+                vi="Kỷ vật mang về — không phải đồ thuê. Của bạn sau ngày cưới."
+              />
+            </p>
+          </div>
+
+          <ItemGrid items={PURCHASE_ITEMS} />
+        </div>
+      </section>
+
+      {/* === Disclaimer + CTA === */}
+      <section>
+        <div className="shell">
           <p
             style={{
               fontFamily: "var(--mono)",
               fontSize: 11,
               color: "var(--ink-muted)",
-              marginTop: 40,
               maxWidth: "70ch",
+              marginBottom: 40,
             }}
           >
             <T
-              en="* Rentals include cleaning & minor alteration. Damage deposit applies. Custom sizes & colours available with 8 weeks' notice."
-              vi="* Cho thuê đã bao gồm giặt & sửa nhỏ. Có đặt cọc. Size & màu riêng cần đặt trước 8 tuần."
+              en="* $100 refundable damage deposit applies to packages. Returned in full after items come back in original condition. Individual rentals follow the same care policy."
+              vi="* Đặt cọc $100 cho gói thuê, hoàn lại đầy đủ sau khi kiểm tra. Thuê riêng cũng theo chính sách tương tự."
             />
           </p>
-        </div>
-      </section>
 
-      <section>
-        <div className="shell">
           <div className="cta-banner">
             <div>
               <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>

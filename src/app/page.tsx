@@ -20,8 +20,8 @@ const SERVICE_CARDS = [
     title: { en: "Tea Ceremony Setup", vi: "Lễ trà" },
     vi: "Mâm trà & lễ vật",
     body: {
-      en: "Tray rentals, the groom's áo dài and khăn đóng (blue, gold, or red), the wine tray — and styling support so the bride's own áo dài and groom's look come together on the day.",
-      vi: "Cho thuê mâm trà, áo dài & khăn đóng cho chú rể (xanh, vàng, đỏ), mâm rượu — và tư vấn phối đồ để áo dài cô dâu và áo dài chú rể hài hòa trong ngày cưới.",
+      en: "Tray rentals, áo dài for the bride (gold, or white & red) and groom (blue, gold, or red) with khăn đóng, the wine tray, and the ceremonial pieces.",
+      vi: "Cho thuê mâm lễ, áo dài cho cô dâu (vàng, hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm rượu, và đồ lễ trọn bộ.",
     },
   },
   {
