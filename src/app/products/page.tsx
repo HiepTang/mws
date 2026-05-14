@@ -38,6 +38,8 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph",
     imgLabel: "Wedding sign — Tân Hôn / Vu Quy",
+    imageSrc: "/images/products/wedding-sign.jpg",
+    imageAlt: { en: "Tân Hôn / Vu Quy wedding sign", vi: "Bảng chữ Tân Hôn / Vu Quy" },
     name: { en: "Wedding Sign", vi: "Bảng chữ" },
     price: "$10",
     viLabel: "Tân Hôn / Vu Quy",
@@ -49,6 +51,8 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph",
     imgLabel: "Candle stands",
+    imageSrc: "/images/products/candle-stands.jpg",
+    imageAlt: { en: "Wedding candle stands", vi: "Chân nến cưới" },
     name: { en: "Candle Stands", vi: "Chân nến" },
     price: "$20",
     viLabel: "Chân nến lễ",
@@ -57,6 +61,8 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph",
     imgLabel: "Incense burner",
+    imageSrc: "/images/products/incense-burner.jpg",
+    imageAlt: { en: "Incense burner / lư hương", vi: "Lư hương" },
     name: { en: "Incense Burner", vi: "Lư hương" },
     price: "$20",
     viLabel: "Lư hương",
@@ -65,6 +71,8 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph warm",
     imgLabel: "Plastic areca",
+    imageSrc: "/images/products/plastic-areca.png",
+    imageAlt: { en: "Plastic areca decoration / cau giả", vi: "Cau giả lễ cưới" },
     name: { en: "Plastic Areca", vi: "Cau giả" },
     price: "$30",
     viLabel: "Cau lễ bằng nhựa",
@@ -73,6 +81,8 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph",
     imgLabel: "Tea set",
+    imageSrc: "/images/products/tea-set.jpg",
+    imageAlt: { en: "Vietnamese wedding tea set", vi: "Bộ trà cưới" },
     name: { en: "Tea Set", vi: "Bộ trà" },
     price: "$30",
     viLabel: "Bộ trà cưới",
@@ -81,6 +91,11 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph warm",
     imgLabel: "Altar tablecloth",
+    imageSrc: "/images/products/altar-cloth.jpg",
+    imageAlt: {
+      en: "Altar tablecloth for the ancestor altar",
+      vi: "Khăn trải bàn thờ gia tiên",
+    },
     name: { en: "Altar Tablecloth", vi: "Khăn trải bàn thờ" },
     price: "$30",
     viLabel: "Khăn trải bàn thờ gia tiên",
@@ -89,6 +104,8 @@ const PACKAGE_1_ITEMS: Item[] = [
   {
     imgClass: "ph dark",
     imgLabel: "Censer",
+    imageSrc: "/images/products/censer.jpg",
+    imageAlt: { en: "Censer / lư trầm", vi: "Lư trầm hương" },
     name: { en: "Censer", vi: "Lư trầm" },
     price: "$50",
     viLabel: "Lư trầm hương",
@@ -102,6 +119,11 @@ const AODAI_ITEMS: Item[] = [
     imgClass: "ph",
     badge: { en: "Most rented", vi: "Thuê nhiều nhất", gold: true },
     imgLabel: "Groom áo dài & khăn đóng",
+    imageSrc: "/images/products/groom-ao-dai.jpg",
+    imageAlt: {
+      en: "Groom in red áo dài and khăn đóng",
+      vi: "Chú rể trong áo dài đỏ và khăn đóng",
+    },
     name: { en: "Groom Áo Dài + Khăn Đóng", vi: "Áo dài chú rể + khăn đóng" },
     price: "$100",
     viLabel: "Áo dài & khăn đóng chú rể",
@@ -113,6 +135,11 @@ const AODAI_ITEMS: Item[] = [
   {
     imgClass: "ph warm",
     imgLabel: "Bride áo dài & hair piece",
+    imageSrc: "/images/products/bride-ao-dai.jpg",
+    imageAlt: {
+      en: "Bride áo dài with hair piece",
+      vi: "Áo dài cô dâu và mấn",
+    },
     name: { en: "Bride Áo Dài + Hair Piece", vi: "Áo dài cô dâu + mấn" },
     price: "$100",
     viLabel: "Áo dài & mấn cô dâu",
@@ -128,6 +155,11 @@ const PURCHASE_ITEMS: Item[] = [
   {
     imgClass: "ph",
     imgLabel: "Wedding candles — 5 sizes",
+    imageSrc: "/images/products/wedding-candles.jpg",
+    imageAlt: {
+      en: "Wedding candles in gold and multi-coloured varieties",
+      vi: "Nến cưới vàng và nhiều màu",
+    },
     name: { en: "Wedding Candles", vi: "Nến cưới" },
     price: "$15–$23",
     viLabel: "Nến cưới · 5 cỡ",
@@ -139,6 +171,11 @@ const PURCHASE_ITEMS: Item[] = [
   {
     imgClass: "ph warm",
     imgLabel: "Decorative pieces — many designs",
+    imageSrc: "/images/products/decorations.jpg",
+    imageAlt: {
+      en: "Decorative pieces for the wedding ceremony",
+      vi: "Đồ trang trí lễ cưới",
+    },
     name: { en: "Decorative Pieces", vi: "Đồ trang trí" },
     price: "$10",
     viLabel: "Đồ trang trí lễ",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { T } from "@/components/lang";
 
@@ -5,6 +6,8 @@ type Service = {
   num: string;
   imgClass: string;
   imgLabel: string;
+  imageSrc?: string;
+  imageAlt?: { en: string; vi: string };
   title: { en: string; vi: string };
   vi: string;
   body: { en: string; vi: string };
@@ -37,6 +40,11 @@ const SERVICES: Service[] = [
     num: "/ 02",
     imgClass: "ph",
     imgLabel: "Áo dài hangs in studio",
+    imageSrc: "/images/products/groom-ao-dai.jpg",
+    imageAlt: {
+      en: "Groom in red áo dài and khăn đóng",
+      vi: "Chú rể trong áo dài đỏ và khăn đóng",
+    },
     title: { en: "Áo dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
     vi: "Áo dài chú rể & lễ trà",
     body: {
@@ -199,8 +207,18 @@ export default function ServicesPage() {
           {SERVICES.map((s, i) => (
             <div key={i} className="svc-row">
               <span className="num">{s.num}</span>
-              <div className={`img-wrap ${s.imgClass}`}>
-                <span>{s.imgLabel}</span>
+              <div className={`img-wrap ${s.imageSrc ? "" : s.imgClass}`}>
+                {s.imageSrc ? (
+                  <Image
+                    src={s.imageSrc}
+                    alt={s.imageAlt?.en ?? s.imgLabel}
+                    fill
+                    sizes="(max-width: 960px) 100vw, 360px"
+                    style={{ objectFit: "cover" }}
+                  />
+                ) : (
+                  <span>{s.imgLabel}</span>
+                )}
               </div>
               <div>
                 <div className="title-block">

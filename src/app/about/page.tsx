@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { T } from "@/components/lang";
 
@@ -38,8 +39,14 @@ export default function AboutPage() {
       <section>
         <div className="shell">
           <div className="story">
-            <div className="portrait ph warm">
-              <span>Juliane Cao — studio portrait</span>
+            <div className="portrait">
+              <Image
+                src="/images/founder.jpg"
+                alt="Juliane Cao — founder, certified Professional Makeup Artist"
+                fill
+                sizes="(max-width: 960px) 100vw, 480px"
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <div className="story-body">
               <span className="eyebrow">

@@ -1,7 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import { T } from "@/components/lang";
 
-const SERVICE_CARDS = [
+type ServiceCard = {
+  img: string;
+  imgLabel: string;
+  imageSrc?: string;
+  imageAlt?: { en: string; vi: string };
+  num: string;
+  title: { en: string; vi: string };
+  vi: string;
+  body: { en: string; vi: string };
+};
+
+const SERVICE_CARDS: ServiceCard[] = [
   {
     img: "ph warm",
     imgLabel: "Bride makeup",
@@ -16,6 +28,11 @@ const SERVICE_CARDS = [
   {
     img: "ph",
     imgLabel: "Tea ceremony tray",
+    imageSrc: "/images/products/tea-set.jpg",
+    imageAlt: {
+      en: "Vietnamese wedding tea set",
+      vi: "Bộ trà cưới Việt",
+    },
     num: "02 / Ceremony",
     title: { en: "Tea Ceremony Setup", vi: "Lễ trà" },
     vi: "Mâm trà & lễ vật",
@@ -161,11 +178,24 @@ export default function HomePage() {
             </div>
 
             <div className="hero-art">
-              <div className="frame main ph warm">
-                <span>Bride & groom in áo dài / tea ceremony portrait</span>
+              <div className="frame main">
+                <Image
+                  src="/images/home/hero-main.jpg"
+                  alt="Bride and groom in áo dài at the tea ceremony"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 50vw"
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
               </div>
-              <div className="frame accent ph">
-                <span>Tea tray detail</span>
+              <div className="frame accent">
+                <Image
+                  src="/images/products/wedding-trays.jpg"
+                  alt="Gold silk-covered wedding trays with double-happiness embroidery"
+                  fill
+                  sizes="(max-width: 960px) 50vw, 220px"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
               <div className="seal" aria-hidden="true">
                 <span>
@@ -263,8 +293,18 @@ export default function HomePage() {
           <div className="services-grid">
             {SERVICE_CARDS.map((s, i) => (
               <article key={i} className="svc-card">
-                <div className={`img ${s.img}`}>
-                  <span>{s.imgLabel}</span>
+                <div className={`img ${s.imageSrc ? "" : s.img}`}>
+                  {s.imageSrc ? (
+                    <Image
+                      src={s.imageSrc}
+                      alt={s.imageAlt?.en ?? s.imgLabel}
+                      fill
+                      sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 360px"
+                      style={{ objectFit: "cover" }}
+                    />
+                  ) : (
+                    <span>{s.imgLabel}</span>
+                  )}
                 </div>
                 <span className="num">{s.num}</span>
                 <h3 className="serif">
@@ -302,8 +342,14 @@ export default function HomePage() {
       <section style={{ background: "var(--bg-warm)" }}>
         <div className="shell">
           <div className="founder">
-            <div className="founder-portrait ph warm">
-              <span>Juliane Cao, founder portrait</span>
+            <div className="founder-portrait">
+              <Image
+                src="/images/founder.jpg"
+                alt="Juliane Cao — founder, certified Professional Makeup Artist"
+                fill
+                sizes="(max-width: 960px) 100vw, 480px"
+                style={{ objectFit: "cover" }}
+              />
               <div className="stamp">
                 <span className="role">
                   <T en="Founder · Makeup Artist" vi="Người sáng lập" />

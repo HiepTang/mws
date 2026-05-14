@@ -106,6 +106,10 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
   display: block;
 }
 @media (max-width: 600px) { .brand-logo { height: 48px; } }
+
+/* Footer uses the inverted (white-on-transparent) wordmark on the dark
+   background. Slightly smaller than the header to sit within the footer column. */
+.footer-brand-logo { height: 56px; }
 .brand-mark {
   width: 44px; height: 44px; border: 1px solid var(--gold); border-radius: 50%;
   display: grid; place-items: center;
@@ -295,7 +299,8 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
 }
 .svc-card:hover { border-color: var(--gold); transform: translateY(-2px); }
 .svc-card:hover::before { width: 100%; }
-.svc-card .img { aspect-ratio: 4/3; border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
+.svc-card .img { aspect-ratio: 4/3; border-radius: 2px; overflow: hidden; margin-bottom: 8px; position: relative; }
+.svc-card .img img { object-fit: cover; }
 .svc-card .num { font-family: var(--mono); font-size: 11px; color: var(--gold-deep); letter-spacing: 0.12em; }
 .svc-card h3 { color: var(--ink); }
 .svc-card .vi { font-family: var(--viet); font-style: italic; font-size: 13px; color: var(--ink-muted); margin-top: -10px; }
@@ -625,7 +630,8 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
 .svc-row { display: grid; grid-template-columns: 0.5fr 0.9fr 1.4fr 0.5fr; gap: 32px; padding: 48px 0; border-bottom: 1px solid var(--line); align-items: start; }
 .svc-row:last-child { border-bottom: none; }
 .svc-row .num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: var(--gold-deep); padding-top: 12px; }
-.svc-row .img-wrap { aspect-ratio: 5/4; border-radius: 4px; overflow: hidden; }
+.svc-row .img-wrap { aspect-ratio: 5/4; border-radius: 4px; overflow: hidden; position: relative; }
+.svc-row .img-wrap img { object-fit: cover; }
 .svc-row .title-block h3 { font-size: 32px; line-height: 1.05; }
 .svc-row .title-block .vi { font-family: var(--viet); font-style: italic; color: var(--ink-muted); font-size: 14px; margin-top: 6px; }
 .svc-row .body p { font-size: 15px; }

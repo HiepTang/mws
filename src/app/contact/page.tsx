@@ -118,9 +118,15 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="map-frame ph">
-                <span>Mississauga studio location</span>
-              </div>
+              <iframe
+                className="map-frame"
+                src="https://www.google.com/maps?q=123+Cawthra+Road+Mississauga+ON&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mississauga Wedding Solutions studio location"
+                style={{ width: "100%", height: "100%", border: 0, display: "block" }}
+              />
+
             </aside>
           </div>
         </div>

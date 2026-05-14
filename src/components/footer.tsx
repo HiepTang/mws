@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { T } from "./lang";
 
@@ -7,13 +8,13 @@ export function Footer() {
       <div className="shell">
         <div>
           <div className="brand" style={{ marginBottom: 24 }}>
-            <span className="brand-mark" aria-hidden="true">
-              <em>M</em>
-            </span>
-            <span className="brand-text">
-              <span className="b1">Mississauga</span>
-              <span className="b2">Wedding Solutions</span>
-            </span>
+            <Image
+              src="/images/footer-logo.png"
+              alt="Mississauga Wedding Solutions"
+              width={237}
+              height={133}
+              className="brand-logo footer-brand-logo"
+            />
           </div>
           <p className="f-tag">
             <T
