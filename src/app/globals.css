@@ -98,6 +98,14 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
 }
 .header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 40px; padding: 18px var(--gutter); max-width: var(--max); margin: 0 auto; }
 .brand { display: flex; align-items: center; gap: 14px; }
+.brand-logo {
+  /* Image's natural aspect is ~301:165 (~1.82). Render at ~60px tall so it
+     reads as a wordmark next to the nav. width auto preserves the ratio. */
+  height: 60px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 600px) { .brand-logo { height: 48px; } }
 .brand-mark {
   width: 44px; height: 44px; border: 1px solid var(--gold); border-radius: 50%;
   display: grid; place-items: center;
