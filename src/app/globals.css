@@ -452,6 +452,63 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
 }
 .ac-toggle input { accent-color: var(--red); }
 
+/* === /admin/qr-review — printable card === */
+.qr-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+
+.qr-card {
+  max-width: 540px;
+  margin: 0 auto 80px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 48px 40px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 22px;
+}
+.qr-card-head { padding-bottom: 8px; }
+.qr-card-logo { height: 64px; width: auto; display: block; }
+.qr-card-title {
+  font-family: var(--serif); font-weight: 400; line-height: 1.15;
+  font-size: 32px; color: var(--ink);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.qr-card-title em { font-family: var(--viet); font-style: italic; font-size: 18px; color: var(--ink-muted); }
+.qr-card-image {
+  width: 320px; max-width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+}
+.qr-card-image img { width: 100%; height: 100%; display: block; }
+.qr-card-prompt {
+  font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.4;
+  color: var(--ink); max-width: 30ch; margin: 0;
+}
+.qr-card-url {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+  color: var(--ink-muted); margin: 0;
+}
+.qr-card-url strong { color: var(--ink); font-family: var(--mono); }
+.qr-card-foot {
+  margin-top: 4px; padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold-deep); max-width: 36ch; line-height: 1.5;
+}
+
+@media print {
+  /* Hide all the page chrome — only the card prints. */
+  .site-header, .site-footer, .skip-link, .qr-screen-only { display: none !important; }
+  body, main, .qr-card { background: var(--bg); }
+  .qr-card {
+    border: none; box-shadow: none;
+    margin: 0 auto; padding: 32px 32px;
+    page-break-inside: avoid;
+  }
+}
+
 /* === /admin/gallery === */
 .ag-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 .ag-card { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }

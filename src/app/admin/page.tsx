@@ -93,6 +93,9 @@ export default async function AdminPage({
           <Link href="/admin/gallery" className="btn btn-ghost ac-btn-sm">
             Manage gallery →
           </Link>
+          <Link href="/admin/qr-review" className="btn btn-ghost ac-btn-sm">
+            Review QR →
+          </Link>
           <form
             action={async () => {
               "use server";
