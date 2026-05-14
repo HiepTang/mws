@@ -20,6 +20,7 @@ const SERVICE_TAGS = [
   "Flowers & Decor",
   "Live Band / DJ",
   "Photography",
+  "Limousine",
   "Full Package",
 ] as const;
 
