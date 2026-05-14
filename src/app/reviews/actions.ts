@@ -17,7 +17,6 @@ const SERVICE_TAGS = [
   "Áo Dài",
   "Hair & Makeup",
   "MC",
-  "Flowers & Decor",
   "Live Band / DJ",
   "Photography",
   "Limousine",

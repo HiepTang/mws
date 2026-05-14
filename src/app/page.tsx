@@ -48,13 +48,13 @@ const SERVICE_CARDS = [
   },
   {
     img: "ph",
-    imgLabel: "Reception flowers",
-    num: "05 / Atmosphere",
-    title: { en: "Flowers & Decor", vi: "Hoa & trang trí" },
-    vi: "Hoa & trang trí tiệc",
+    imgLabel: "Photographer at the ceremony",
+    num: "05 / Memory",
+    title: { en: "Photo & Video", vi: "Ảnh & video" },
+    vi: "Ảnh & video cưới",
     body: {
-      en: "Centerpieces, arch, twinkling lights and the small altar pieces that make a hall feel like home.",
-      vi: "Hoa bàn, cổng cưới, đèn lung linh và bàn thờ gia tiên ấm cúng.",
+      en: "A photo and video team that knows when to step in and when to disappear. Every moment that matters, kept.",
+      vi: "Đội ảnh và video biết khi nào tiến tới, khi nào lùi lại. Mỗi khoảnh khắc quan trọng đều được lưu giữ.",
     },
   },
   {
@@ -210,8 +210,8 @@ export default function HomePage() {
           </div>
           <div className="cell">
             <span className="num">IV.</span>
-            <span className="name serif">Flowers & Decor</span>
-            <span className="vi">Hoa & trang trí</span>
+            <span className="name serif">Photo & Video</span>
+            <span className="vi">Ảnh & video cưới</span>
           </div>
         </div>
       </section>

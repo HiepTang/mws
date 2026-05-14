@@ -65,22 +65,6 @@ const PRODUCTS: Product[] = [
     viLabel: "Bàn thờ gia tiên đầy đủ",
     meta: { en: "Rental · setup & takedown", vi: "Cho thuê · lắp dựng" },
   },
-  {
-    imgClass: "ph warm",
-    imgLabel: "Bridal bouquet — peonies",
-    name: { en: "Bridal Bouquet — Peony", vi: "Hoa cô dâu — Mẫu đơn" },
-    price: "$185",
-    viLabel: "Hoa cầm tay cô dâu",
-    meta: { en: "Made-to-order · keepsake", vi: "Đặt riêng · kỷ vật" },
-  },
-  {
-    imgClass: "ph",
-    imgLabel: "Family ribbon for parents",
-    name: { en: "Family Sash & Boutonnière Set", vi: "Băng & hoa cài áo gia đình" },
-    price: "$95",
-    viLabel: "Bộ băng & hoa cài áo",
-    meta: { en: "Set of 6 · keepsake", vi: "Bộ 6 · kỷ vật" },
-  },
 ];
 
 export const metadata = {
@@ -126,7 +110,6 @@ export default function ProductsPage() {
               { en: "Trays", vi: "Mâm lễ" },
               { en: "Headpieces", vi: "Mấn & khăn đóng" },
               { en: "Altar", vi: "Bàn thờ gia tiên" },
-              { en: "Floral", vi: "Hoa" },
               { en: "Keepsakes", vi: "Kỷ vật" },
             ]}
           />

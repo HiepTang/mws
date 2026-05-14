@@ -73,24 +73,6 @@ const SERVICES: Service[] = [
   },
   {
     num: "/ 04",
-    imgClass: "ph warm",
-    imgLabel: "Wedding flowers",
-    title: { en: "Flowers & Decoration", vi: "Hoa & trang trí" },
-    vi: "Hoa & trang trí",
-    body: {
-      en: "Centerpieces, ceremony arch, the small altar table, twinkling lights, the bridal bouquet — and the boutonnière for grandpa.",
-      vi: "Hoa bàn, cổng cưới, bàn thờ gia tiên, đèn lung linh, hoa cô dâu — và hoa cài áo cho ông.",
-    },
-    bullets: [
-      { en: "Ceremony arch & aisle", vi: "Cổng cưới & lối đi" },
-      { en: "Altar table for ancestor offering", vi: "Bàn thờ gia tiên" },
-      { en: "Bouquets, boutonnières, corsages", vi: "Hoa cô dâu, hoa cài áo" },
-    ],
-    priceLab: { en: "From", vi: "Từ" },
-    price: "$1,800",
-  },
-  {
-    num: "/ 05",
     imgClass: "ph dark",
     imgLabel: "Live band setup",
     title: { en: "Live Band, DJ, Lights & Sound", vi: "Ban nhạc, DJ, ánh sáng & âm thanh" },
@@ -108,7 +90,7 @@ const SERVICES: Service[] = [
     price: "$2,400",
   },
   {
-    num: "/ 06",
+    num: "/ 05",
     imgClass: "ph",
     imgLabel: "Limousine arrival",
     title: { en: "Limousine, Photo & Hotel", vi: "Limousine, ảnh cưới & khách sạn" },
@@ -146,7 +128,6 @@ const PACKAGES: Package[] = [
       { en: "Groom áo dài & khăn đóng rental", vi: "Cho thuê áo dài & khăn đóng chú rể" },
       { en: "6-tray procession + wine tray", vi: "Mâm 6 + mâm rượu" },
       { en: "Bilingual MC, 3 hours", vi: "MC song ngữ, 3 tiếng" },
-      { en: "Altar floral arrangement", vi: "Hoa bàn thờ gia tiên" },
     ],
     cta: { en: "Inquire", vi: "Liên hệ" },
   },
@@ -156,7 +137,6 @@ const PACKAGES: Package[] = [
     price: "$8,900",
     bullets: [
       { en: "Everything in The Tea Ceremony", vi: "Bao gồm toàn bộ Lễ Trà" },
-      { en: "Reception flowers & centerpieces", vi: "Hoa tiệc & trang trí bàn" },
       { en: "Live band, 3 hours", vi: "Ban nhạc 3 tiếng" },
       { en: "6-passenger limousine", vi: "Limousine 6 chỗ" },
       { en: "Photo + video team", vi: "Đội chụp ảnh & quay phim" },

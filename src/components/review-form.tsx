@@ -10,7 +10,6 @@ const SERVICE_TAGS = [
   { value: "Áo Dài", en: "Áo Dài", vi: "Áo dài" },
   { value: "Hair & Makeup", en: "Hair & Makeup", vi: "Tóc & trang điểm" },
   { value: "MC", en: "Bilingual MC", vi: "MC song ngữ" },
-  { value: "Flowers & Decor", en: "Flowers & Decor", vi: "Hoa & trang trí" },
   { value: "Live Band / DJ", en: "Live Band / DJ", vi: "Ban nhạc / DJ" },
   { value: "Photography", en: "Photography", vi: "Nhiếp ảnh" },
   { value: "Limousine", en: "Limousine", vi: "Limousine" },

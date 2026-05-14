@@ -9,7 +9,6 @@ const SERVICE_OPTIONS = [
   { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
   { en: "Áo dài & Tea", vi: "Áo dài & lễ trà" },
   { en: "Bilingual MC", vi: "MC song ngữ" },
-  { en: "Flowers & Decor", vi: "Hoa & trang trí" },
   { en: "Full package", vi: "Trọn gói" },
 ];
 
