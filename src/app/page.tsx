@@ -292,7 +292,12 @@ export default function HomePage() {
           </div>
           <div className="services-grid">
             {SERVICE_CARDS.map((s, i) => (
-              <article key={i} className="svc-card">
+              <Link
+                key={i}
+                href="/services"
+                className="svc-card"
+                aria-label={`Learn more about ${s.title.en}`}
+              >
                 <div className={`img ${s.imageSrc ? "" : s.img}`}>
                   {s.imageSrc ? (
                     <Image
@@ -317,7 +322,7 @@ export default function HomePage() {
                 <span className="more">
                   <T en="Learn more" vi="Xem thêm" /> →
                 </span>
-              </article>
+              </Link>
             ))}
           </div>
           <p
