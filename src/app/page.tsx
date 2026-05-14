@@ -146,7 +146,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="stat">
-                  <span className="num">3</span>
+                  <span className="num">2</span>
                   <span className="lab">
                     <T en="Languages MC'd" vi="Ngôn ngữ MC" />
                   </span>
