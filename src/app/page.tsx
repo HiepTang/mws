@@ -37,13 +37,13 @@ const SERVICE_CARDS = [
   },
   {
     img: "ph warm",
-    imgLabel: "Limousine arrival",
-    num: "04 / Arrival",
-    title: { en: "Limousine & Transport", vi: "Limousine" },
-    vi: "Xe đưa đón",
+    imgLabel: "Photographer at the ceremony",
+    num: "04 / Memory",
+    title: { en: "Photo & Video", vi: "Ảnh & video" },
+    vi: "Ảnh & video cưới",
     body: {
-      en: "Door-to-door transport for the wedding party, plus shuttle for out-of-town family if needed.",
-      vi: "Xe đưa đón đoàn nhà trai, nhà gái và họ hàng phương xa.",
+      en: "A photo and video team that knows when to step in and when to disappear. Every moment that matters, kept.",
+      vi: "Đội ảnh và video biết khi nào tiến tới, khi nào lùi lại. Mỗi khoảnh khắc quan trọng đều được lưu giữ.",
     },
   },
   {
@@ -125,8 +125,8 @@ export default function HomePage() {
               </h1>
               <p className="hero-sub">
                 <T
-                  en="From the áo dài fitting to the tea ceremony, the limousine to the live band — every ritual planned with care, by a Vietnamese-Canadian family who loves it."
-                  vi="Từ áo dài đến lễ trà, từ limousine đến ban nhạc — mỗi nghi thức được lo trọn vẹn, bởi một gia đình Việt-Canada đầy tâm huyết."
+                  en="From the áo dài fitting to the tea ceremony, the flowers to the live band — every ritual planned with care, by a Vietnamese-Canadian family who loves it."
+                  vi="Từ áo dài đến lễ trà, từ hoa cưới đến ban nhạc — mỗi nghi thức được lo trọn vẹn, bởi một gia đình Việt-Canada đầy tâm huyết."
                 />
               </p>
               <div className="hero-ctas">
