@@ -52,11 +52,11 @@ export default function ContactPage() {
                 </h3>
                 <span className="vi">Văn phòng tại Mississauga</span>
                 <div className="lines">
-                  <span>123 Cawthra Road, Suite 4</span>
-                  <span>Mississauga, ON L5A 2X1</span>
+                  <span>7188 Lantern Fly Hollow</span>
+                  <span>Mississauga, ON L5W 1L6</span>
                   <span>
                     <a
-                      href="https://maps.google.com/?q=123+Cawthra+Road+Mississauga"
+                      href="https://maps.google.com/?q=7188+Lantern+Fly+Hollow+Mississauga+ON+L5W+1L6"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -116,7 +116,7 @@ export default function ContactPage() {
 
               <iframe
                 className="map-frame"
-                src="https://www.google.com/maps?q=123+Cawthra+Road+Mississauga+ON&output=embed"
+                src="https://www.google.com/maps?q=7188+Lantern+Fly+Hollow+Mississauga+ON+L5W+1L6&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Mississauga Wedding Solutions studio location"
