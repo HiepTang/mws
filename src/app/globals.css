@@ -727,9 +727,8 @@ section { padding: clamp(72px, 10vw, 140px) 0; }
 
 /* === Product grid === */
 .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
-.product { display: flex; flex-direction: column; gap: 12px; cursor: pointer; }
-.product .img { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; position: relative; transition: transform .3s; }
-.product:hover .img { transform: translateY(-4px); }
+.product { display: flex; flex-direction: column; gap: 12px; }
+.product .img { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; position: relative; }
 .product .badge { position: absolute; top: 12px; left: 12px; background: var(--bg); color: var(--red); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; z-index: 1; }
 .product .badge.gold { background: var(--gold); color: var(--ink); }
 .product .head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 4px; }
