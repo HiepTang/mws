@@ -474,8 +474,8 @@ export default function HomePage() {
                 <T en="Book a consultation" vi="Đặt buổi tư vấn" />
                 <span className="arrow">→</span>
               </Link>
-              <a href="tel:9050000000" className="btn btn-outline">
-                <T en="Call (905) 000-0000" vi="Gọi (905) 000-0000" />
+              <a href="tel:4164344606" className="btn btn-outline">
+                <T en="Call (416) 434-4606" vi="Gọi (416) 434-4606" />
               </a>
             </div>
           </div>

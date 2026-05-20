@@ -72,10 +72,10 @@ export default function ContactPage() {
                 </h3>
                 <div className="lines">
                   <a
-                    href="tel:9050000000"
+                    href="tel:4164344606"
                     style={{ fontFamily: "var(--serif)", fontSize: 24 }}
                   >
-                    (905) 000-0000
+                    (416) 434-4606
                   </a>
                   <span style={{ fontSize: 13, color: "var(--ink-muted)" }}>
                     <T

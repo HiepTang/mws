@@ -52,10 +52,10 @@ const PACKAGE_1_ITEMS: Item[] = [
     imgClass: "ph",
     imgLabel: "Candle stands",
     imageSrc: "/images/products/candle-stands.jpg",
-    imageAlt: { en: "Wedding candle stands", vi: "Chân nến cưới" },
-    name: { en: "Candle Stands", vi: "Chân nến" },
+    imageAlt: { en: "Wedding candle stands", vi: "Chân đèn cầy cưới" },
+    name: { en: "Candle Stands", vi: "Chân đèn cầy" },
     price: "$20",
-    viLabel: "Chân nến lễ",
+    viLabel: "Chân đèn cầy lễ",
     meta: { en: "Rental", vi: "Cho thuê" },
   },
   {
@@ -158,11 +158,11 @@ const PURCHASE_ITEMS: Item[] = [
     imageSrc: "/images/products/wedding-candles.jpg",
     imageAlt: {
       en: "Wedding candles in gold and multi-coloured varieties",
-      vi: "Nến cưới vàng và nhiều màu",
+      vi: "Đèn cầy vàng và nhiều màu",
     },
-    name: { en: "Wedding Candles", vi: "Nến cưới" },
-    price: "$15–$23",
-    viLabel: "Nến cưới · 5 cỡ",
+    name: { en: "Wedding Candles", vi: "Đèn cầy" },
+    price: "$15–$35",
+    viLabel: "Đèn cầy · 5 cỡ",
     meta: {
       en: "Purchase · gold or multi-coloured · 29–42.5 cm tall",
       vi: "Mua · vàng hoặc nhiều màu · cao 29–42.5 cm",
@@ -203,7 +203,7 @@ const PACKAGES: PackageCard[] = [
     bullets: [
       { en: "Wedding trays (set of 6)", vi: "Mâm quả (bộ 6)" },
       { en: "Wedding sign — Tân Hôn / Vu Quy", vi: "Bảng chữ Tân Hôn / Vu Quy" },
-      { en: "Candle stands & censer", vi: "Chân nến & lư trầm" },
+      { en: "Candle stands & censer", vi: "Chân đèn cầy & lư trầm" },
       { en: "Incense burner", vi: "Lư hương" },
       { en: "Plastic areca", vi: "Cau giả" },
       { en: "Tea set (2 styles)", vi: "Bộ trà (2 kiểu)" },
@@ -298,7 +298,7 @@ export default function ProductsPage() {
           <p className="subtitle">
             <T
               en="Ceremonial trays, áo dài, altarware. Most items rent together as a package or à la carte; candles and decorations are take-home keepsakes."
-              vi="Mâm lễ, áo dài, đồ thờ. Hầu hết thuê theo gói hoặc thuê riêng; nến và đồ trang trí là kỷ vật mang về."
+              vi="Mâm lễ, áo dài, đồ thờ. Hầu hết thuê theo gói hoặc thuê riêng; đèn cầy và đồ trang trí là kỷ vật mang về."
             />
           </p>
         </div>
@@ -421,7 +421,7 @@ export default function ProductsPage() {
               <T en="For purchase" vi="Mua" />
             </span>
             <h2 className="serif">
-              <T en="Candles &" vi="Nến &" />{" "}
+              <T en="Candles &" vi="Đèn cầy &" />{" "}
               <span className="italic" style={{ color: "var(--red)" }}>
                 <T en="decorations." vi="đồ trang trí." />
               </span>

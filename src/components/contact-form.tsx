@@ -130,7 +130,7 @@ export function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
-            placeholder="(905) 555-0123"
+            placeholder="(416) 555-0123"
             defaultValue={v?.phone ?? ""}
           />
         </div>

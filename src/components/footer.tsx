@@ -76,7 +76,7 @@ export function Footer() {
           </h4>
           <ul>
             <li>Mississauga, ON</li>
-            <li>(905) 000-0000</li>
+            <li>(416) 434-4606</li>
             <li>juliane.cao@rogers.com</li>
             <li style={{ marginTop: 8 }}>
               <Link href="/contact" style={{ color: "var(--gold-soft)" }}>

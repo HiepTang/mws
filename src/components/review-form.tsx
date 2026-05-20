@@ -13,7 +13,6 @@ const SERVICE_TAGS = [
   { value: "Live Band / DJ", en: "Live Band / DJ", vi: "Ban nhạc / DJ" },
   { value: "Photography", en: "Photography", vi: "Nhiếp ảnh" },
   { value: "Limousine", en: "Limousine", vi: "Limousine" },
-  { value: "Full Package", en: "Full Heritage Package", vi: "Gói trọn vẹn" },
 ];
 
 const RATING_LABELS: Record<number, { en: string; vi: string }> = {

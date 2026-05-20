@@ -13,7 +13,7 @@ type Service = {
   body: { en: string; vi: string };
   bullets: { en: string; vi: string }[];
   priceLab: { en: string; vi: string };
-  price: string;
+  price: string | { en: string; vi: string };
 };
 
 const SERVICES: Service[] = [
@@ -24,8 +24,8 @@ const SERVICES: Service[] = [
     title: { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
     vi: "Tóc & trang điểm",
     body: {
-      en: "Founder Juliane is a certified Professional Makeup Artist with thirty years of attention-to-detail. We do trials in our studio, so you'll know exactly how you'll look — and feel.",
-      vi: "Người sáng lập Juliane là chuyên gia trang điểm chuyên nghiệp với 30 năm chú trọng đến từng chi tiết. Chúng tôi thử trang điểm tại studio để bạn biết chính xác mình sẽ trông như thế nào.",
+      en: "Founder Juliane is a certified Professional Makeup Artist with thirty years of attention-to-detail. We do trials, so you'll know exactly how you'll look — and feel.",
+      vi: "Người sáng lập Juliane là chuyên gia trang điểm chuyên nghiệp với 30 năm chú trọng đến từng chi tiết. Chúng tôi thử trang điểm trước để bạn biết chính xác mình sẽ trông như thế nào.",
     },
     bullets: [
       { en: "Bridal trial & consultation", vi: "Thử trang điểm & tư vấn" },
@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
       { en: "Mother-of, bridesmaid add-ons", vi: "Trang điểm cho mẹ và phù dâu" },
     ],
     priceLab: { en: "From", vi: "Từ" },
-    price: "$650",
+    price: "$350",
   },
   {
     num: "/ 02",
@@ -53,12 +53,11 @@ const SERVICES: Service[] = [
     },
     bullets: [
       { en: "Áo dài rental — bride & groom", vi: "Cho thuê áo dài — cô dâu & chú rể" },
-      { en: "6, 9, or 11-tray procession", vi: "Mâm 6, 9, hoặc 11" },
       { en: "Wine tray & ceremonial dishes", vi: "Mâm rượu & lễ vật" },
       { en: "Ritual guidance from start to finish", vi: "Hướng dẫn nghi lễ từ đầu đến cuối" },
     ],
-    priceLab: { en: "From", vi: "Từ" },
-    price: "$1,200",
+    priceLab: { en: "From", vi: "" },
+    price: { en: "Enquiry", vi: "Liên hệ" },
   },
   {
     num: "/ 03",
@@ -76,7 +75,7 @@ const SERVICES: Service[] = [
       { en: "Live translation between toasts", vi: "Phiên dịch trực tiếp giữa các lời chúc" },
     ],
     priceLab: { en: "From", vi: "Từ" },
-    price: "$800",
+    price: "$350",
   },
   {
     num: "/ 04",
@@ -93,8 +92,8 @@ const SERVICES: Service[] = [
       { en: "Full PA, monitors, wireless mics", vi: "Loa đài, mic không dây đầy đủ" },
       { en: "Café-light installation", vi: "Lắp đặt đèn cà phê" },
     ],
-    priceLab: { en: "From", vi: "Từ" },
-    price: "$2,400",
+    priceLab: { en: "From", vi: "" },
+    price: { en: "Enquiry", vi: "Liên hệ" },
   },
   {
     num: "/ 05",
@@ -111,60 +110,8 @@ const SERVICES: Service[] = [
       { en: "Photographer + videographer team", vi: "Đội ngũ chụp ảnh & quay phim" },
       { en: "Hotel room blocks for the families", vi: "Đặt phòng khách sạn cho gia đình" },
     ],
-    priceLab: { en: "From", vi: "Từ" },
-    price: "$1,500",
-  },
-];
-
-type Package = {
-  tag: { en: string; vi: string };
-  title: { en: string; vi: string };
-  price: string;
-  bullets: { en: string; vi: string }[];
-  cta: { en: string; vi: string };
-  featured?: boolean;
-};
-
-const PACKAGES: Package[] = [
-  {
-    tag: { en: "Intimate", vi: "Ấm cúng" },
-    title: { en: "The Tea Ceremony", vi: "Lễ trà" },
-    price: "$3,400",
-    bullets: [
-      { en: "Bride hair & makeup (with trial)", vi: "Tóc & trang điểm cô dâu" },
-      { en: "Áo dài rental — bride & groom", vi: "Cho thuê áo dài — cô dâu & chú rể" },
-      { en: "6-tray procession + wine tray", vi: "Mâm 6 + mâm rượu" },
-      { en: "Bilingual MC, 3 hours", vi: "MC song ngữ, 3 tiếng" },
-    ],
-    cta: { en: "Inquire", vi: "Liên hệ" },
-  },
-  {
-    tag: { en: "Most chosen", vi: "Phổ biến nhất" },
-    title: { en: "The Full Day", vi: "Trọn ngày" },
-    price: "$8,900",
-    bullets: [
-      { en: "Everything in The Tea Ceremony", vi: "Bao gồm toàn bộ Lễ Trà" },
-      { en: "Live band, 3 hours", vi: "Ban nhạc 3 tiếng" },
-      { en: "6-passenger limousine", vi: "Limousine 6 chỗ" },
-      { en: "Photo + video team", vi: "Đội chụp ảnh & quay phim" },
-      { en: "Bilingual MC, full event", vi: "MC song ngữ, trọn sự kiện" },
-    ],
-    cta: { en: "Inquire", vi: "Liên hệ" },
-    featured: true,
-  },
-  {
-    tag: { en: "Concierge", vi: "Trọn gói" },
-    title: { en: "The Heritage", vi: "Trọn vẹn truyền thống" },
-    price: "$14,500",
-    bullets: [
-      { en: "Everything in The Full Day", vi: "Bao gồm gói Trọn ngày" },
-      { en: "11-tray procession + extras", vi: "Mâm 11 + đầy đủ lễ vật" },
-      { en: "Bridal party hair & makeup (6)", vi: "Tóc & trang điểm cho 6 phù dâu" },
-      { en: "10-passenger limousine", vi: "Limousine 10 chỗ" },
-      { en: "Hotel-block management", vi: "Đặt khối phòng khách sạn" },
-      { en: "Day-of coordinator (10hrs)", vi: "Điều phối ngày cưới (10 tiếng)" },
-    ],
-    cta: { en: "Inquire", vi: "Liên hệ" },
+    priceLab: { en: "From", vi: "" },
+    price: { en: "Enquiry", vi: "Liên hệ" },
   },
 ];
 
@@ -244,66 +191,14 @@ export default function ServicesPage() {
                 <span className="lab">
                   <T en={s.priceLab.en} vi={s.priceLab.vi} />
                 </span>
-                {s.price}
+                {typeof s.price === "string" ? (
+                  s.price
+                ) : (
+                  <T en={s.price.en} vi={s.price.vi} />
+                )}
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section style={{ background: "var(--bg-warm)" }}>
-        <div className="shell">
-          <div className="section-head center">
-            <span className="eyebrow eyebrow-gold">
-              <span className="dash" />
-              <T en="Or take it all in one" vi="Hoặc trọn gói" />
-            </span>
-            <h2 className="serif">
-              <T en="Three packages." vi="Ba gói." />{" "}
-              <span className="italic" style={{ color: "var(--red)" }}>
-                <T en="One simple price." vi="Một giá đơn giản." />
-              </span>
-            </h2>
-            <p style={{ textAlign: "center", marginTop: 12 }}>
-              <T
-                en="A 20% service fee is included. Six-month early-bird discount available."
-                vi="Đã bao gồm phí dịch vụ 20%. Giảm giá khi đặt trước 6 tháng."
-              />
-            </p>
-          </div>
-
-          <div className="package-grid">
-            {PACKAGES.map((p, i) => (
-              <div key={i} className={`pkg ${p.featured ? "featured" : ""}`}>
-                <span className="pkg-tag">
-                  <T en={p.tag.en} vi={p.tag.vi} />
-                </span>
-                <h3 className="serif">
-                  <T en={p.title.en} vi={p.title.vi} />
-                </h3>
-                <span className="pkg-price">
-                  <span className="from">
-                    <T en="Starting" vi="Từ" />
-                  </span>
-                  {p.price}
-                </span>
-                <ul>
-                  {p.bullets.map((b, j) => (
-                    <li key={j}>
-                      <T en={b.en} vi={b.vi} />
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className={`btn ${p.featured ? "btn-gold" : "btn-ghost"}`}
-                >
-                  <T en={p.cta.en} vi={p.cta.vi} />
-                  <span className="arrow">→</span>
-                </Link>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -330,8 +225,8 @@ export default function ServicesPage() {
                 <T en="Get a quote" vi="Nhận báo giá" />
                 <span className="arrow">→</span>
               </Link>
-              <a href="tel:9050000000" className="btn btn-outline">
-                <T en="Call (905) 000-0000" vi="Gọi (905) 000-0000" />
+              <a href="tel:4164344606" className="btn btn-outline">
+                <T en="Call (416) 434-4606" vi="Gọi (416) 434-4606" />
               </a>
             </div>
           </div>

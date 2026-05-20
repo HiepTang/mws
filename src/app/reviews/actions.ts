@@ -20,7 +20,6 @@ const SERVICE_TAGS = [
   "Live Band / DJ",
   "Photography",
   "Limousine",
-  "Full Package",
 ] as const;
 
 const ReviewSchema = z.object({
