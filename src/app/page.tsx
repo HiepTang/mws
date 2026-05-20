@@ -142,7 +142,7 @@ export default function HomePage() {
               </h1>
               <p className="hero-sub">
                 <T
-                  en="From the áo dài fitting to the tea ceremony, the limousine to the live band — every ritual planned with care, by a Vietnamese-Canadian family who loves it."
+                  en="From the groom áo dài to the tea ceremony, the limousine to the live band — every ritual planned with care, by a Vietnamese-Canadian family who loves it."
                   vi="Từ áo dài đến lễ trà, từ limousine đến ban nhạc — mỗi nghi thức được lo trọn vẹn, bởi một gia đình Việt-Canada đầy tâm huyết."
                 />
               </p>
@@ -260,7 +260,7 @@ export default function HomePage() {
               en="A Vietnamese wedding is a story told in chapters —"
               vi="Đám cưới Việt là câu chuyện kể qua nhiều chương —"
             />
-            <span className="red"> lễ ăn hỏi, lễ cưới.</span>
+            <span className="red"> lễ ăn hỏi, lễ&nbsp;cưới.</span>
             <br />
             <T
               en="We help you tell every word of it."
