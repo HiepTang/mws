@@ -17,6 +17,11 @@ const SERVICE_CARDS: ServiceCard[] = [
   {
     img: "ph warm",
     imgLabel: "Bride makeup",
+    imageSrc: "/images/services/makeup.jpg",
+    imageAlt: {
+      en: "Juliane applying bridal makeup at her vanity",
+      vi: "Juliane trang điểm cô dâu tại bàn trang điểm",
+    },
     num: "01 / Beauty",
     title: { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
     vi: "Tóc & trang điểm cô dâu",

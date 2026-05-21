@@ -21,6 +21,11 @@ const SERVICES: Service[] = [
     num: "/ 01",
     imgClass: "ph warm",
     imgLabel: "Bridal makeup studio",
+    imageSrc: "/images/services/makeup.jpg",
+    imageAlt: {
+      en: "Juliane applying bridal makeup at her vanity",
+      vi: "Juliane trang điểm cô dâu tại bàn trang điểm",
+    },
     title: { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
     vi: "Tóc & trang điểm",
     body: {
