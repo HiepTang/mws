@@ -164,8 +164,8 @@ const PURCHASE_ITEMS: Item[] = [
     price: "$15–$35",
     viLabel: "Đèn cầy · 5 cỡ",
     meta: {
-      en: "Purchase · gold or multi-coloured · 29–42.5 cm tall",
-      vi: "Mua · vàng hoặc nhiều màu · cao 29–42.5 cm",
+      en: "Purchase · gold or multi-coloured · 5 sizes · 29–42.5 cm tall, 2.8–3.5 cm diameter",
+      vi: "Mua · vàng hoặc nhiều màu · 5 cỡ · cao 29–42.5 cm, đường kính 2.8–3.5 cm",
     },
   },
   {
