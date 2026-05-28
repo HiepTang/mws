@@ -49,6 +49,11 @@ const SERVICE_CARDS: ServiceCard[] = [
   {
     img: "ph dark",
     imgLabel: "MC at reception",
+    imageSrc: "/images/services/mc-home.jpg",
+    imageAlt: {
+      en: "Bilingual MC in red áo dài hosting a Vietnamese cultural event",
+      vi: "MC song ngữ trong áo dài đỏ dẫn chương trình sự kiện văn hoá Việt",
+    },
     num: "03 / Voice",
     title: { en: "Bilingual MC", vi: "MC song ngữ" },
     vi: "MC tiếng Việt & Anh",
@@ -60,6 +65,11 @@ const SERVICE_CARDS: ServiceCard[] = [
   {
     img: "ph warm",
     imgLabel: "Limousine arrival",
+    imageSrc: "/images/services/limousine.jpg",
+    imageAlt: {
+      en: "White stretch limousine on a wedding day",
+      vi: "Limousine kéo dài trắng trong ngày cưới",
+    },
     num: "04 / Arrival",
     title: { en: "Limousine", vi: "Limousine" },
     vi: "Limousine cưới",
@@ -71,6 +81,11 @@ const SERVICE_CARDS: ServiceCard[] = [
   {
     img: "ph",
     imgLabel: "Photographer at the ceremony",
+    imageSrc: "/images/services/photographer.jpg",
+    imageAlt: {
+      en: "Photographer reviewing a wedding portrait on his camera",
+      vi: "Nhiếp ảnh xem lại ảnh chân dung trên máy ảnh",
+    },
     num: "05 / Memory",
     title: { en: "Photo & Video", vi: "Ảnh & video" },
     vi: "Ảnh & video cưới",
@@ -82,6 +97,11 @@ const SERVICE_CARDS: ServiceCard[] = [
   {
     img: "ph dark",
     imgLabel: "Live band setup",
+    imageSrc: "/images/services/live-band.jpg",
+    imageAlt: {
+      en: "Drum kit and stage lighting on a small reception stage",
+      vi: "Bộ trống và đèn sân khấu nhỏ tại tiệc cưới",
+    },
     num: "06 / Sound",
     title: { en: "Live Band or DJ", vi: "Ban nhạc / DJ" },
     vi: "Ban nhạc hoặc DJ",

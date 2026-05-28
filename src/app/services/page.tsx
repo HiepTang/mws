@@ -68,6 +68,11 @@ const SERVICES: Service[] = [
     num: "/ 03",
     imgClass: "ph dark",
     imgLabel: "MC at the mic",
+    imageSrc: "/images/services/mc-services.jpg",
+    imageAlt: {
+      en: "Bilingual MC introducing the bride and groom at a reception",
+      vi: "MC song ngữ giới thiệu cô dâu chú rể tại tiệc",
+    },
     title: { en: "Bilingual MC", vi: "MC song ngữ" },
     vi: "MC tiếng Việt & Anh",
     body: {
@@ -86,6 +91,11 @@ const SERVICES: Service[] = [
     num: "/ 04",
     imgClass: "ph dark",
     imgLabel: "Live band setup",
+    imageSrc: "/images/services/live-band.jpg",
+    imageAlt: {
+      en: "Drum kit and stage lighting on a small reception stage",
+      vi: "Bộ trống và đèn sân khấu nhỏ tại tiệc cưới",
+    },
     title: { en: "Live Band, DJ, Lights & Sound", vi: "Ban nhạc, DJ, ánh sáng & âm thanh" },
     vi: "Ban nhạc, DJ, ánh sáng",
     body: {
@@ -104,6 +114,11 @@ const SERVICES: Service[] = [
     num: "/ 05",
     imgClass: "ph",
     imgLabel: "Limousine arrival",
+    imageSrc: "/images/services/limousine.jpg",
+    imageAlt: {
+      en: "White stretch limousine on a wedding day",
+      vi: "Limousine kéo dài trắng trong ngày cưới",
+    },
     title: { en: "Limousine, Photo & Hotel", vi: "Limousine, ảnh cưới & khách sạn" },
     vi: "Limousine, chụp ảnh, khách sạn",
     body: {
