@@ -160,7 +160,7 @@ export default async function GalleryPage({
                 <T en="More on Instagram" vi="Theo dõi Instagram" />
               </span>
               <h2 className="serif" style={{ marginTop: 14 }}>
-                <T en="Follow us" vi="Theo dõi chúng tôi" /> <span className="gold">@mwsweddings</span>
+                <T en="Follow us" vi="Theo dõi chúng tôi" /> <span className="gold">@mississaugawedding</span>
               </h2>
               <p>
                 <T
@@ -171,7 +171,7 @@ export default async function GalleryPage({
             </div>
             <div className="actions">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/mississaugawedding/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-gold"

@@ -31,8 +31,8 @@ const PACKAGE_1_ITEMS: Item[] = [
     price: "$100",
     viLabel: "Mâm lễ vật",
     meta: {
-      en: "Rental · gold (16″) or red (14″)",
-      vi: "Cho thuê · vàng (16″) hoặc đỏ (14″)",
+      en: "Rental · gold or red · 16″ or 14″ diameter\n4¼″ height",
+      vi: "Cho thuê · vàng hoặc đỏ · đường kính 16″ hoặc 14″\ncao 4¼″",
     },
   },
   {
@@ -66,7 +66,10 @@ const PACKAGE_1_ITEMS: Item[] = [
     name: { en: "Incense Burner", vi: "Lư hương" },
     price: "$20",
     viLabel: "Lư hương",
-    meta: { en: "Rental · 3½″ × 3¾″", vi: "Cho thuê · 3½″ × 3¾″" },
+    meta: {
+      en: "Rental · 3¾″ height\n3½″ diameter",
+      vi: "Cho thuê · cao 3¾″\nđường kính 3½″",
+    },
   },
   {
     imgClass: "ph warm",
@@ -164,8 +167,8 @@ const PURCHASE_ITEMS: Item[] = [
     price: "$15–$35",
     viLabel: "Đèn cầy · 5 cỡ",
     meta: {
-      en: "Purchase · gold or multi-coloured · 5 sizes · 29–42.5 cm tall, 2.8–3.5 cm diameter",
-      vi: "Mua · vàng hoặc nhiều màu · 5 cỡ · cao 29–42.5 cm, đường kính 2.8–3.5 cm",
+      en: "Purchase · gold or multi-coloured · 5 sizes · 29–42.5 cm height\n2.8–3.5 cm diameter",
+      vi: "Mua · vàng hoặc nhiều màu · 5 cỡ · cao 29–42.5 cm\nđường kính 2.8–3.5 cm",
     },
   },
   {

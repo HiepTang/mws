@@ -23,11 +23,16 @@ export function Footer() {
             />
           </p>
           <div className="socials">
-            <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/mississaugawedding/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               IG
             </a>
             <a
-              href="https://www.facebook.com/mississaugaweddsols"
+              href="https://www.facebook.com/mississaugawedding"
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"

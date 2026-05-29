@@ -268,6 +268,16 @@ export default function HomePage() {
             <span className="name serif">Photo & Video</span>
             <span className="vi">Ảnh & video cưới</span>
           </div>
+          <div className="cell">
+            <span className="num">V.</span>
+            <span className="name serif">Limousine</span>
+            <span className="vi">Limousine cưới</span>
+          </div>
+          <div className="cell">
+            <span className="num">VI.</span>
+            <span className="name serif">Live Band / DJ</span>
+            <span className="vi">Ban nhạc / DJ</span>
+          </div>
         </div>
       </section>
 
