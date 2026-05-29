@@ -67,8 +67,8 @@ const PACKAGE_1_ITEMS: Item[] = [
     price: "$20",
     viLabel: "Lư hương",
     meta: {
-      en: "Rental · 3¾″ height\n3½″ diameter",
-      vi: "Cho thuê · cao 3¾″\nđường kính 3½″",
+      en: "Rental · 3½″ diameter × 3¾″ height",
+      vi: "Cho thuê · đường kính 3½″ × cao 3¾″",
     },
   },
   {
@@ -167,8 +167,8 @@ const PURCHASE_ITEMS: Item[] = [
     price: "$15–$35",
     viLabel: "Đèn cầy · 5 cỡ",
     meta: {
-      en: "Purchase · gold or multi-coloured · 5 sizes · 29–42.5 cm height\n2.8–3.5 cm diameter",
-      vi: "Mua · vàng hoặc nhiều màu · 5 cỡ · cao 29–42.5 cm\nđường kính 2.8–3.5 cm",
+      en: "Purchase · gold or multi-coloured · 5 sizes\n2.8–3.5 cm diameter × 29–42.5 cm height",
+      vi: "Mua · vàng hoặc nhiều màu · 5 cỡ\nđường kính 2.8–3.5 cm × cao 29–42.5 cm",
     },
   },
   {
