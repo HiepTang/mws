@@ -31,8 +31,8 @@ const PACKAGE_1_ITEMS: Item[] = [
     price: "$100",
     viLabel: "Mâm lễ vật",
     meta: {
-      en: "Rental · gold or red · 16″ or 14″ diameter\n4¼″ height",
-      vi: "Cho thuê · vàng hoặc đỏ · đường kính 16″ hoặc 14″\ncao 4¼″",
+      en: "Rental\nGold · 16″ diameter × 4¼″ height\nRed · 14″ diameter × 4¼″ height",
+      vi: "Cho thuê\nVàng · đường kính 16″ × cao 4¼″\nĐỏ · đường kính 14″ × cao 4¼″",
     },
   },
   {
