@@ -48,3 +48,7 @@ pnpm-workspace.yaml
 *.tsbuildinfo
 next-env.d.ts
 docs/images/from_owner
+
+# Playwright verification artifacts (screenshots, console logs)
+/.playwright-mcp/
+/rail-*.png
