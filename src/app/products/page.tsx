@@ -323,8 +323,8 @@ export default function ProductsPage() {
             </h2>
             <p style={{ textAlign: "center", marginTop: 12 }}>
               <T
-                en="A $100 refundable deposit holds your package — returned in full after items come back in good condition."
-                vi="Đặt cọc $100 hoàn lại — sẽ trả lại đầy đủ sau khi kiểm tra đồ trở về nguyên trạng."
+                en="A $100–$200 refundable deposit holds your package — returned in full after items come back in good condition."
+                vi="Đặt cọc $100–$200 hoàn lại — sẽ trả lại đầy đủ sau khi kiểm tra đồ trở về nguyên trạng."
               />
             </p>
           </div>
@@ -454,8 +454,8 @@ export default function ProductsPage() {
             }}
           >
             <T
-              en="* $100 refundable damage deposit applies to packages. Returned in full after items come back in original condition. Individual rentals follow the same care policy."
-              vi="* Đặt cọc $100 cho gói thuê, hoàn lại đầy đủ sau khi kiểm tra. Thuê riêng cũng theo chính sách tương tự."
+              en="* $100–$200 refundable damage deposit applies to packages. Returned in full after items come back in original condition. Individual rentals follow the same care policy."
+              vi="* Đặt cọc $100–$200 cho gói thuê, hoàn lại đầy đủ sau khi kiểm tra. Thuê riêng cũng theo chính sách tương tự."
             />
           </p>
 
