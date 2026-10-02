@@ -7,8 +7,14 @@ import { Turnstile } from "./turnstile";
 
 const SERVICE_OPTIONS = [
   { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
-  { en: "Áo dài & Tea", vi: "Áo dài & lễ trà" },
+  { en: "Áo dài rental", vi: "Thuê áo dài" },
+  { en: "Tea ceremony setup", vi: "Mâm lễ & lễ trà" },
   { en: "Bilingual MC", vi: "MC song ngữ" },
+  { en: "Limousine", vi: "Limousine" },
+  { en: "Hotel bookings", vi: "Đặt khách sạn" },
+  { en: "Photography & Videography", vi: "Nhiếp ảnh & quay phim" },
+  { en: "Live Band / DJ", vi: "Ban nhạc / DJ" },
+  { en: "Lights & Sound", vi: "Ánh sáng & âm thanh" },
   { en: "Full package", vi: "Trọn gói" },
 ];
 
@@ -26,8 +32,8 @@ export function ContactForm() {
         </h3>
         <p>
           <T
-            en="Your note is on its way to Juliane. Expect a reply within one business day — usually faster."
-            vi="Lời nhắn đã được gửi đến Juliane. Bạn sẽ nhận được phản hồi trong vòng một ngày làm việc — thường nhanh hơn."
+            en="Your note is on its way to Juliane. Expect a reply within one business day."
+            vi="Lời nhắn đã được gửi đến Juliane. Bạn sẽ nhận được phản hồi trong vòng một ngày làm việc."
           />
         </p>
       </div>
@@ -199,7 +205,7 @@ export function ContactForm() {
             key={`message-${k}`}
             id="message"
             name="message"
-            placeholder="What rituals matter most to you? Anything you're nervous about? We read every note."
+            placeholder="What rituals matter most to you? Anything you're nervous about?"
             defaultValue={v?.message ?? ""}
           />
         </div>

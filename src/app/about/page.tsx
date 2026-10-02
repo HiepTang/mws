@@ -21,7 +21,7 @@ export default function AboutPage() {
             </span>
           </div>
           <h1 className="serif">
-            <T en="A founder's story," vi="Câu chuyện người sáng lập," />
+            <T en="A founder's story" vi="Câu chuyện người sáng lập" />
             <br />
             <span className="accent">
               <T en="and a love letter to tradition." vi="lá thư tình gửi truyền thống." />
@@ -29,8 +29,8 @@ export default function AboutPage() {
           </h1>
           <p className="subtitle">
             <T
-              en="By Juliane Cao — makeup artist, IT veteran, and the woman who started Mississauga Wedding Solutions."
-              vi="Bởi Juliane Cao — chuyên gia trang điểm, kỳ cựu trong ngành CNTT, và người sáng lập Mississauga Wedding Solutions."
+              en="By Juliane Cao — makeup artist, IT veteran, and the woman who started Mississauga Wedding Solutions"
+              vi="Bởi Juliane Cao — chuyên gia trang điểm, kỳ cựu trong ngành CNTT, và người sáng lập Mississauga Wedding Solutions"
             />
           </p>
         </div>
@@ -58,11 +58,11 @@ export default function AboutPage() {
                 style={{ margin: "14px 0 28px", fontSize: "clamp(32px, 4vw, 48px)" }}
               >
                 <T
-                  en="A wedding is the one day a family becomes"
-                  vi="Đám cưới là ngày một gia đình"
+                  en="A wedding is the day two families become"
+                  vi="Đám cưới là ngày hai gia đình trở thành"
                 />{" "}
                 <span className="italic" style={{ color: "var(--red)" }}>
-                  <T en="visible to itself." vi="nhìn thấy chính mình." />
+                  <T en="one." vi="một nhà." />
                 </span>
               </h2>
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
 
               <p>
                 <T
-                  en="I want to be the company where East meets West — where a young Vietnamese-Canadian bride and her non-Vietnamese groom can have a wedding that feels true to both of them, with someone who knows the rituals well enough to translate the meaning, not just the words."
+                  en="I want to be the company where East gracefully meets West — where a young Vietnamese-Canadian bride and her non-Vietnamese groom can have a wedding that feels true to both of them, with someone who knows the rituals well enough to translate the meaning, not just the words."
                   vi="Hảo muốn là công ty nơi Á Đông gặp phương Tây — nơi cô dâu Việt-Canada và chú rể nước ngoài có một đám cưới đúng với cả hai, với người hiểu nghi lễ đủ sâu để dịch ý nghĩa, không chỉ dịch lời."
                 />
               </p>
@@ -138,34 +138,34 @@ export default function AboutPage() {
               <span className="vi">Ý nghĩa trên hết</span>
               <p>
                 <T
-                  en="Every ritual gets explained — to the bride, to the groom, to the in-laws who flew in last night. Spectacle is easy. Meaning is harder, and worth it."
-                  vi="Mỗi nghi lễ đều được giải thích — cho cô dâu, chú rể, và họ hàng xa. Hình thức dễ. Ý nghĩa khó hơn, và xứng đáng."
+                  en="Every ritual gets explained — to the bride, to the groom, to the in-laws, relatives, and wedding party. Spectacle is easy. Meaning is harder, and worth it."
+                  vi="Mỗi nghi lễ đều được giải thích — cho cô dâu, chú rể, thông gia, họ hàng, và đoàn phù dâu phù rể. Hình thức dễ. Ý nghĩa khó hơn, và xứng đáng."
                 />
               </p>
             </div>
             <div className="value">
               <span className="num">ii</span>
               <h3 className="serif">
-                <T en="Both sides, equally" vi="Cả hai bên, ngang nhau" />
+                <T en="Every guest, included" vi="Mọi khách mời, trọn vẹn" />
               </h3>
-              <span className="vi">Cả hai bên đều quan trọng</span>
+              <span className="vi">Mọi khách mời đều quan trọng</span>
               <p>
                 <T
-                  en="A bilingual wedding is not a Vietnamese wedding with English subtitles. We design every cue so both families feel like the day was made for them."
-                  vi="Đám cưới song ngữ không phải đám cưới Việt có phụ đề Anh. Chúng tôi thiết kế từng điểm để cả hai gia đình cảm thấy ngày đó dành cho mình."
+                  en="From the first ritual to the last toast, we design the day so every guest — whatever language they speak — feels it was made for them."
+                  vi="Từ nghi lễ đầu đến lời chúc cuối, chúng tôi thiết kế ngày cưới để mọi khách mời — dù nói ngôn ngữ nào — đều cảm thấy ngày đó dành cho mình."
                 />
               </p>
             </div>
             <div className="value">
               <span className="num">iii</span>
               <h3 className="serif">
-                <T en="One phone call" vi="Một cuộc gọi" />
+                <T en="One-stop shop" vi="Trọn gói một nơi" />
               </h3>
-              <span className="vi">Một cuộc gọi cho mọi việc</span>
+              <span className="vi">Một nơi cho mọi việc</span>
               <p>
                 <T
-                  en="Planning a wedding shouldn't be a second job. We're the single number you call — for the áo dài, the limo, the MC, and the family who can't find the venue."
-                  vi="Lo đám cưới không nên là công việc thứ hai. Chúng tôi là số duy nhất bạn cần gọi — cho áo dài, limousine, MC, và cả họ hàng không tìm được nhà hàng."
+                  en="Planning a wedding shouldn't be a second job. We're the single number you call — for the áo dài, the limousine, hair & makeup, the MC, live band or DJ, lights & sound, the hotel, the photographer and videographer."
+                  vi="Lo đám cưới không nên là công việc thứ hai. Chúng tôi là số duy nhất bạn cần gọi — cho áo dài, limousine, tóc & trang điểm, MC, ban nhạc hay DJ, ánh sáng & âm thanh, khách sạn, nhiếp ảnh và quay phim."
                 />
               </p>
             </div>
@@ -173,33 +173,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section>
-        <div className="shell">
-          <div className="cta-banner">
-            <div>
-              <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>
-                <span className="dash" />
-                <T en="Tea & talk" vi="Trò chuyện" />
-              </span>
-              <h2 className="serif" style={{ marginTop: 14 }}>
-                <T en="Come meet us." vi="Hãy đến gặp chúng tôi." />
-              </h2>
-              <p>
-                <T
-                  en="Sixty minutes, in our studio. We'll pour tea. You'll tell us what you're imagining. We'll tell you what's possible."
-                  vi="Sáu mươi phút, tại studio. Chúng tôi sẽ pha trà. Bạn kể giấc mơ. Chúng tôi sẽ nói khả năng thực hiện."
-                />
-              </p>
-            </div>
-            <div className="actions">
-              <Link href="/contact" className="btn btn-gold">
-                <T en="Book a consultation" vi="Đặt buổi tư vấn" />
-                <span className="arrow">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

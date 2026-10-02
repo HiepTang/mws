@@ -48,7 +48,7 @@ export function ImageRowControls({
       />
 
       <select
-        value={category}
+        value={category === "family" ? "reception" : category}
         disabled={pending}
         onChange={(e) =>
           startTransition(() => updateGalleryImage(id, { category: e.target.value }))

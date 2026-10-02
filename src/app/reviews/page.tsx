@@ -50,15 +50,15 @@ export default async function ReviewsPage() {
             </span>
           </div>
           <h1 className="serif">
-            <T en="Words from" vi="Lời nhắn từ" />{" "}
+            <T en="See what others" vi="Xem mọi người" />{" "}
             <span className="accent">
-              <T en="real families." vi="các gia đình." />
+              <T en="are saying." vi="nói gì." />
             </span>
           </h1>
           <p className="subtitle">
             <T
-              en="Every review here was written by a couple after their wedding day. We read every one personally."
-              vi="Mỗi lời đánh giá ở đây đều được cặp đôi viết sau ngày cưới. Chúng tôi đọc từng lời một cách cá nhân."
+              en="Every review here was written by a couple after their wedding day."
+              vi="Mỗi lời đánh giá ở đây đều được cặp đôi viết sau ngày cưới."
             />
           </p>
         </div>
@@ -133,8 +133,8 @@ export default async function ReviewsPage() {
               </h2>
               <p style={{ marginTop: 18 }}>
                 <T
-                  en="If we held a piece of your wedding — the áo dài, the trays, the MC's voice — we'd be honored to hear how it landed. Future couples read every word."
-                  vi="Nếu chúng tôi đã góp một phần vào ngày cưới của bạn — áo dài, mâm lễ, lời MC — chúng tôi sẽ rất vinh dự được nghe cảm nhận. Các cặp đôi tương lai sẽ đọc từng lời."
+                  en="If we were part of your wedding day — the áo dài, the trays, the MC's voice — we'd be honored to hear how it went."
+                  vi="Nếu chúng tôi đã góp một phần vào ngày cưới của bạn — áo dài, mâm lễ, lời MC — chúng tôi sẽ rất vinh dự được nghe cảm nhận."
                 />
               </p>
               <div className="rf-bullets">
@@ -162,20 +162,6 @@ export default async function ReviewsPage() {
                       <T
                         en="Add a wedding photo and we'll feature it in the gallery (with credit)."
                         vi="Thêm ảnh cưới và chúng tôi sẽ đăng trong thư viện (kèm tên)."
-                      />
-                    </p>
-                  </div>
-                </div>
-                <div className="rf-bullet">
-                  <span className="rf-num">iii</span>
-                  <div>
-                    <h4>
-                      <T en="Reviewed before publish" vi="Duyệt trước khi đăng" />
-                    </h4>
-                    <p>
-                      <T
-                        en="Juliane reads each one personally before it goes live."
-                        vi="Juliane đọc từng đánh giá trước khi đăng."
                       />
                     </p>
                   </div>

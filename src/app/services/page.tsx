@@ -29,14 +29,14 @@ const SERVICES: Service[] = [
     title: { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
     vi: "Tóc & trang điểm",
     body: {
-      en: "Founder Juliane is a certified Professional Makeup Artist with thirty years of attention-to-detail. We do trials, so you'll know exactly how you'll look — and feel.",
-      vi: "Người sáng lập Juliane là chuyên gia trang điểm chuyên nghiệp với 30 năm chú trọng đến từng chi tiết. Chúng tôi thử trang điểm trước để bạn biết chính xác mình sẽ trông như thế nào.",
+      en: "Founder Juliane is a certified Professional Makeup Artist with incredible attention-to-detail. We do trials so you'll know exactly how you'll look and feel.",
+      vi: "Người sáng lập Juliane là chuyên gia trang điểm chuyên nghiệp, luôn chú trọng đến từng chi tiết. Chúng tôi thử trang điểm trước để bạn biết chính xác mình sẽ trông như thế nào.",
     },
     bullets: [
       { en: "Bridal trial & consultation", vi: "Thử trang điểm & tư vấn" },
       { en: "Day-of full hair & makeup", vi: "Tóc & trang điểm trọn ngày" },
       { en: "Touch-ups for ceremony & reception", vi: "Dặm phấn cho lễ và tiệc" },
-      { en: "Mother-of, bridesmaid add-ons", vi: "Trang điểm cho mẹ và phù dâu" },
+      { en: "Mother-of, bridesmaids are add-ons", vi: "Trang điểm cho mẹ và phù dâu" },
     ],
     priceLab: { en: "From", vi: "Từ" },
     price: "$350",
@@ -50,19 +50,19 @@ const SERVICES: Service[] = [
       en: "Groom in red áo dài and khăn đóng",
       vi: "Chú rể trong áo dài đỏ và khăn đóng",
     },
-    title: { en: "Áo dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
-    vi: "Áo dài chú rể & lễ trà",
+    title: { en: "Áo Dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
+    vi: "Áo dài & lễ trà",
     body: {
-      en: "The cornerstone of a Vietnamese wedding. Áo dài rentals for both bride (gold, or white & red) and groom (blue, gold, or red) with khăn đóng, full tray rentals, and the ceremonial wine tray.",
-      vi: "Trái tim của đám cưới Việt. Cho thuê áo dài cho cô dâu (vàng, hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm lễ và mâm rượu trọn bộ.",
+      en: "The cornerstone of a Vietnamese wedding. Áo dài rentals for both bride (gold or white & red) and groom (blue, gold or red) with khăn đóng, full tray rentals, and the ceremonial tea tray. See Products for package pricing.",
+      vi: "Trái tim của đám cưới Việt. Cho thuê áo dài cho cô dâu (vàng hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm lễ và mâm trà trọn bộ. Xem trang Sản phẩm để biết giá gói.",
     },
     bullets: [
       { en: "Áo dài rental — bride & groom", vi: "Cho thuê áo dài — cô dâu & chú rể" },
-      { en: "Wine tray & ceremonial dishes", vi: "Mâm rượu & lễ vật" },
+      { en: "Tea tray & ceremonial dishes", vi: "Mâm trà & lễ vật" },
       { en: "Ritual guidance from start to finish", vi: "Hướng dẫn nghi lễ từ đầu đến cuối" },
     ],
-    priceLab: { en: "From", vi: "" },
-    price: { en: "Enquiry", vi: "Liên hệ" },
+    priceLab: { en: "Packages from", vi: "Gói từ" },
+    price: "$220",
   },
   {
     num: "/ 03",
@@ -81,7 +81,7 @@ const SERVICES: Service[] = [
     },
     bullets: [
       { en: "Pre-event script & run-of-show", vi: "Kịch bản trước sự kiện" },
-      { en: "Family name pronunciation rehearsal", vi: "Diễn tập phát âm tên gia đình" },
+      { en: "Name pronunciation rehearsal — first, middle & family names", vi: "Diễn tập phát âm tên — tên, tên đệm & họ" },
       { en: "Live translation between toasts", vi: "Phiên dịch trực tiếp giữa các lời chúc" },
     ],
     priceLab: { en: "From", vi: "Từ" },
@@ -89,6 +89,49 @@ const SERVICES: Service[] = [
   },
   {
     num: "/ 04",
+    imgClass: "ph",
+    imgLabel: "Limousine arrival",
+    imageSrc: "/images/services/limousine.jpg",
+    imageAlt: {
+      en: "White stretch limousine on a wedding day",
+      vi: "Limousine kéo dài trắng trong ngày cưới",
+    },
+    title: { en: "Limousine & Hotel", vi: "Limousine & khách sạn" },
+    vi: "Limousine & khách sạn",
+    body: {
+      en: "The supporting cast: a chauffeured limousine for the wedding party and hotel-block bookings for out-of-town guests.",
+      vi: "Những dịch vụ hỗ trợ: limousine có tài xế cho đoàn cưới, kèm đặt phòng khách sạn cho khách phương xa.",
+    },
+    bullets: [
+      { en: "6 or 10-passenger stretch limousine", vi: "Limousine 6 hoặc 10 chỗ" },
+      { en: "Hotel room blocks for the guests", vi: "Đặt phòng khách sạn cho khách" },
+    ],
+    priceLab: { en: "From", vi: "" },
+    price: { en: "Inquiry", vi: "Liên hệ" },
+  },
+  {
+    num: "/ 05",
+    imgClass: "ph",
+    imgLabel: "Photographer at the ceremony",
+    imageSrc: "/images/services/photographer.jpg",
+    imageAlt: {
+      en: "Photographer reviewing a wedding portrait on his camera",
+      vi: "Nhiếp ảnh xem lại ảnh chân dung trên máy ảnh",
+    },
+    title: { en: "Photography & Videography", vi: "Nhiếp ảnh & quay phim" },
+    vi: "Ảnh & video cưới",
+    body: {
+      en: "A photo and video team that knows when to step in and when to disappear. Every moment that matters — the áo dài fitting, the tea ceremony, the first dance — captured.",
+      vi: "Đội ảnh và video biết khi nào tiến tới, khi nào lùi lại. Mỗi khoảnh khắc quan trọng — thử áo dài, lễ trà, điệu nhảy đầu tiên — đều được ghi lại.",
+    },
+    bullets: [
+      { en: "Full-day coverage, from ceremony & reception to the morning prep and details", vi: "Quay chụp trọn ngày — từ lễ và tiệc đến buổi sáng chuẩn bị và các chi tiết" },
+    ],
+    priceLab: { en: "From", vi: "" },
+    price: { en: "Inquiry", vi: "Liên hệ" },
+  },
+  {
+    num: "/ 06",
     imgClass: "ph dark",
     imgLabel: "Live band setup",
     imageSrc: "/images/services/live-band.jpg",
@@ -108,52 +151,7 @@ const SERVICES: Service[] = [
       { en: "Café-light installation", vi: "Lắp đặt đèn cà phê" },
     ],
     priceLab: { en: "From", vi: "" },
-    price: { en: "Enquiry", vi: "Liên hệ" },
-  },
-  {
-    num: "/ 05",
-    imgClass: "ph",
-    imgLabel: "Limousine arrival",
-    imageSrc: "/images/services/limousine.jpg",
-    imageAlt: {
-      en: "White stretch limousine on a wedding day",
-      vi: "Limousine kéo dài trắng trong ngày cưới",
-    },
-    title: { en: "Limousine & Hotel", vi: "Limousine & khách sạn" },
-    vi: "Limousine & khách sạn",
-    body: {
-      en: "The supporting cast: a chauffeured limousine for the wedding party, and hotel-block bookings for out-of-town guests.",
-      vi: "Những dịch vụ hỗ trợ: limousine có tài xế cho đoàn cưới, kèm đặt phòng khách sạn cho khách phương xa.",
-    },
-    bullets: [
-      { en: "6 or 10-passenger stretch limousine", vi: "Limousine 6 hoặc 10 chỗ" },
-      { en: "Hotel room blocks for the families", vi: "Đặt phòng khách sạn cho gia đình" },
-    ],
-    priceLab: { en: "From", vi: "" },
-    price: { en: "Enquiry", vi: "Liên hệ" },
-  },
-  {
-    num: "/ 06",
-    imgClass: "ph",
-    imgLabel: "Photographer at the ceremony",
-    imageSrc: "/images/services/photographer.jpg",
-    imageAlt: {
-      en: "Photographer reviewing a wedding portrait on his camera",
-      vi: "Nhiếp ảnh xem lại ảnh chân dung trên máy ảnh",
-    },
-    title: { en: "Photo & Video", vi: "Ảnh & video" },
-    vi: "Ảnh & video cưới",
-    body: {
-      en: "A photo and video team that knows when to step in and when to disappear. Every moment that matters — the áo dài fitting, the tea ceremony, the first dance — kept.",
-      vi: "Đội ảnh và video biết khi nào tiến tới, khi nào lùi lại. Mỗi khoảnh khắc quan trọng — thử áo dài, lễ trà, điệu nhảy đầu tiên — đều được lưu giữ.",
-    },
-    bullets: [
-      { en: "Full-day ceremony & reception coverage", vi: "Quay chụp trọn ngày lễ và tiệc" },
-      { en: "Highlight film + edited photo gallery", vi: "Phim highlight + bộ ảnh đã chỉnh sửa" },
-      { en: "Second shooter for getting-ready & details", vi: "Thợ phụ cho phần chuẩn bị & chi tiết" },
-    ],
-    priceLab: { en: "From", vi: "" },
-    price: { en: "Enquiry", vi: "Liên hệ" },
+    price: { en: "Inquiry", vi: "Liên hệ" },
   },
 ];
 
@@ -176,7 +174,7 @@ export default function ServicesPage() {
             </span>
           </div>
           <h1 className="serif">
-            <T en="Every part of the day," vi="Trọn vẹn ngày cưới," />
+            <T en="Every part of the day" vi="Trọn vẹn ngày cưới" />
             <br />
             <span className="accent">
               <T en="taken care of." vi="từng chi tiết một." />
@@ -244,36 +242,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section>
-        <div className="shell">
-          <div className="cta-banner">
-            <div>
-              <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>
-                <span className="dash" />
-                <T en="Not sure what fits?" vi="Chưa biết chọn gì?" />
-              </span>
-              <h2 className="serif" style={{ marginTop: 14 }}>
-                <T en="Tell us about your day." vi="Hãy kể chúng tôi về ngày của bạn." />
-              </h2>
-              <p>
-                <T
-                  en="A 30-minute call. No pressure. We'll give you an honest sense of cost, dates, and what's possible."
-                  vi="Một cuộc gọi 30 phút. Không áp lực. Chúng tôi sẽ tư vấn thật lòng về chi phí, ngày và khả năng."
-                />
-              </p>
-            </div>
-            <div className="actions">
-              <Link href="/contact" className="btn btn-gold">
-                <T en="Get a quote" vi="Nhận báo giá" />
-                <span className="arrow">→</span>
-              </Link>
-              <a href="tel:4164344606" className="btn btn-outline">
-                <T en="Call (416) 434-4606" vi="Gọi (416) 434-4606" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

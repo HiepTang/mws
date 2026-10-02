@@ -24,9 +24,9 @@ const SERVICE_CARDS: ServiceCard[] = [
     },
     num: "01 / Beauty",
     title: { en: "Hair & Makeup", vi: "Tóc & trang điểm" },
-    vi: "Tóc & trang điểm cô dâu",
+    vi: "Tóc & trang điểm",
     body: {
-      en: "Bridal-led by Juliane, a certified makeup artist. Trial included. Touch-ups across the day.",
+      en: "Led by Juliane, a certified makeup artist. Trial included. Touch-ups across the day.",
       vi: "Trang điểm bởi Juliane, chuyên gia có chứng chỉ. Bao gồm thử và dặm phấn cả ngày.",
     },
   },
@@ -39,11 +39,11 @@ const SERVICE_CARDS: ServiceCard[] = [
       vi: "Bộ trà cưới Việt",
     },
     num: "02 / Ceremony",
-    title: { en: "Tea Ceremony Setup", vi: "Lễ trà" },
-    vi: "Mâm trà & lễ vật",
+    title: { en: "Áo Dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
+    vi: "Áo dài & lễ trà",
     body: {
-      en: "Tray rentals, áo dài for the bride (gold, or white & red) and groom (blue, gold, or red) with khăn đóng, the wine tray, and the ceremonial pieces.",
-      vi: "Cho thuê mâm lễ, áo dài cho cô dâu (vàng, hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm rượu, và đồ lễ trọn bộ.",
+      en: "Tray rentals, áo dài for the bride (gold or white & red) and groom (blue, gold or red) with khăn đóng, the tea tray, and the ceremonial pieces.",
+      vi: "Cho thuê mâm lễ, áo dài cho cô dâu (vàng hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm trà, và đồ lễ trọn bộ.",
     },
   },
   {
@@ -71,11 +71,11 @@ const SERVICE_CARDS: ServiceCard[] = [
       vi: "Limousine kéo dài trắng trong ngày cưới",
     },
     num: "04 / Arrival",
-    title: { en: "Limousine", vi: "Limousine" },
-    vi: "Limousine cưới",
+    title: { en: "Limousine & Hotel", vi: "Limousine & khách sạn" },
+    vi: "Limousine & khách sạn",
     body: {
-      en: "A chauffeured limousine for the wedding party — 6- or 10-passenger options for the procession, the photo shoot, and the entrance.",
-      vi: "Limousine có tài xế cho đoàn cưới — loại 6 hoặc 10 chỗ cho lễ rước dâu, chụp ảnh, và lúc tiến vào tiệc.",
+      en: "A chauffeured limousine for the wedding party — 6- or 10-passenger options — plus hotel room blocks for out-of-town guests.",
+      vi: "Limousine có tài xế cho đoàn cưới — loại 6 hoặc 10 chỗ — kèm đặt phòng khách sạn cho khách phương xa.",
     },
   },
   {
@@ -87,11 +87,11 @@ const SERVICE_CARDS: ServiceCard[] = [
       vi: "Nhiếp ảnh xem lại ảnh chân dung trên máy ảnh",
     },
     num: "05 / Memory",
-    title: { en: "Photo & Video", vi: "Ảnh & video" },
+    title: { en: "Photography & Videography", vi: "Nhiếp ảnh & quay phim" },
     vi: "Ảnh & video cưới",
     body: {
-      en: "A photo and video team that knows when to step in and when to disappear. Every moment that matters, kept.",
-      vi: "Đội ảnh và video biết khi nào tiến tới, khi nào lùi lại. Mỗi khoảnh khắc quan trọng đều được lưu giữ.",
+      en: "A photo and video team that knows when to step in and when to disappear. Every moment that matters, captured.",
+      vi: "Đội ảnh và video biết khi nào tiến tới, khi nào lùi lại. Mỗi khoảnh khắc quan trọng đều được ghi lại.",
     },
   },
   {
@@ -103,11 +103,11 @@ const SERVICE_CARDS: ServiceCard[] = [
       vi: "Bộ trống và đèn sân khấu nhỏ tại tiệc cưới",
     },
     num: "06 / Sound",
-    title: { en: "Live Band or DJ", vi: "Ban nhạc / DJ" },
-    vi: "Ban nhạc hoặc DJ",
+    title: { en: "Live Band, DJ, Lights & Sound", vi: "Ban nhạc, DJ, ánh sáng & âm thanh" },
+    vi: "Ban nhạc, DJ, ánh sáng",
     body: {
-      en: "Vietnamese ballads, Canadian classics, or a Spotify queue handed over — your call.",
-      vi: "Nhạc Việt, nhạc Canada, hoặc playlist riêng — bạn chọn.",
+      en: "Vietnamese ballads, Canadian classics, or a Spotify queue handed over — plus the full rig: PA, wireless mics, and café lights.",
+      vi: "Nhạc Việt, nhạc Canada, hoặc playlist riêng — kèm thiết bị: loa đài, mic không dây, và đèn trang trí.",
     },
   },
 ];
@@ -167,8 +167,8 @@ export default function HomePage() {
               </h1>
               <p className="hero-sub">
                 <T
-                  en="From the groom áo dài to the tea ceremony, the limousine to the live band — every ritual planned with care, by a Vietnamese-Canadian family who loves it."
-                  vi="Từ áo dài đến lễ trà, từ limousine đến ban nhạc — mỗi nghi thức được lo trọn vẹn, bởi một gia đình Việt-Canada đầy tâm huyết."
+                  en="From the groom áo dài to the tea ceremony, the limousine to the live band — every ritual planned with care, by a Vietnamese-Canadian who loves it."
+                  vi="Từ áo dài đến lễ trà, từ limousine đến ban nhạc — mỗi nghi thức được lo trọn vẹn, bởi một người Việt-Canada đầy tâm huyết."
                 />
               </p>
               <div className="hero-ctas">
@@ -194,7 +194,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="stat">
-                  <span className="num">4.9★</span>
+                  <span className="num">5★</span>
                   <span className="lab">
                     <T en="Google rating" vi="Đánh giá Google" />
                   </span>
@@ -242,41 +242,6 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: 0 }}>
-        <div className="rail">
-          <div className="cell">
-            <span className="num">I.</span>
-            <span className="name serif">Hair & Makeup</span>
-            <span className="vi">Tóc & trang điểm</span>
-          </div>
-          <div className="cell">
-            <span className="num">II.</span>
-            <span className="name serif">Áo dài Rental</span>
-            <span className="vi">Cho thuê áo dài</span>
-          </div>
-          <div className="cell">
-            <span className="num">III.</span>
-            <span className="name serif">Bilingual MC</span>
-            <span className="vi">MC song ngữ</span>
-          </div>
-          <div className="cell">
-            <span className="num">IV.</span>
-            <span className="name serif">Photo & Video</span>
-            <span className="vi">Ảnh & video cưới</span>
-          </div>
-          <div className="cell">
-            <span className="num">V.</span>
-            <span className="name serif">Limousine</span>
-            <span className="vi">Limousine cưới</span>
-          </div>
-          <div className="cell">
-            <span className="num">VI.</span>
-            <span className="name serif">Live Band / DJ</span>
-            <span className="vi">Ban nhạc / DJ</span>
           </div>
         </div>
       </section>
@@ -425,7 +390,7 @@ export default function HomePage() {
               </p>
               <p>
                 <T
-                  en="We are the company where East meets West."
+                  en="We are the company where East gracefully meets West."
                   vi="Chúng tôi là nơi văn hóa Á Đông gặp gỡ phương Tây."
                 />
               </p>
@@ -445,14 +410,10 @@ export default function HomePage() {
         <div className="shell">
           <div className="section-head row">
             <div>
-              <span className="eyebrow eyebrow-gold">
-                <span className="dash" />
-                <T en="From the families" vi="Lời khen từ các gia đình" />
-              </span>
               <h2 className="serif" style={{ marginTop: 14 }}>
                 <T en="What our couples" vi="Điều các cặp đôi" />{" "}
                 <span className="italic" style={{ color: "var(--red)" }}>
-                  <T en="say after." vi="nói sau ngày cưới." />
+                  <T en="say:" vi="chia sẻ:" />
                 </span>
               </h2>
             </div>

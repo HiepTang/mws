@@ -31,8 +31,8 @@ const PACKAGE_1_ITEMS: Item[] = [
     price: "$100",
     viLabel: "Mâm lễ vật",
     meta: {
-      en: "Rental\nGold · 16″ diameter × 4¼″ height\nRed · 14″ diameter × 4¼″ height",
-      vi: "Cho thuê\nVàng · đường kính 16″ × cao 4¼″\nĐỏ · đường kính 14″ × cao 4¼″",
+      en: "Rental · Gold (16″ diameter × 4¼″ height) or Red (14″ diameter × 4¼″ height)",
+      vi: "Cho thuê · Vàng (đường kính 16″ × cao 4¼″) hoặc Đỏ (đường kính 14″ × cao 4¼″)",
     },
   },
   {
@@ -131,24 +131,24 @@ const AODAI_ITEMS: Item[] = [
     price: "$100",
     viLabel: "Áo dài & khăn đóng chú rể",
     meta: {
-      en: "Rental · blue, gold, or red",
-      vi: "Cho thuê · xanh, vàng, hoặc đỏ",
+      en: "Rental · blue, gold or red",
+      vi: "Cho thuê · xanh, vàng hoặc đỏ",
     },
   },
   {
     imgClass: "ph warm",
-    imgLabel: "Bride áo dài & hair piece",
+    imgLabel: "Bride áo dài & khăn đóng",
     imageSrc: "/images/products/bride-ao-dai.jpg",
     imageAlt: {
-      en: "Bride áo dài with hair piece",
-      vi: "Áo dài cô dâu và mấn",
+      en: "Bride áo dài with khăn đóng",
+      vi: "Áo dài cô dâu và khăn đóng",
     },
-    name: { en: "Bride Áo Dài + Hair Piece", vi: "Áo dài cô dâu + mấn" },
+    name: { en: "Bride Áo Dài + Khăn Đóng", vi: "Áo dài cô dâu + khăn đóng" },
     price: "$100",
-    viLabel: "Áo dài & mấn cô dâu",
+    viLabel: "Áo dài & khăn đóng cô dâu",
     meta: {
-      en: "Rental · gold, or white & red",
-      vi: "Cho thuê · vàng, hoặc trắng & đỏ",
+      en: "Rental · gold or white & red",
+      vi: "Cho thuê · vàng hoặc trắng & đỏ",
     },
   },
 ];
@@ -165,10 +165,10 @@ const PURCHASE_ITEMS: Item[] = [
     },
     name: { en: "Wedding Candles", vi: "Đèn cầy" },
     price: "$15–$35",
-    viLabel: "Đèn cầy · 5 cỡ",
+    viLabel: "Đèn cầy · 5 kích thước",
     meta: {
       en: "Purchase · gold or multi-coloured · 5 sizes\n2.8–3.5 cm diameter × 29–42.5 cm height",
-      vi: "Mua · vàng hoặc nhiều màu · 5 cỡ\nđường kính 2.8–3.5 cm × cao 29–42.5 cm",
+      vi: "Mua · vàng hoặc nhiều màu · 5 kích thước\nđường kính 2.8–3.5 cm × cao 29–42.5 cm",
     },
   },
   {
@@ -206,29 +206,30 @@ const PACKAGES: PackageCard[] = [
     bullets: [
       { en: "Wedding trays (set of 6)", vi: "Mâm quả (bộ 6)" },
       { en: "Wedding sign — Tân Hôn / Vu Quy", vi: "Bảng chữ Tân Hôn / Vu Quy" },
-      { en: "Candle stands & censer", vi: "Chân đèn cầy & lư trầm" },
+      { en: "Candle stands", vi: "Chân đèn cầy" },
+      { en: "Censer", vi: "Lư trầm" },
       { en: "Incense burner", vi: "Lư hương" },
       { en: "Plastic areca", vi: "Cau giả" },
       { en: "Tea set (2 styles)", vi: "Bộ trà (2 kiểu)" },
       { en: "Altar tablecloth (7′ × 6.5′)", vi: "Khăn trải bàn thờ (7′ × 6.5′)" },
     ],
     note: {
-      en: "All 8 ceremonial pieces. Individually they'd be $290 — bundle saves $70.",
-      vi: "Trọn 8 món lễ gia tiên. Thuê riêng tổng $290 — gói tiết kiệm $70.",
+      en: "All 8 ceremonial pieces. Individually they'd be $290 — save $70 when you bundle.",
+      vi: "Trọn 8 món lễ gia tiên. Thuê riêng tổng $290 — gộp gói tiết kiệm $70.",
     },
   },
   {
-    tag: { en: "Most chosen", vi: "Phổ biến nhất" },
+    tag: { en: "Most Popular", vi: "Phổ biến nhất" },
     title: { en: "Package 2 — Ceremony + Áo Dài", vi: "Gói 2 — Lễ gia tiên + Áo dài" },
     price: "$420",
     bullets: [
       { en: "Everything in Package 1", vi: "Toàn bộ Gói 1" },
-      { en: "Groom áo dài + khăn đóng (blue, gold, or red)", vi: "Áo dài & khăn đóng chú rể (xanh, vàng, đỏ)" },
-      { en: "Bride áo dài + hair piece (gold, or white & red)", vi: "Áo dài & mấn cô dâu (vàng, hoặc trắng & đỏ)" },
+      { en: "Groom áo dài + khăn đóng (blue, gold or red)", vi: "Áo dài & khăn đóng chú rể (xanh, vàng, đỏ)" },
+      { en: "Bride áo dài + khăn đóng (gold or white & red)", vi: "Áo dài & khăn đóng cô dâu (vàng hoặc trắng & đỏ)" },
     ],
     note: {
-      en: "Package 1 plus both áo dài rentals. Saves $70 vs. renting individually.",
-      vi: "Gói 1 cộng cả hai bộ áo dài. Tiết kiệm $70 so với thuê riêng.",
+      en: "Package 1 plus both áo dài rentals. Save $70 when you bundle.",
+      vi: "Gói 1 cộng cả hai bộ áo dài. Gộp gói tiết kiệm $70.",
     },
     featured: true,
   },
@@ -323,7 +324,7 @@ export default function ProductsPage() {
             </h2>
             <p style={{ textAlign: "center", marginTop: 12 }}>
               <T
-                en="A $100–$200 refundable deposit holds your package — returned in full after items come back in good condition."
+                en="A $100–$200 refundable deposit holds your package — returned in-full after items come back in good condition."
                 vi="Đặt cọc $100–$200 hoàn lại — sẽ trả lại đầy đủ sau khi kiểm tra đồ trở về nguyên trạng."
               />
             </p>
@@ -384,9 +385,8 @@ export default function ProductsPage() {
               <T en="Individual rentals" vi="Thuê riêng" />
             </span>
             <h2 className="serif">
-              <T en="Pieces," vi="Từng món," />{" "}
               <span className="italic" style={{ color: "var(--red)" }}>
-                <T en="à la carte." vi="thuê riêng." />
+                <T en="À la carte." vi="Thuê riêng." />
               </span>
             </h2>
             <p style={{ marginTop: 12 }}>
@@ -401,7 +401,7 @@ export default function ProductsPage() {
             className="serif"
             style={{ fontSize: 24, marginBottom: 16, marginTop: 24, color: "var(--ink)" }}
           >
-            <T en="Áo dài & attire" vi="Áo dài & lễ phục" />
+            <T en="Áo dài & accessories" vi="Áo dài & phụ kiện" />
           </h3>
           <ItemGrid items={AODAI_ITEMS} />
 
@@ -412,6 +412,21 @@ export default function ProductsPage() {
             <T en="Ceremonial pieces" vi="Đồ lễ gia tiên" />
           </h3>
           <ItemGrid items={PACKAGE_1_ITEMS} />
+
+          <p
+            style={{
+              fontFamily: "var(--mono)",
+              fontSize: 11,
+              color: "var(--ink-muted)",
+              maxWidth: "70ch",
+              marginTop: 32,
+            }}
+          >
+            <T
+              en="* $100–$200 deposit. Refund in full after items come back in original condition."
+              vi="* Đặt cọc $100–$200. Hoàn lại đầy đủ sau khi đồ trở về nguyên trạng."
+            />
+          </p>
         </div>
       </section>
 
@@ -426,13 +441,13 @@ export default function ProductsPage() {
             <h2 className="serif">
               <T en="Candles &" vi="Đèn cầy &" />{" "}
               <span className="italic" style={{ color: "var(--red)" }}>
-                <T en="decorations." vi="đồ trang trí." />
+                <T en="decorations" vi="đồ trang trí" />
               </span>
             </h2>
             <p style={{ marginTop: 12 }}>
               <T
-                en="Take-home keepsakes — not rentals. Yours to keep after the day."
-                vi="Kỷ vật mang về — không phải đồ thuê. Của bạn sau ngày cưới."
+                en="Take-home keepsakes, not rentals. Yours to keep after the day."
+                vi="Kỷ vật mang về, không phải đồ thuê. Của bạn sau ngày cưới."
               />
             </p>
           </div>
@@ -441,52 +456,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* === Disclaimer + CTA === */}
-      <section>
-        <div className="shell">
-          <p
-            style={{
-              fontFamily: "var(--mono)",
-              fontSize: 11,
-              color: "var(--ink-muted)",
-              maxWidth: "70ch",
-              marginBottom: 40,
-            }}
-          >
-            <T
-              en="* $100–$200 refundable damage deposit applies to packages. Returned in full after items come back in original condition. Individual rentals follow the same care policy."
-              vi="* Đặt cọc $100–$200 cho gói thuê, hoàn lại đầy đủ sau khi kiểm tra. Thuê riêng cũng theo chính sách tương tự."
-            />
-          </p>
-
-          <div className="cta-banner">
-            <div>
-              <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>
-                <span className="dash" />
-                <T en="See it in person" vi="Xem tận nơi" />
-              </span>
-              <h2 className="serif" style={{ marginTop: 14 }}>
-                <T en="Visit the studio" vi="Đến studio" />{" "}
-                <span className="gold">
-                  <T en="for a fitting." vi="để thử đồ." />
-                </span>
-              </h2>
-              <p>
-                <T
-                  en="Photos can only show so much. Come try the áo dài, hold a tray, see the lacquer up close."
-                  vi="Ảnh chỉ kể được phần nào. Đến thử áo dài, cầm mâm, xem sơn mài tận tay."
-                />
-              </p>
-            </div>
-            <div className="actions">
-              <Link href="/contact" className="btn btn-gold">
-                <T en="Book a fitting" vi="Đặt thử đồ" />
-                <span className="arrow">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

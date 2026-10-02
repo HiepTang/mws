@@ -18,21 +18,24 @@ const SERVICE_TAGS = [
   "Hair & Makeup",
   "MC",
   "Live Band / DJ",
-  "Photography",
+  "Photography & Videography",
   "Limousine",
 ] as const;
 
 const ReviewSchema = z.object({
   coupleNames: z.string().trim().min(1, "Please tell us your names").max(120),
-  emailPrivate: z.string().trim().email("Please enter a valid email").max(200),
+  // Optional — but when given it must look like an email.
+  emailPrivate: z
+    .string()
+    .trim()
+    .email("Please enter a valid email")
+    .max(200)
+    .optional()
+    .or(z.literal("")),
   weddingDate: z.string().trim().max(40).optional().or(z.literal("")),
   city: z.string().trim().max(80).optional().or(z.literal("")),
   rating: z.coerce.number().int().min(1, "Pick a star rating").max(5),
-  body: z
-    .string()
-    .trim()
-    .min(20, "A few sentences please — even short reviews help")
-    .max(5000),
+  body: z.string().trim().max(5000).optional().or(z.literal("")),
   serviceTags: z.array(z.string()).max(20).optional().default([]),
   language: z.enum(["en", "vi"]).default("en"),
   consentShare: z.literal("on").or(z.literal("true")).optional(),
@@ -163,7 +166,7 @@ async function sendOwnerNotification(input: ReviewInput, reviewId: string, hasIm
     `${stars}  (${input.rating}/5)`,
     ``,
     `From:        ${input.coupleNames}`,
-    `Email:       ${input.emailPrivate}`,
+    input.emailPrivate ? `Email:       ${input.emailPrivate}` : `Email:       (not given)`,
     input.weddingDate ? `Wedding:     ${input.weddingDate}` : null,
     input.city ? `City:        ${input.city}` : null,
     input.serviceTags.length ? `Services:    ${input.serviceTags.join(", ")}` : null,
@@ -173,7 +176,7 @@ async function sendOwnerNotification(input: ReviewInput, reviewId: string, hasIm
     `Gallery OK:  ${input.consentGallery ? "yes" : "no"}`,
     ``,
     `Review:`,
-    input.body,
+    input.body || "(no written review — rating only)",
     ``,
     `—`,
     `Approve or reject in the admin queue: ${siteUrl}/admin`,
@@ -185,7 +188,7 @@ async function sendOwnerNotification(input: ReviewInput, reviewId: string, hasIm
     await resend.emails.send({
       from,
       to,
-      replyTo: input.emailPrivate,
+      ...(input.emailPrivate ? { replyTo: input.emailPrivate } : {}),
       subject: `New review: ${stars} — ${input.coupleNames}`,
       text: lines.join("\n"),
     });
@@ -269,11 +272,11 @@ export async function submitReview(_prev: ReviewState, formData: FormData): Prom
       .insert(schema.reviews)
       .values({
         coupleNames: data.coupleNames,
-        emailPrivate: data.emailPrivate,
+        emailPrivate: data.emailPrivate || "",
         weddingDate: data.weddingDate || null,
         city: data.city || null,
         rating: data.rating,
-        body: data.body,
+        body: data.body || "",
         serviceTags: data.serviceTags,
         language: data.language,
         consentShare: data.consentShare === "on",

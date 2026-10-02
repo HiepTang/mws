@@ -28,7 +28,9 @@ export default async function AdminGalleryPage() {
     byCategory.set(cat.value, []);
   }
   for (const img of all) {
-    const list = byCategory.get(img.category);
+    // Legacy "family" rows live under the merged "Reception & Family" bucket.
+    const bucket = img.category === "family" ? "reception" : img.category;
+    const list = byCategory.get(bucket);
     if (list) list.push(img);
   }
 

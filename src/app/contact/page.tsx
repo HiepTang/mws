@@ -29,8 +29,8 @@ export default function ContactPage() {
           </h1>
           <p className="subtitle">
             <T
-              en="The form below sends straight to Juliane. Expect a personal reply within one business day — usually faster."
-              vi="Mẫu này gửi trực tiếp đến Juliane. Mong đợi phản hồi cá nhân trong vòng một ngày làm việc — thường nhanh hơn."
+              en="The form below sends straight to Juliane. Expect a reply within one business day."
+              vi="Mẫu này gửi trực tiếp đến Juliane. Bạn sẽ nhận được phản hồi trong vòng một ngày làm việc."
             />
           </p>
         </div>
@@ -48,15 +48,14 @@ export default function ContactPage() {
                   <T en="Or reach us directly" vi="Hoặc liên hệ trực tiếp" />
                 </span>
                 <h3 className="serif" style={{ marginTop: 14 }}>
-                  <T en="The studio" vi="Studio" />
+                  <T en="Our location" vi="Địa điểm" />
                 </h3>
-                <span className="vi">Văn phòng tại Mississauga</span>
+                <span className="vi">Tại Mississauga</span>
                 <div className="lines">
-                  <span>7188 Lantern Fly Hollow</span>
                   <span>Mississauga, ON L5W 1L6</span>
                   <span>
                     <a
-                      href="https://maps.google.com/?q=7188+Lantern+Fly+Hollow+Mississauga+ON+L5W+1L6"
+                      href="https://maps.google.com/?q=L5W+1L6+Mississauga+ON"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -99,7 +98,7 @@ export default function ContactPage() {
 
               <div className="info-block">
                 <h3 className="serif">
-                  <T en="Studio hours" vi="Giờ mở cửa studio" />
+                  <T en="Business hours" vi="Giờ làm việc" />
                 </h3>
                 <div className="lines" style={{ fontSize: 14 }}>
                   <span>
@@ -116,10 +115,10 @@ export default function ContactPage() {
 
               <iframe
                 className="map-frame"
-                src="https://www.google.com/maps?q=7188+Lantern+Fly+Hollow+Mississauga+ON+L5W+1L6&output=embed"
+                src="https://www.google.com/maps?q=L5W+1L6+Mississauga+ON&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mississauga Wedding Solutions studio location"
+                title="Mississauga Wedding Solutions location"
                 style={{ width: "100%", height: "100%", border: 0, display: "block" }}
               />
 
@@ -156,8 +155,8 @@ export default function ContactPage() {
               </h3>
               <p style={{ fontSize: 14, marginTop: 10 }}>
                 <T
-                  en="Six to twelve months for full packages. We do shorter timelines, but the early-bird discount only applies past six months."
-                  vi="Sáu đến mười hai tháng cho trọn gói. Có thể nhận lịch ngắn hơn, nhưng giảm giá chỉ áp dụng từ sáu tháng trở lên."
+                  en="Six to twelve months for full packages. We do shorter timelines, but the early-bird discount only applies for bookings made 6+ months in advance."
+                  vi="Sáu đến mười hai tháng cho trọn gói. Có thể nhận lịch ngắn hơn, nhưng giảm giá đặt sớm chỉ áp dụng khi đặt trước 6 tháng trở lên."
                 />
               </p>
             </div>
@@ -167,19 +166,19 @@ export default function ContactPage() {
               </h3>
               <p style={{ fontSize: 14, marginTop: 10 }}>
                 <T
-                  en="Many of ours have a non-Vietnamese partner — that's most of who we serve. Pure non-Vietnamese, less often, but yes."
-                  vi="Nhiều cô dâu chú rể của chúng tôi có một người không phải Việt Nam — đó là phần lớn khách. Đám cưới hoàn toàn không Việt Nam, ít hơn, nhưng vẫn nhận."
+                  en="While we specialize in weddings that celebrate Vietnamese traditions, many of our products and services can be adapted for any culture. Tell us what you're imagining — we'd love to help make your dream day come true."
+                  vi="Chúng tôi chuyên về đám cưới theo truyền thống Việt Nam, nhưng nhiều sản phẩm và dịch vụ có thể điều chỉnh cho mọi văn hóa. Hãy kể chúng tôi nghe về ngày mơ ước của bạn — chúng tôi rất sẵn lòng giúp biến nó thành hiện thực."
                 />
               </p>
             </div>
             <div style={{ padding: 32 }}>
               <h3 className="serif" style={{ fontSize: 20 }}>
-                <T en="What's the deposit?" vi="Tiền đặt cọc bao nhiêu?" />
+                <T en="How much is the deposit?" vi="Tiền đặt cọc bao nhiêu?" />
               </h3>
               <p style={{ fontSize: 14, marginTop: 10 }}>
                 <T
-                  en="25% to lock the date. Refundable up to 90 days out, partially refundable from 90–30, non-refundable after."
-                  vi="25% để giữ ngày. Hoàn lại đầy đủ trước 90 ngày, hoàn một phần từ 90–30 ngày, không hoàn sau đó."
+                  en="25% to lock the date. Fully refundable up to 90 days out, partially refundable from 90–30 days, and non-refundable less than 30 days out."
+                  vi="25% để giữ ngày. Hoàn lại đầy đủ trước 90 ngày, hoàn một phần từ 90–30 ngày, và không hoàn khi còn dưới 30 ngày."
                 />
               </p>
             </div>

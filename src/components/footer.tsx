@@ -22,24 +22,6 @@ export function Footer() {
               vi="Tổ chức đám cưới cổ truyền Việt Nam — nơi văn hóa Á Đông gặp gỡ phương Tây."
             />
           </p>
-          <div className="socials">
-            <a
-              href="https://www.instagram.com/mississaugawedding/"
-              aria-label="Instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              IG
-            </a>
-            <a
-              href="https://www.facebook.com/mississaugawedding"
-              aria-label="Facebook"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              FB
-            </a>
-          </div>
         </div>
 
         <div>

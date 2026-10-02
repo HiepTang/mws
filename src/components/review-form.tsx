@@ -11,7 +11,7 @@ const SERVICE_TAGS = [
   { value: "Hair & Makeup", en: "Hair & Makeup", vi: "Tóc & trang điểm" },
   { value: "MC", en: "Bilingual MC", vi: "MC song ngữ" },
   { value: "Live Band / DJ", en: "Live Band / DJ", vi: "Ban nhạc / DJ" },
-  { value: "Photography", en: "Photography", vi: "Nhiếp ảnh" },
+  { value: "Photography & Videography", en: "Photography & Videography", vi: "Nhiếp ảnh & quay phim" },
   { value: "Limousine", en: "Limousine", vi: "Limousine" },
 ];
 
@@ -177,55 +177,9 @@ export function ReviewForm() {
       </div>
       {fieldError("rating") && <FieldError text={fieldError("rating")!} />}
 
-      {/* 02 — service tags */}
+      {/* 02 — couple details */}
       <div className="rf-step" style={{ marginTop: 32 }}>
         <span className="rf-step-num">02</span>
-        <span className="rf-step-label">
-          <T en="Which services did we help with?" vi="Chúng tôi đã giúp với dịch vụ nào?" />
-        </span>
-      </div>
-      <div className="rf-tags">
-        {SERVICE_TAGS.map((t) => (
-          <label key={t.value} className="rf-tag">
-            <input
-              type="checkbox"
-              checked={tags.has(t.value)}
-              onChange={() => toggleTag(t.value)}
-            />
-            <span>
-              <T en={t.en} vi={t.vi} />
-            </span>
-          </label>
-        ))}
-      </div>
-
-      {/* 03 — body */}
-      <div className="rf-step" style={{ marginTop: 32 }}>
-        <span className="rf-step-num">03</span>
-        <span className="rf-step-label">
-          <T en="Your review" vi="Đánh giá của bạn" />
-        </span>
-      </div>
-      <div className="rf-field rf-field-textarea">
-        <textarea
-          key={`body-${k}`}
-          name="body"
-          rows={6}
-          maxLength={MAX_BODY_CHARS}
-          required
-          placeholder="What stood out? A moment, a person, a detail. Couples find these honest specifics most helpful."
-          defaultValue={v?.body ?? ""}
-          onChange={(e) => setBodyLen(e.target.value.length)}
-        />
-        <div className="rf-counter">
-          {bodyLen} / {MAX_BODY_CHARS}
-        </div>
-        {fieldError("body") && <FieldError text={fieldError("body")!} />}
-      </div>
-
-      {/* 04 — couple details */}
-      <div className="rf-step" style={{ marginTop: 32 }}>
-        <span className="rf-step-num">04</span>
         <span className="rf-step-label">
           <T en="A bit about you" vi="Đôi chút về bạn" />
         </span>
@@ -248,7 +202,7 @@ export function ReviewForm() {
         </div>
         <div className="rf-field">
           <label htmlFor="emailPrivate">
-            <T en="Email (kept private)" vi="Email (giữ kín)" />
+            <T en="Email (optional, kept private)" vi="Email (tùy chọn, giữ kín)" />
           </label>
           <input
             key={`emailPrivate-${k}`}
@@ -257,7 +211,6 @@ export function ReviewForm() {
             type="email"
             placeholder="hello@example.com"
             defaultValue={v?.emailPrivate ?? ""}
-            required
           />
           {fieldError("emailPrivate") && <FieldError text={fieldError("emailPrivate")!} />}
         </div>
@@ -265,7 +218,7 @@ export function ReviewForm() {
       <div className="rf-row">
         <div className="rf-field">
           <label htmlFor="weddingDate">
-            <T en="Wedding date" vi="Ngày cưới" />
+            <T en="Wedding date (optional)" vi="Ngày cưới (tùy chọn)" />
           </label>
           <input
             key={`weddingDate-${k}`}
@@ -278,7 +231,7 @@ export function ReviewForm() {
         </div>
         <div className="rf-field">
           <label htmlFor="city">
-            <T en="City" vi="Thành phố" />
+            <T en="City (optional)" vi="Thành phố (tùy chọn)" />
           </label>
           <input
             key={`city-${k}`}
@@ -289,6 +242,54 @@ export function ReviewForm() {
             defaultValue={v?.city ?? ""}
           />
         </div>
+      </div>
+
+      {/* 03 — service tags */}
+      <div className="rf-step" style={{ marginTop: 32 }}>
+        <span className="rf-step-num">03</span>
+        <span className="rf-step-label">
+          <T
+            en="Which services did we help with? (optional)"
+            vi="Chúng tôi đã giúp với dịch vụ nào? (tùy chọn)"
+          />
+        </span>
+      </div>
+      <div className="rf-tags">
+        {SERVICE_TAGS.map((t) => (
+          <label key={t.value} className="rf-tag">
+            <input
+              type="checkbox"
+              checked={tags.has(t.value)}
+              onChange={() => toggleTag(t.value)}
+            />
+            <span>
+              <T en={t.en} vi={t.vi} />
+            </span>
+          </label>
+        ))}
+      </div>
+
+      {/* 04 — body */}
+      <div className="rf-step" style={{ marginTop: 32 }}>
+        <span className="rf-step-num">04</span>
+        <span className="rf-step-label">
+          <T en="Your review (optional)" vi="Đánh giá của bạn (tùy chọn)" />
+        </span>
+      </div>
+      <div className="rf-field rf-field-textarea">
+        <textarea
+          key={`body-${k}`}
+          name="body"
+          rows={6}
+          maxLength={MAX_BODY_CHARS}
+          placeholder="What stood out? A moment, a person, a detail. Couples find these honest specifics most helpful."
+          defaultValue={v?.body ?? ""}
+          onChange={(e) => setBodyLen(e.target.value.length)}
+        />
+        <div className="rf-counter">
+          {bodyLen} / {MAX_BODY_CHARS}
+        </div>
+        {fieldError("body") && <FieldError text={fieldError("body")!} />}
       </div>
 
       {/* 05 — photo upload */}

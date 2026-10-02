@@ -1,10 +1,11 @@
-import { and, asc, desc, eq, isNotNull } from "drizzle-orm";
-import Image from "next/image";
+import { and, asc, desc, eq, inArray, isNotNull } from "drizzle-orm";
 import Link from "next/link";
 import { db, schema } from "@/db";
+import { GalleryLightbox, type LightboxTile } from "@/components/gallery-lightbox";
 import { T } from "@/components/lang";
 import {
   GALLERY_CATEGORIES,
+  categoryValuesFor,
   isGalleryCategory,
   type GalleryCategory,
 } from "@/lib/gallery-categories";
@@ -71,7 +72,7 @@ export default async function GalleryPage({
             </span>
           </div>
           <h1 className="serif">
-            <T en="A hundred & twenty days," vi="Một trăm hai mươi ngày," />
+            <T en="Our weddings," vi="Đám cưới của chúng tôi," />
             <br />
             <span className="accent">
               <T en="held in pictures." vi="lưu trong ảnh." />
@@ -79,8 +80,8 @@ export default async function GalleryPage({
           </h1>
           <p className="subtitle">
             <T
-              en="Browse moments from real Mississauga weddings — tea ceremonies, áo dài fittings, the quiet glance before the procession."
-              vi="Khoảnh khắc thật từ các đám cưới ở Mississauga — lễ trà, thử áo dài, ánh mắt yên lặng trước lễ rước dâu."
+              en="Browse to see MWS in action and more of our product offerings. Click any photo to enlarge."
+              vi="Xem MWS trong thực tế và thêm các sản phẩm của chúng tôi. Bấm vào ảnh để phóng to."
             />
           </p>
         </div>
@@ -127,26 +128,21 @@ export default async function GalleryPage({
               />
             </p>
           ) : (
-            <div className="gallery-mosaic">
-              {tiles.map((t, i) => (
-                <div key={`${t.source}-${t.id}`} className={`tile ${TILE_SIZES[i % TILE_SIZES.length]}`}>
-                  <Image
-                    src={
-                      t.source === "curated"
-                        ? `/api/gallery-image/${t.id}`
-                        : `/api/review-image/${t.id}`
-                    }
-                    alt={t.caption}
-                    width={t.width}
-                    height={t.height}
-                    sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 33vw"
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    unoptimized
-                  />
-                  <span className="caption">{t.caption}</span>
-                </div>
-              ))}
-            </div>
+            <GalleryLightbox
+              tiles={tiles.map(
+                (t, i): LightboxTile => ({
+                  key: `${t.source}-${t.id}`,
+                  src:
+                    t.source === "curated"
+                      ? `/api/gallery-image/${t.id}`
+                      : `/api/review-image/${t.id}`,
+                  caption: t.caption,
+                  width: t.width,
+                  height: t.height,
+                  sizeClass: TILE_SIZES[i % TILE_SIZES.length],
+                }),
+              )}
+            />
           )}
         </div>
       </section>
@@ -157,15 +153,15 @@ export default async function GalleryPage({
             <div>
               <span className="eyebrow" style={{ color: "var(--gold-soft)" }}>
                 <span className="dash" />
-                <T en="More on Instagram" vi="Theo dõi Instagram" />
+                <T en="Follow along" vi="Theo dõi chúng tôi" />
               </span>
               <h2 className="serif" style={{ marginTop: 14 }}>
                 <T en="Follow us" vi="Theo dõi chúng tôi" /> <span className="gold">@mississaugawedding</span>
               </h2>
               <p>
                 <T
-                  en="New stories every week. Behind-the-scenes from our studio, real ceremonies, founder notes."
-                  vi="Câu chuyện mới mỗi tuần. Hậu trường studio, lễ cưới thực tế, ghi chép từ người sáng lập."
+                  en="Stay up-to-date on our newest products and services, see our latest ceremonies, and more."
+                  vi="Cập nhật sản phẩm và dịch vụ mới nhất, xem các lễ cưới gần đây, và hơn thế nữa."
                 />
               </p>
             </div>
@@ -177,6 +173,15 @@ export default async function GalleryPage({
                 className="btn btn-gold"
               >
                 <T en="Open Instagram" vi="Mở Instagram" />
+                <span className="arrow">→</span>
+              </a>
+              <a
+                href="https://www.facebook.com/mississaugawedding"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+              >
+                <T en="Open Facebook" vi="Mở Facebook" />
                 <span className="arrow">→</span>
               </a>
             </div>
@@ -191,7 +196,8 @@ async function fetchTiles(tag: GalleryCategory | null): Promise<Tile[]> {
   // Curated photos for the requested tag (or all if tag is null), ordered by
   // admin's chosen sort_order ascending (lowest first), then newest first.
   const curatedConditions = [eq(schema.galleryImages.hidden, false)];
-  if (tag !== null) curatedConditions.push(eq(schema.galleryImages.category, tag));
+  if (tag !== null)
+    curatedConditions.push(inArray(schema.galleryImages.category, categoryValuesFor(tag)));
 
   const curated = await db
     .select({
@@ -212,7 +218,8 @@ async function fetchTiles(tag: GalleryCategory | null): Promise<Tile[]> {
     eq(schema.reviews.consentGallery, true),
     isNotNull(schema.reviews.imageKey),
   ];
-  if (tag !== null) reviewConditions.push(eq(schema.reviews.galleryCategory, tag));
+  if (tag !== null)
+    reviewConditions.push(inArray(schema.reviews.galleryCategory, categoryValuesFor(tag)));
 
   const reviews = await db
     .select({

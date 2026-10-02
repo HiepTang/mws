@@ -71,7 +71,7 @@ export function ReviewControls({
             <span>Show in gallery</span>
           </label>
           <select
-            value={galleryCategory}
+            value={galleryCategory === "family" ? "reception" : galleryCategory}
             disabled={pending || !consentGallery}
             onChange={(e) =>
               startTransition(() => setReviewGalleryCategory(id, e.target.value))
