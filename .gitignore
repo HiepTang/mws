@@ -53,3 +53,7 @@ docs/images/from_owner
 /.playwright-mcp/
 /rail-*.png
 /candle-*.png
+
+# Owner feedback rounds (source PDFs + annotated screenshots, reference only)
+/docs/feedback/
+/docs/feedback_2/
