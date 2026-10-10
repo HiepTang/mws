@@ -31,8 +31,8 @@ const PACKAGE_1_ITEMS: Item[] = [
     price: "$100",
     viLabel: "Mâm lễ vật",
     meta: {
-      en: "Rental · Gold (16″ diameter × 4¼″ height) or Red (14″ diameter × 4¼″ height)",
-      vi: "Cho thuê · Vàng (đường kính 16″ × cao 4¼″) hoặc Đỏ (đường kính 14″ × cao 4¼″)",
+      en: "Rental · Gold (16″ diameter × 4¼″ height)\nor Red (14″ diameter × 4¼″ height)",
+      vi: "Cho thuê · Vàng (đường kính 16″ × cao 4¼″)\nhoặc Đỏ (đường kính 14″ × cao 4¼″)",
     },
   },
   {
@@ -147,8 +147,8 @@ const AODAI_ITEMS: Item[] = [
     price: "$100",
     viLabel: "Áo dài & khăn đóng cô dâu",
     meta: {
-      en: "Rental · gold or white & red",
-      vi: "Cho thuê · vàng hoặc trắng & đỏ",
+      en: "Rental · gold or white or red",
+      vi: "Cho thuê · vàng hoặc trắng hoặc đỏ",
     },
   },
 ];
@@ -225,7 +225,7 @@ const PACKAGES: PackageCard[] = [
     bullets: [
       { en: "Everything in Package 1", vi: "Toàn bộ Gói 1" },
       { en: "Groom áo dài + khăn đóng (blue, gold or red)", vi: "Áo dài & khăn đóng chú rể (xanh, vàng, đỏ)" },
-      { en: "Bride áo dài + khăn đóng (gold or white & red)", vi: "Áo dài & khăn đóng cô dâu (vàng hoặc trắng & đỏ)" },
+      { en: "Bride áo dài + khăn đóng (gold, white or red)", vi: "Áo dài & khăn đóng cô dâu (vàng, trắng hoặc đỏ)" },
     ],
     note: {
       en: "Package 1 plus both áo dài rentals. Save $70 when you bundle.",
@@ -441,7 +441,7 @@ export default function ProductsPage() {
             <h2 className="serif">
               <T en="Candles &" vi="Đèn cầy &" />{" "}
               <span className="italic" style={{ color: "var(--red)" }}>
-                <T en="decorations" vi="đồ trang trí" />
+                <T en="Decorations" vi="Đồ trang trí" />
               </span>
             </h2>
             <p style={{ marginTop: 12 }}>

@@ -53,8 +53,8 @@ const SERVICES: Service[] = [
     title: { en: "Áo Dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
     vi: "Áo dài & lễ trà",
     body: {
-      en: "The cornerstone of a Vietnamese wedding. Áo dài rentals for both bride (gold or white & red) and groom (blue, gold or red) with khăn đóng, full tray rentals, and the ceremonial tea tray. See Products for package pricing.",
-      vi: "Trái tim của đám cưới Việt. Cho thuê áo dài cho cô dâu (vàng hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm lễ và mâm trà trọn bộ. Xem trang Sản phẩm để biết giá gói.",
+      en: "The cornerstone of a Vietnamese wedding. Áo dài rentals for both bride (gold, white or red) and groom (blue, gold or red) with khăn đóng, full tray rentals, and the ceremonial tea tray. See Products for package pricing.",
+      vi: "Trái tim của đám cưới Việt. Cho thuê áo dài cho cô dâu (vàng, trắng hoặc đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm lễ và mâm trà trọn bộ. Xem trang Sản phẩm để biết giá gói.",
     },
     bullets: [
       { en: "Áo dài rental — bride & groom", vi: "Cho thuê áo dài — cô dâu & chú rể" },

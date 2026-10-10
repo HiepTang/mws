@@ -211,7 +211,7 @@ Limousine OR photographer at work.
 - 🎯 **Recommend `from_owner/RedAoDai_Groom.JPG`** as the headline (red is the most ceremonial colour and visually richest). If you want to show all three colours, we can do an "alt view" carousel later; for v1, one strong shot is enough.
 - ✅ **Your pick:** from_owner/RedAoDai_Groom.JPG
 
-### Bride Áo Dài + Hair Piece ($100, gold or white & red)
+### Bride Áo Dài + Hair Piece ($100, gold, white or red)
 
 - 📁 `AoDai_Bride.JPG`
 - 🌐 `product-bride-ao-dai.jpg` (285 KB)

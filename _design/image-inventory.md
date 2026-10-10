@@ -66,7 +66,7 @@ All thumbnails are 140×140 on the live site. Source crops vary; the wedding-tra
 | # | Item | Asset ID | Price | Source crop |
 |---|---|---|---|---|
 | P9 | Groom áo dài + hat (blue/gold/red) | `6e6d36_ae90a06fdb7f45979a7f106dc34b73c1~mv2.jpg` (`MG_3376_1.jpg`) | $100 | 1024×983 — **also reused as gallery hero** |
-| P10 | Bride áo dài + hairpiece (gold or white & red) | `6e6d36_2231be62d94b453d9443772f8bc37213~mv2.jpg` (`MG_3374_1.jpg`) | $100 | 1024×983 |
+| P10 | Bride áo dài + hairpiece (gold, white or red) | `6e6d36_2231be62d94b453d9443772f8bc37213~mv2.jpg` (`MG_3374_1.jpg`) | $100 | 1024×983 |
 
 ### Wedding candles
 

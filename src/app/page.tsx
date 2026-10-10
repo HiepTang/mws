@@ -42,8 +42,8 @@ const SERVICE_CARDS: ServiceCard[] = [
     title: { en: "Áo Dài & Tea Ceremony", vi: "Áo dài & lễ trà" },
     vi: "Áo dài & lễ trà",
     body: {
-      en: "Tray rentals, áo dài for the bride (gold or white & red) and groom (blue, gold or red) with khăn đóng, the tea tray, and the ceremonial pieces.",
-      vi: "Cho thuê mâm lễ, áo dài cho cô dâu (vàng hoặc trắng & đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm trà, và đồ lễ trọn bộ.",
+      en: "Tray rentals, áo dài for the bride (gold, white or red) and groom (blue, gold or red) with khăn đóng, the tea tray, and the ceremonial pieces.",
+      vi: "Cho thuê mâm lễ, áo dài cho cô dâu (vàng, trắng hoặc đỏ) và chú rể (xanh, vàng, đỏ) kèm khăn đóng, mâm trà, và đồ lễ trọn bộ.",
     },
   },
   {
